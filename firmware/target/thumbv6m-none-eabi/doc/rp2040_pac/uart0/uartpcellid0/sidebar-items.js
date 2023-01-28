@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["R","Register `UARTPCELLID0` reader"],["UARTPCELLID0_R","Field `UARTPCELLID0` reader - These bits read back as 0x0D"],["UARTPCELLID0_SPEC","UARTPCellID0 Register"]]};

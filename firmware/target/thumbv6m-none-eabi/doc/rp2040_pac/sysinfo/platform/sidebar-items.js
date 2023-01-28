@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["ASIC_R","Field `ASIC` reader - "],["FPGA_R","Field `FPGA` reader - "],["PLATFORM_SPEC","Platform register. Allows software to know what environment it is running in."],["R","Register `PLATFORM` reader"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["FC0_RESULT_SPEC","Result of frequency measurement, only valid when status_done=1"],["FRAC_R","Field `FRAC` reader - "],["KHZ_R","Field `KHZ` reader - "],["R","Register `FC0_RESULT` reader"]]};

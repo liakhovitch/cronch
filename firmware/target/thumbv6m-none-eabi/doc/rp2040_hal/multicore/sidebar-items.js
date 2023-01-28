@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["Error","Errors for multicore operations."]],"struct":[["Core","A handle for controlling a logical core."],["Multicore","Multicore execution management."],["Stack","Data type for a properly aligned stack of N 32-bit (usize) words"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["R","Register `SSPPCELLID3` reader"],["SSPPCELLID3_R","Field `SSPPCELLID3` reader - These bits read back as 0xB1"],["SSPPCELLID3_SPEC","PrimeCell identification registers, SSPPCellID0-3 on page 3-16"]]};

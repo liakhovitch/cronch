@@ -1,0 +1,81 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Use the Interrupt Control State Register to set a pending Non-Maskable Interrupt (NMI), set or clear a pending PendSV, set or clear a pending SysTick, check for pending exceptions, check the vector number of the highest priority pended exception, check the vector number of the active exception."><meta name="keywords" content="rust, rustlang, rust-lang, icsr"><title>rp2040_pac::ppb::icsr - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc mod"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../rp2040_pac/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../rp2040_pac/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"><a href="#">Module icsr</a></h2><div class="sidebar-elems"><section><div class="block"><ul><li><a href="#structs">Structs</a></li></ul></div></section></div></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../rp2040_pac/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="main-heading"><h1 class="fqn"><span class="in-band">Module <a href="../../index.html">rp2040_pac</a>::<wbr><a href="../index.html">ppb</a>::<wbr><a class="mod" href="#">icsr</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../../../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span></h1><span class="out-of-band"><a class="srclink" href="../../../src/rp2040_pac/ppb/icsr.rs.html#1-509">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Use the Interrupt Control State Register to set a pending Non-Maskable Interrupt (NMI), set or clear a pending PendSV, set or clear a pending SysTick, check for pending exceptions, check the vector number of the highest priority pended exception, check the vector number of the active exception.</p>
+</div></details><h2 id="structs" class="small-section-header"><a href="#structs">Structs</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.ICSR_SPEC.html" title="rp2040_pac::ppb::icsr::ICSR_SPEC struct">ICSR_SPEC</a></div><div class="item-right docblock-short"><p>Use the Interrupt Control State Register to set a pending Non-Maskable Interrupt (NMI), set or clear a pending PendSV, set or clear a pending SysTick, check for pending exceptions, check the vector number of the highest priority pended exception, check the vector number of the active exception.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.ISRPENDING_R.html" title="rp2040_pac::ppb::icsr::ISRPENDING_R struct">ISRPENDING_R</a></div><div class="item-right docblock-short"><p>Field <code>ISRPENDING</code> reader - External interrupt pending flag</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.ISRPREEMPT_R.html" title="rp2040_pac::ppb::icsr::ISRPREEMPT_R struct">ISRPREEMPT_R</a></div><div class="item-right docblock-short"><p>Field <code>ISRPREEMPT</code> reader - The system can only access this bit when the core is halted. It indicates that a pending interrupt is to be taken in the next running cycle. If C_MASKINTS is clear in the Debug Halting Control and Status Register, the interrupt is serviced.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.NMIPENDSET_R.html" title="rp2040_pac::ppb::icsr::NMIPENDSET_R struct">NMIPENDSET_R</a></div><div class="item-right docblock-short"><p>Field <code>NMIPENDSET</code> reader - Setting this bit will activate an NMI. Since NMI is the highest priority exception, it will activate as soon as it is registered.<br />
+NMI set-pending bit.<br />
+Write:<br />
+0 = No effect.<br />
+1 = Changes NMI exception state to pending.<br />
+Read:<br />
+0 = NMI exception is not pending.<br />
+1 = NMI exception is pending.<br />
+Because NMI is the highest-priority exception, normally the processor enters the NMI<br />
+exception handler as soon as it detects a write of 1 to this bit. Entering the handler then clears<br />
+this bit to 0. This means a read of this bit by the NMI exception handler returns 1 only if the<br />
+NMI signal is reasserted while the processor is executing that handler.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.NMIPENDSET_W.html" title="rp2040_pac::ppb::icsr::NMIPENDSET_W struct">NMIPENDSET_W</a></div><div class="item-right docblock-short"><p>Field <code>NMIPENDSET</code> writer - Setting this bit will activate an NMI. Since NMI is the highest priority exception, it will activate as soon as it is registered.<br />
+NMI set-pending bit.<br />
+Write:<br />
+0 = No effect.<br />
+1 = Changes NMI exception state to pending.<br />
+Read:<br />
+0 = NMI exception is not pending.<br />
+1 = NMI exception is pending.<br />
+Because NMI is the highest-priority exception, normally the processor enters the NMI<br />
+exception handler as soon as it detects a write of 1 to this bit. Entering the handler then clears<br />
+this bit to 0. This means a read of this bit by the NMI exception handler returns 1 only if the<br />
+NMI signal is reasserted while the processor is executing that handler.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.PENDSTCLR_R.html" title="rp2040_pac::ppb::icsr::PENDSTCLR_R struct">PENDSTCLR_R</a></div><div class="item-right docblock-short"><p>Field <code>PENDSTCLR</code> reader - SysTick exception clear-pending bit.<br />
+Write:<br />
+0 = No effect.<br />
+1 = Removes the pending state from the SysTick exception.<br />
+This bit is WO. On a register read its value is Unknown.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.PENDSTCLR_W.html" title="rp2040_pac::ppb::icsr::PENDSTCLR_W struct">PENDSTCLR_W</a></div><div class="item-right docblock-short"><p>Field <code>PENDSTCLR</code> writer - SysTick exception clear-pending bit.<br />
+Write:<br />
+0 = No effect.<br />
+1 = Removes the pending state from the SysTick exception.<br />
+This bit is WO. On a register read its value is Unknown.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.PENDSTSET_R.html" title="rp2040_pac::ppb::icsr::PENDSTSET_R struct">PENDSTSET_R</a></div><div class="item-right docblock-short"><p>Field <code>PENDSTSET</code> reader - SysTick exception set-pending bit.<br />
+Write:<br />
+0 = No effect.<br />
+1 = Changes SysTick exception state to pending.<br />
+Read:<br />
+0 = SysTick exception is not pending.<br />
+1 = SysTick exception is pending.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.PENDSTSET_W.html" title="rp2040_pac::ppb::icsr::PENDSTSET_W struct">PENDSTSET_W</a></div><div class="item-right docblock-short"><p>Field <code>PENDSTSET</code> writer - SysTick exception set-pending bit.<br />
+Write:<br />
+0 = No effect.<br />
+1 = Changes SysTick exception state to pending.<br />
+Read:<br />
+0 = SysTick exception is not pending.<br />
+1 = SysTick exception is pending.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.PENDSVCLR_R.html" title="rp2040_pac::ppb::icsr::PENDSVCLR_R struct">PENDSVCLR_R</a></div><div class="item-right docblock-short"><p>Field <code>PENDSVCLR</code> reader - PendSV clear-pending bit.<br />
+Write:<br />
+0 = No effect.<br />
+1 = Removes the pending state from the PendSV exception.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.PENDSVCLR_W.html" title="rp2040_pac::ppb::icsr::PENDSVCLR_W struct">PENDSVCLR_W</a></div><div class="item-right docblock-short"><p>Field <code>PENDSVCLR</code> writer - PendSV clear-pending bit.<br />
+Write:<br />
+0 = No effect.<br />
+1 = Removes the pending state from the PendSV exception.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.PENDSVSET_R.html" title="rp2040_pac::ppb::icsr::PENDSVSET_R struct">PENDSVSET_R</a></div><div class="item-right docblock-short"><p>Field <code>PENDSVSET</code> reader - PendSV set-pending bit.<br />
+Write:<br />
+0 = No effect.<br />
+1 = Changes PendSV exception state to pending.<br />
+Read:<br />
+0 = PendSV exception is not pending.<br />
+1 = PendSV exception is pending.<br />
+Writing 1 to this bit is the only way to set the PendSV exception state to pending.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.PENDSVSET_W.html" title="rp2040_pac::ppb::icsr::PENDSVSET_W struct">PENDSVSET_W</a></div><div class="item-right docblock-short"><p>Field <code>PENDSVSET</code> writer - PendSV set-pending bit.<br />
+Write:<br />
+0 = No effect.<br />
+1 = Changes PendSV exception state to pending.<br />
+Read:<br />
+0 = PendSV exception is not pending.<br />
+1 = PendSV exception is pending.<br />
+Writing 1 to this bit is the only way to set the PendSV exception state to pending.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.R.html" title="rp2040_pac::ppb::icsr::R struct">R</a></div><div class="item-right docblock-short"><p>Register <code>ICSR</code> reader</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.VECTACTIVE_R.html" title="rp2040_pac::ppb::icsr::VECTACTIVE_R struct">VECTACTIVE_R</a></div><div class="item-right docblock-short"><p>Field <code>VECTACTIVE</code> reader - Active exception number field. Reset clears the VECTACTIVE field.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.VECTPENDING_R.html" title="rp2040_pac::ppb::icsr::VECTPENDING_R struct">VECTPENDING_R</a></div><div class="item-right docblock-short"><p>Field <code>VECTPENDING</code> reader - Indicates the exception number for the highest priority pending exception: 0 = no pending exceptions. Non zero = The pending state includes the effect of memory-mapped enable and mask registers. It does not include the PRIMASK special-purpose register qualifier.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.W.html" title="rp2040_pac::ppb::icsr::W struct">W</a></div><div class="item-right docblock-short"><p>Register <code>ICSR</code> writer</p>
+</div></div></div></section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="rp2040_pac" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0" ></div></body></html>

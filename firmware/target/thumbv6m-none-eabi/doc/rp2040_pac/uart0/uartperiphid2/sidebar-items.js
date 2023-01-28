@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["DESIGNER1_R","Field `DESIGNER1` reader - These bits read back as 0x4"],["R","Register `UARTPERIPHID2` reader"],["REVISION_R","Field `REVISION` reader - This field depends on the revision of the UART: r1p0 0x0 r1p1 0x1 r1p3 0x2 r1p4 0x2 r1p5 0x3"],["UARTPERIPHID2_SPEC","UARTPeriphID2 Register"]]};

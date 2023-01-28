@@ -1,0 +1,1468 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/admin/.cargo/registry/src/github.com-1ecc6299db9ec823/rp2040-hal-0.7.0/src/rom_data.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>rom_data.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../rp2040_hal/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../rp2040_hal/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../rp2040_hal/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<span id="2">2</span>
+<span id="3">3</span>
+<span id="4">4</span>
+<span id="5">5</span>
+<span id="6">6</span>
+<span id="7">7</span>
+<span id="8">8</span>
+<span id="9">9</span>
+<span id="10">10</span>
+<span id="11">11</span>
+<span id="12">12</span>
+<span id="13">13</span>
+<span id="14">14</span>
+<span id="15">15</span>
+<span id="16">16</span>
+<span id="17">17</span>
+<span id="18">18</span>
+<span id="19">19</span>
+<span id="20">20</span>
+<span id="21">21</span>
+<span id="22">22</span>
+<span id="23">23</span>
+<span id="24">24</span>
+<span id="25">25</span>
+<span id="26">26</span>
+<span id="27">27</span>
+<span id="28">28</span>
+<span id="29">29</span>
+<span id="30">30</span>
+<span id="31">31</span>
+<span id="32">32</span>
+<span id="33">33</span>
+<span id="34">34</span>
+<span id="35">35</span>
+<span id="36">36</span>
+<span id="37">37</span>
+<span id="38">38</span>
+<span id="39">39</span>
+<span id="40">40</span>
+<span id="41">41</span>
+<span id="42">42</span>
+<span id="43">43</span>
+<span id="44">44</span>
+<span id="45">45</span>
+<span id="46">46</span>
+<span id="47">47</span>
+<span id="48">48</span>
+<span id="49">49</span>
+<span id="50">50</span>
+<span id="51">51</span>
+<span id="52">52</span>
+<span id="53">53</span>
+<span id="54">54</span>
+<span id="55">55</span>
+<span id="56">56</span>
+<span id="57">57</span>
+<span id="58">58</span>
+<span id="59">59</span>
+<span id="60">60</span>
+<span id="61">61</span>
+<span id="62">62</span>
+<span id="63">63</span>
+<span id="64">64</span>
+<span id="65">65</span>
+<span id="66">66</span>
+<span id="67">67</span>
+<span id="68">68</span>
+<span id="69">69</span>
+<span id="70">70</span>
+<span id="71">71</span>
+<span id="72">72</span>
+<span id="73">73</span>
+<span id="74">74</span>
+<span id="75">75</span>
+<span id="76">76</span>
+<span id="77">77</span>
+<span id="78">78</span>
+<span id="79">79</span>
+<span id="80">80</span>
+<span id="81">81</span>
+<span id="82">82</span>
+<span id="83">83</span>
+<span id="84">84</span>
+<span id="85">85</span>
+<span id="86">86</span>
+<span id="87">87</span>
+<span id="88">88</span>
+<span id="89">89</span>
+<span id="90">90</span>
+<span id="91">91</span>
+<span id="92">92</span>
+<span id="93">93</span>
+<span id="94">94</span>
+<span id="95">95</span>
+<span id="96">96</span>
+<span id="97">97</span>
+<span id="98">98</span>
+<span id="99">99</span>
+<span id="100">100</span>
+<span id="101">101</span>
+<span id="102">102</span>
+<span id="103">103</span>
+<span id="104">104</span>
+<span id="105">105</span>
+<span id="106">106</span>
+<span id="107">107</span>
+<span id="108">108</span>
+<span id="109">109</span>
+<span id="110">110</span>
+<span id="111">111</span>
+<span id="112">112</span>
+<span id="113">113</span>
+<span id="114">114</span>
+<span id="115">115</span>
+<span id="116">116</span>
+<span id="117">117</span>
+<span id="118">118</span>
+<span id="119">119</span>
+<span id="120">120</span>
+<span id="121">121</span>
+<span id="122">122</span>
+<span id="123">123</span>
+<span id="124">124</span>
+<span id="125">125</span>
+<span id="126">126</span>
+<span id="127">127</span>
+<span id="128">128</span>
+<span id="129">129</span>
+<span id="130">130</span>
+<span id="131">131</span>
+<span id="132">132</span>
+<span id="133">133</span>
+<span id="134">134</span>
+<span id="135">135</span>
+<span id="136">136</span>
+<span id="137">137</span>
+<span id="138">138</span>
+<span id="139">139</span>
+<span id="140">140</span>
+<span id="141">141</span>
+<span id="142">142</span>
+<span id="143">143</span>
+<span id="144">144</span>
+<span id="145">145</span>
+<span id="146">146</span>
+<span id="147">147</span>
+<span id="148">148</span>
+<span id="149">149</span>
+<span id="150">150</span>
+<span id="151">151</span>
+<span id="152">152</span>
+<span id="153">153</span>
+<span id="154">154</span>
+<span id="155">155</span>
+<span id="156">156</span>
+<span id="157">157</span>
+<span id="158">158</span>
+<span id="159">159</span>
+<span id="160">160</span>
+<span id="161">161</span>
+<span id="162">162</span>
+<span id="163">163</span>
+<span id="164">164</span>
+<span id="165">165</span>
+<span id="166">166</span>
+<span id="167">167</span>
+<span id="168">168</span>
+<span id="169">169</span>
+<span id="170">170</span>
+<span id="171">171</span>
+<span id="172">172</span>
+<span id="173">173</span>
+<span id="174">174</span>
+<span id="175">175</span>
+<span id="176">176</span>
+<span id="177">177</span>
+<span id="178">178</span>
+<span id="179">179</span>
+<span id="180">180</span>
+<span id="181">181</span>
+<span id="182">182</span>
+<span id="183">183</span>
+<span id="184">184</span>
+<span id="185">185</span>
+<span id="186">186</span>
+<span id="187">187</span>
+<span id="188">188</span>
+<span id="189">189</span>
+<span id="190">190</span>
+<span id="191">191</span>
+<span id="192">192</span>
+<span id="193">193</span>
+<span id="194">194</span>
+<span id="195">195</span>
+<span id="196">196</span>
+<span id="197">197</span>
+<span id="198">198</span>
+<span id="199">199</span>
+<span id="200">200</span>
+<span id="201">201</span>
+<span id="202">202</span>
+<span id="203">203</span>
+<span id="204">204</span>
+<span id="205">205</span>
+<span id="206">206</span>
+<span id="207">207</span>
+<span id="208">208</span>
+<span id="209">209</span>
+<span id="210">210</span>
+<span id="211">211</span>
+<span id="212">212</span>
+<span id="213">213</span>
+<span id="214">214</span>
+<span id="215">215</span>
+<span id="216">216</span>
+<span id="217">217</span>
+<span id="218">218</span>
+<span id="219">219</span>
+<span id="220">220</span>
+<span id="221">221</span>
+<span id="222">222</span>
+<span id="223">223</span>
+<span id="224">224</span>
+<span id="225">225</span>
+<span id="226">226</span>
+<span id="227">227</span>
+<span id="228">228</span>
+<span id="229">229</span>
+<span id="230">230</span>
+<span id="231">231</span>
+<span id="232">232</span>
+<span id="233">233</span>
+<span id="234">234</span>
+<span id="235">235</span>
+<span id="236">236</span>
+<span id="237">237</span>
+<span id="238">238</span>
+<span id="239">239</span>
+<span id="240">240</span>
+<span id="241">241</span>
+<span id="242">242</span>
+<span id="243">243</span>
+<span id="244">244</span>
+<span id="245">245</span>
+<span id="246">246</span>
+<span id="247">247</span>
+<span id="248">248</span>
+<span id="249">249</span>
+<span id="250">250</span>
+<span id="251">251</span>
+<span id="252">252</span>
+<span id="253">253</span>
+<span id="254">254</span>
+<span id="255">255</span>
+<span id="256">256</span>
+<span id="257">257</span>
+<span id="258">258</span>
+<span id="259">259</span>
+<span id="260">260</span>
+<span id="261">261</span>
+<span id="262">262</span>
+<span id="263">263</span>
+<span id="264">264</span>
+<span id="265">265</span>
+<span id="266">266</span>
+<span id="267">267</span>
+<span id="268">268</span>
+<span id="269">269</span>
+<span id="270">270</span>
+<span id="271">271</span>
+<span id="272">272</span>
+<span id="273">273</span>
+<span id="274">274</span>
+<span id="275">275</span>
+<span id="276">276</span>
+<span id="277">277</span>
+<span id="278">278</span>
+<span id="279">279</span>
+<span id="280">280</span>
+<span id="281">281</span>
+<span id="282">282</span>
+<span id="283">283</span>
+<span id="284">284</span>
+<span id="285">285</span>
+<span id="286">286</span>
+<span id="287">287</span>
+<span id="288">288</span>
+<span id="289">289</span>
+<span id="290">290</span>
+<span id="291">291</span>
+<span id="292">292</span>
+<span id="293">293</span>
+<span id="294">294</span>
+<span id="295">295</span>
+<span id="296">296</span>
+<span id="297">297</span>
+<span id="298">298</span>
+<span id="299">299</span>
+<span id="300">300</span>
+<span id="301">301</span>
+<span id="302">302</span>
+<span id="303">303</span>
+<span id="304">304</span>
+<span id="305">305</span>
+<span id="306">306</span>
+<span id="307">307</span>
+<span id="308">308</span>
+<span id="309">309</span>
+<span id="310">310</span>
+<span id="311">311</span>
+<span id="312">312</span>
+<span id="313">313</span>
+<span id="314">314</span>
+<span id="315">315</span>
+<span id="316">316</span>
+<span id="317">317</span>
+<span id="318">318</span>
+<span id="319">319</span>
+<span id="320">320</span>
+<span id="321">321</span>
+<span id="322">322</span>
+<span id="323">323</span>
+<span id="324">324</span>
+<span id="325">325</span>
+<span id="326">326</span>
+<span id="327">327</span>
+<span id="328">328</span>
+<span id="329">329</span>
+<span id="330">330</span>
+<span id="331">331</span>
+<span id="332">332</span>
+<span id="333">333</span>
+<span id="334">334</span>
+<span id="335">335</span>
+<span id="336">336</span>
+<span id="337">337</span>
+<span id="338">338</span>
+<span id="339">339</span>
+<span id="340">340</span>
+<span id="341">341</span>
+<span id="342">342</span>
+<span id="343">343</span>
+<span id="344">344</span>
+<span id="345">345</span>
+<span id="346">346</span>
+<span id="347">347</span>
+<span id="348">348</span>
+<span id="349">349</span>
+<span id="350">350</span>
+<span id="351">351</span>
+<span id="352">352</span>
+<span id="353">353</span>
+<span id="354">354</span>
+<span id="355">355</span>
+<span id="356">356</span>
+<span id="357">357</span>
+<span id="358">358</span>
+<span id="359">359</span>
+<span id="360">360</span>
+<span id="361">361</span>
+<span id="362">362</span>
+<span id="363">363</span>
+<span id="364">364</span>
+<span id="365">365</span>
+<span id="366">366</span>
+<span id="367">367</span>
+<span id="368">368</span>
+<span id="369">369</span>
+<span id="370">370</span>
+<span id="371">371</span>
+<span id="372">372</span>
+<span id="373">373</span>
+<span id="374">374</span>
+<span id="375">375</span>
+<span id="376">376</span>
+<span id="377">377</span>
+<span id="378">378</span>
+<span id="379">379</span>
+<span id="380">380</span>
+<span id="381">381</span>
+<span id="382">382</span>
+<span id="383">383</span>
+<span id="384">384</span>
+<span id="385">385</span>
+<span id="386">386</span>
+<span id="387">387</span>
+<span id="388">388</span>
+<span id="389">389</span>
+<span id="390">390</span>
+<span id="391">391</span>
+<span id="392">392</span>
+<span id="393">393</span>
+<span id="394">394</span>
+<span id="395">395</span>
+<span id="396">396</span>
+<span id="397">397</span>
+<span id="398">398</span>
+<span id="399">399</span>
+<span id="400">400</span>
+<span id="401">401</span>
+<span id="402">402</span>
+<span id="403">403</span>
+<span id="404">404</span>
+<span id="405">405</span>
+<span id="406">406</span>
+<span id="407">407</span>
+<span id="408">408</span>
+<span id="409">409</span>
+<span id="410">410</span>
+<span id="411">411</span>
+<span id="412">412</span>
+<span id="413">413</span>
+<span id="414">414</span>
+<span id="415">415</span>
+<span id="416">416</span>
+<span id="417">417</span>
+<span id="418">418</span>
+<span id="419">419</span>
+<span id="420">420</span>
+<span id="421">421</span>
+<span id="422">422</span>
+<span id="423">423</span>
+<span id="424">424</span>
+<span id="425">425</span>
+<span id="426">426</span>
+<span id="427">427</span>
+<span id="428">428</span>
+<span id="429">429</span>
+<span id="430">430</span>
+<span id="431">431</span>
+<span id="432">432</span>
+<span id="433">433</span>
+<span id="434">434</span>
+<span id="435">435</span>
+<span id="436">436</span>
+<span id="437">437</span>
+<span id="438">438</span>
+<span id="439">439</span>
+<span id="440">440</span>
+<span id="441">441</span>
+<span id="442">442</span>
+<span id="443">443</span>
+<span id="444">444</span>
+<span id="445">445</span>
+<span id="446">446</span>
+<span id="447">447</span>
+<span id="448">448</span>
+<span id="449">449</span>
+<span id="450">450</span>
+<span id="451">451</span>
+<span id="452">452</span>
+<span id="453">453</span>
+<span id="454">454</span>
+<span id="455">455</span>
+<span id="456">456</span>
+<span id="457">457</span>
+<span id="458">458</span>
+<span id="459">459</span>
+<span id="460">460</span>
+<span id="461">461</span>
+<span id="462">462</span>
+<span id="463">463</span>
+<span id="464">464</span>
+<span id="465">465</span>
+<span id="466">466</span>
+<span id="467">467</span>
+<span id="468">468</span>
+<span id="469">469</span>
+<span id="470">470</span>
+<span id="471">471</span>
+<span id="472">472</span>
+<span id="473">473</span>
+<span id="474">474</span>
+<span id="475">475</span>
+<span id="476">476</span>
+<span id="477">477</span>
+<span id="478">478</span>
+<span id="479">479</span>
+<span id="480">480</span>
+<span id="481">481</span>
+<span id="482">482</span>
+<span id="483">483</span>
+<span id="484">484</span>
+<span id="485">485</span>
+<span id="486">486</span>
+<span id="487">487</span>
+<span id="488">488</span>
+<span id="489">489</span>
+<span id="490">490</span>
+<span id="491">491</span>
+<span id="492">492</span>
+<span id="493">493</span>
+<span id="494">494</span>
+<span id="495">495</span>
+<span id="496">496</span>
+<span id="497">497</span>
+<span id="498">498</span>
+<span id="499">499</span>
+<span id="500">500</span>
+<span id="501">501</span>
+<span id="502">502</span>
+<span id="503">503</span>
+<span id="504">504</span>
+<span id="505">505</span>
+<span id="506">506</span>
+<span id="507">507</span>
+<span id="508">508</span>
+<span id="509">509</span>
+<span id="510">510</span>
+<span id="511">511</span>
+<span id="512">512</span>
+<span id="513">513</span>
+<span id="514">514</span>
+<span id="515">515</span>
+<span id="516">516</span>
+<span id="517">517</span>
+<span id="518">518</span>
+<span id="519">519</span>
+<span id="520">520</span>
+<span id="521">521</span>
+<span id="522">522</span>
+<span id="523">523</span>
+<span id="524">524</span>
+<span id="525">525</span>
+<span id="526">526</span>
+<span id="527">527</span>
+<span id="528">528</span>
+<span id="529">529</span>
+<span id="530">530</span>
+<span id="531">531</span>
+<span id="532">532</span>
+<span id="533">533</span>
+<span id="534">534</span>
+<span id="535">535</span>
+<span id="536">536</span>
+<span id="537">537</span>
+<span id="538">538</span>
+<span id="539">539</span>
+<span id="540">540</span>
+<span id="541">541</span>
+<span id="542">542</span>
+<span id="543">543</span>
+<span id="544">544</span>
+<span id="545">545</span>
+<span id="546">546</span>
+<span id="547">547</span>
+<span id="548">548</span>
+<span id="549">549</span>
+<span id="550">550</span>
+<span id="551">551</span>
+<span id="552">552</span>
+<span id="553">553</span>
+<span id="554">554</span>
+<span id="555">555</span>
+<span id="556">556</span>
+<span id="557">557</span>
+<span id="558">558</span>
+<span id="559">559</span>
+<span id="560">560</span>
+<span id="561">561</span>
+<span id="562">562</span>
+<span id="563">563</span>
+<span id="564">564</span>
+<span id="565">565</span>
+<span id="566">566</span>
+<span id="567">567</span>
+<span id="568">568</span>
+<span id="569">569</span>
+<span id="570">570</span>
+<span id="571">571</span>
+<span id="572">572</span>
+<span id="573">573</span>
+<span id="574">574</span>
+<span id="575">575</span>
+<span id="576">576</span>
+<span id="577">577</span>
+<span id="578">578</span>
+<span id="579">579</span>
+<span id="580">580</span>
+<span id="581">581</span>
+<span id="582">582</span>
+<span id="583">583</span>
+<span id="584">584</span>
+<span id="585">585</span>
+<span id="586">586</span>
+<span id="587">587</span>
+<span id="588">588</span>
+<span id="589">589</span>
+<span id="590">590</span>
+<span id="591">591</span>
+<span id="592">592</span>
+<span id="593">593</span>
+<span id="594">594</span>
+<span id="595">595</span>
+<span id="596">596</span>
+<span id="597">597</span>
+<span id="598">598</span>
+<span id="599">599</span>
+<span id="600">600</span>
+<span id="601">601</span>
+<span id="602">602</span>
+<span id="603">603</span>
+<span id="604">604</span>
+<span id="605">605</span>
+<span id="606">606</span>
+<span id="607">607</span>
+<span id="608">608</span>
+<span id="609">609</span>
+<span id="610">610</span>
+<span id="611">611</span>
+<span id="612">612</span>
+<span id="613">613</span>
+<span id="614">614</span>
+<span id="615">615</span>
+<span id="616">616</span>
+<span id="617">617</span>
+<span id="618">618</span>
+<span id="619">619</span>
+<span id="620">620</span>
+<span id="621">621</span>
+<span id="622">622</span>
+<span id="623">623</span>
+<span id="624">624</span>
+<span id="625">625</span>
+<span id="626">626</span>
+<span id="627">627</span>
+<span id="628">628</span>
+<span id="629">629</span>
+<span id="630">630</span>
+<span id="631">631</span>
+<span id="632">632</span>
+<span id="633">633</span>
+<span id="634">634</span>
+<span id="635">635</span>
+<span id="636">636</span>
+<span id="637">637</span>
+<span id="638">638</span>
+<span id="639">639</span>
+<span id="640">640</span>
+<span id="641">641</span>
+<span id="642">642</span>
+<span id="643">643</span>
+<span id="644">644</span>
+<span id="645">645</span>
+<span id="646">646</span>
+<span id="647">647</span>
+<span id="648">648</span>
+<span id="649">649</span>
+<span id="650">650</span>
+<span id="651">651</span>
+<span id="652">652</span>
+<span id="653">653</span>
+<span id="654">654</span>
+<span id="655">655</span>
+<span id="656">656</span>
+<span id="657">657</span>
+<span id="658">658</span>
+<span id="659">659</span>
+<span id="660">660</span>
+<span id="661">661</span>
+<span id="662">662</span>
+<span id="663">663</span>
+<span id="664">664</span>
+<span id="665">665</span>
+<span id="666">666</span>
+<span id="667">667</span>
+<span id="668">668</span>
+<span id="669">669</span>
+<span id="670">670</span>
+<span id="671">671</span>
+<span id="672">672</span>
+<span id="673">673</span>
+<span id="674">674</span>
+<span id="675">675</span>
+<span id="676">676</span>
+<span id="677">677</span>
+<span id="678">678</span>
+<span id="679">679</span>
+<span id="680">680</span>
+<span id="681">681</span>
+<span id="682">682</span>
+<span id="683">683</span>
+<span id="684">684</span>
+<span id="685">685</span>
+<span id="686">686</span>
+<span id="687">687</span>
+<span id="688">688</span>
+<span id="689">689</span>
+<span id="690">690</span>
+<span id="691">691</span>
+<span id="692">692</span>
+<span id="693">693</span>
+<span id="694">694</span>
+<span id="695">695</span>
+<span id="696">696</span>
+<span id="697">697</span>
+<span id="698">698</span>
+<span id="699">699</span>
+<span id="700">700</span>
+<span id="701">701</span>
+<span id="702">702</span>
+<span id="703">703</span>
+<span id="704">704</span>
+<span id="705">705</span>
+<span id="706">706</span>
+<span id="707">707</span>
+<span id="708">708</span>
+<span id="709">709</span>
+<span id="710">710</span>
+<span id="711">711</span>
+<span id="712">712</span>
+<span id="713">713</span>
+<span id="714">714</span>
+<span id="715">715</span>
+<span id="716">716</span>
+<span id="717">717</span>
+<span id="718">718</span>
+<span id="719">719</span>
+<span id="720">720</span>
+<span id="721">721</span>
+<span id="722">722</span>
+<span id="723">723</span>
+<span id="724">724</span>
+<span id="725">725</span>
+<span id="726">726</span>
+<span id="727">727</span>
+<span id="728">728</span>
+<span id="729">729</span>
+<span id="730">730</span>
+<span id="731">731</span>
+<span id="732">732</span>
+<span id="733">733</span>
+</pre><pre class="rust"><code><span class="doccomment">//! Functions and data from the RPI Bootrom.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! From the [RP2040 datasheet](https://datasheets.raspberrypi.org/rp2040/rp2040-datasheet.pdf), Section 2.8.2.1:</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! &gt; The Bootrom contains a number of public functions that provide useful</span>
+<span class="doccomment">//! &gt; RP2040 functionality that might be needed in the absence of any other code</span>
+<span class="doccomment">//! &gt; on the device, as well as highly optimized versions of certain key</span>
+<span class="doccomment">//! &gt; functionality that would otherwise have to take up space in most user</span>
+<span class="doccomment">//! &gt; binaries.</span>
+
+<span class="doccomment">/// A bootrom function table code.</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RomFnTableCode</span> <span class="op">=</span> [<span class="ident">u8</span>; <span class="number">2</span>];
+
+<span class="doccomment">/// This function searches for (table)</span>
+<span class="kw">type</span> <span class="ident">RomTableLookupFn</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="op">=</span> <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(<span class="kw-2">*const</span> <span class="ident">u16</span>, <span class="ident">u32</span>) -&gt; <span class="ident">T</span>;
+
+<span class="doccomment">/// The following addresses are described at `2.8.2. Bootrom Contents`</span>
+<span class="doccomment">/// Pointer to the lookup table function supplied by the rom.</span>
+<span class="kw">const</span> <span class="ident">ROM_TABLE_LOOKUP_PTR</span>: <span class="kw-2">*const</span> <span class="ident">u16</span> <span class="op">=</span> <span class="number">0x0000_0018</span> <span class="kw">as</span> <span class="kw">_</span>;
+
+<span class="doccomment">/// Pointer to helper functions lookup table.</span>
+<span class="kw">const</span> <span class="ident">FUNC_TABLE</span>: <span class="kw-2">*const</span> <span class="ident">u16</span> <span class="op">=</span> <span class="number">0x0000_0014</span> <span class="kw">as</span> <span class="kw">_</span>;
+
+<span class="doccomment">/// Pointer to the public data lookup table.</span>
+<span class="kw">const</span> <span class="ident">DATA_TABLE</span>: <span class="kw-2">*const</span> <span class="ident">u16</span> <span class="op">=</span> <span class="number">0x0000_0016</span> <span class="kw">as</span> <span class="kw">_</span>;
+
+<span class="doccomment">/// Address of the version number of the ROM.</span>
+<span class="kw">const</span> <span class="ident">VERSION_NUMBER</span>: <span class="kw-2">*const</span> <span class="ident">u8</span> <span class="op">=</span> <span class="number">0x0000_0013</span> <span class="kw">as</span> <span class="kw">_</span>;
+
+<span class="doccomment">/// Retrive rom content from a table using a code.</span>
+<span class="kw">fn</span> <span class="ident">rom_table_lookup</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(<span class="ident">table</span>: <span class="kw-2">*const</span> <span class="ident">u16</span>, <span class="ident">tag</span>: <span class="ident">RomFnTableCode</span>) -&gt; <span class="ident">T</span> {
+    <span class="kw">unsafe</span> {
+        <span class="kw">let</span> <span class="ident">rom_table_lookup_ptr</span>: <span class="kw-2">*const</span> <span class="ident">u32</span> <span class="op">=</span> <span class="ident">rom_hword_as_ptr</span>(<span class="ident">ROM_TABLE_LOOKUP_PTR</span>);
+        <span class="kw">let</span> <span class="ident">rom_table_lookup</span>: <span class="ident">RomTableLookupFn</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">core::mem::transmute</span>(<span class="ident">rom_table_lookup_ptr</span>);
+        <span class="ident">rom_table_lookup</span>(
+            <span class="ident">rom_hword_as_ptr</span>(<span class="ident">table</span>) <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">u16</span>,
+            <span class="ident">u16::from_le_bytes</span>(<span class="ident">tag</span>) <span class="kw">as</span> <span class="ident">u32</span>,
+        )
+    }
+}
+
+<span class="doccomment">/// To save space, the ROM likes to store memory pointers (which are 32-bit on</span>
+<span class="doccomment">/// the Cortex-M0+) using only the bottom 16-bits. The assumption is that the</span>
+<span class="doccomment">/// values they point at live in the first 64 KiB of ROM, and the ROM is mapped</span>
+<span class="doccomment">/// to address `0x0000_0000` and so 16-bits are always sufficient.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This functions grabs a 16-bit value from ROM and expands it out to a full 32-bit pointer.</span>
+<span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">rom_hword_as_ptr</span>(<span class="ident">rom_address</span>: <span class="kw-2">*const</span> <span class="ident">u16</span>) -&gt; <span class="kw-2">*const</span> <span class="ident">u32</span> {
+    <span class="kw">let</span> <span class="ident">ptr</span>: <span class="ident">u16</span> <span class="op">=</span> <span class="kw-2">*</span><span class="ident">rom_address</span>;
+    <span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">u32</span>
+}
+
+<span class="macro">macro_rules!</span> <span class="ident">declare_rom_function</span> {
+    (
+        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">outer</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+        <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">argname</span>:<span class="ident">ident</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ty</span>:<span class="ident">ty</span>),<span class="op">*</span> ) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ret</span>:<span class="ident">ty</span>
+        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lookup</span>:<span class="ident">block</span>
+    ) =&gt; {
+        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">r&quot;Additional access for the `&quot;</span>]</span>
+        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="macro">stringify!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>)]</span>
+        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">r&quot;` ROM function.&quot;</span>]</span>
+        <span class="kw">pub</span> <span class="kw">mod</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> {
+            <span class="doccomment">/// Retrieve a function pointer.</span>
+            <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;rom-func-cache&quot;</span>))]</span>
+            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">ptr</span>() -&gt; <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">argname</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ty</span>),<span class="op">*</span> ) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ret</span> {
+                <span class="kw">let</span> <span class="ident">p</span>: <span class="kw-2">*const</span> <span class="ident">u32</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lookup</span>;
+                <span class="kw">unsafe</span> {
+                    <span class="kw">let</span> <span class="ident">func</span> : <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">argname</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ty</span>),<span class="op">*</span> ) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ret</span> <span class="op">=</span> <span class="ident">core::mem::transmute</span>(<span class="ident">p</span>);
+                    <span class="ident">func</span>
+                }
+            }
+
+            <span class="doccomment">/// Retrieve a function pointer.</span>
+            <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;rom-func-cache&quot;</span>)]</span>
+            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">ptr</span>() -&gt; <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">argname</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ty</span>),<span class="op">*</span> ) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ret</span> {
+                <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicU16</span>, <span class="ident">Ordering</span>};
+
+                <span class="comment">// All pointers in the ROM fit in 16 bits, so we don&#39;t need a</span>
+                <span class="comment">// full width word to store the cached value.</span>
+                <span class="kw">static</span> <span class="ident">CACHED_PTR</span>: <span class="ident">AtomicU16</span> <span class="op">=</span> <span class="ident">AtomicU16::new</span>(<span class="number">0</span>);
+                <span class="comment">// This is safe because the lookup will always resolve</span>
+                <span class="comment">// to the same value.  So even if an interrupt or another</span>
+                <span class="comment">// core starts at the same time, it just repeats some</span>
+                <span class="comment">// work and eventually writes back the correct value.</span>
+                <span class="kw">let</span> <span class="ident">p</span>: <span class="kw-2">*const</span> <span class="ident">u32</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">CACHED_PTR</span>.<span class="ident">load</span>(<span class="ident">Ordering::Relaxed</span>) {
+                    <span class="number">0</span> =&gt; {
+                        <span class="kw">let</span> <span class="ident">raw</span>: <span class="kw-2">*const</span> <span class="ident">u32</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lookup</span>;
+                        <span class="ident">CACHED_PTR</span>.<span class="ident">store</span>(<span class="ident">raw</span> <span class="kw">as</span> <span class="ident">u16</span>, <span class="ident">Ordering::Relaxed</span>);
+                        <span class="ident">raw</span>
+                    },
+                    <span class="ident">val</span> =&gt; <span class="ident">val</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">u32</span>,
+                };
+                <span class="kw">unsafe</span> {
+                    <span class="kw">let</span> <span class="ident">func</span> : <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">argname</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ty</span>),<span class="op">*</span> ) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ret</span> <span class="op">=</span> <span class="ident">core::mem::transmute</span>(<span class="ident">p</span>);
+                    <span class="ident">func</span>
+                }
+            }
+        }
+
+        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">outer</span>]</span>)<span class="op">*</span>
+        <span class="kw">pub</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">argname</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ty</span>),<span class="op">*</span> ) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ret</span> {
+            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name::ptr</span>()($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">argname</span>),<span class="kw-2">*</span>)
+        }
+    };
+
+    (
+        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">outer</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+        <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">argname</span>:<span class="ident">ident</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ty</span>:<span class="ident">ty</span>),<span class="op">*</span> ) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ret</span>:<span class="ident">ty</span>
+        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lookup</span>:<span class="ident">block</span>
+    ) =&gt; {
+        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">r&quot;Additional access for the `&quot;</span>]</span>
+        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="macro">stringify!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>)]</span>
+        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">r&quot;` ROM function.&quot;</span>]</span>
+        <span class="kw">pub</span> <span class="kw">mod</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span> {
+            <span class="doccomment">/// Retrieve a function pointer.</span>
+            <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;rom-func-cache&quot;</span>))]</span>
+            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">ptr</span>() -&gt; <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">argname</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ty</span>),<span class="op">*</span> ) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ret</span> {
+                <span class="kw">let</span> <span class="ident">p</span>: <span class="kw-2">*const</span> <span class="ident">u32</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lookup</span>;
+                <span class="kw">unsafe</span> {
+                    <span class="kw">let</span> <span class="ident">func</span> : <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">argname</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ty</span>),<span class="op">*</span> ) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ret</span> <span class="op">=</span> <span class="ident">core::mem::transmute</span>(<span class="ident">p</span>);
+                    <span class="ident">func</span>
+                }
+            }
+
+            <span class="doccomment">/// Retrieve a function pointer.</span>
+            <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;rom-func-cache&quot;</span>)]</span>
+            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">ptr</span>() -&gt; <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">argname</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ty</span>),<span class="op">*</span> ) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ret</span> {
+                <span class="kw">use</span> <span class="ident">core::sync::atomic</span>::{<span class="ident">AtomicU16</span>, <span class="ident">Ordering</span>};
+
+                <span class="comment">// All pointers in the ROM fit in 16 bits, so we don&#39;t need a</span>
+                <span class="comment">// full width word to store the cached value.</span>
+                <span class="kw">static</span> <span class="ident">CACHED_PTR</span>: <span class="ident">AtomicU16</span> <span class="op">=</span> <span class="ident">AtomicU16::new</span>(<span class="number">0</span>);
+                <span class="comment">// This is safe because the lookup will always resolve</span>
+                <span class="comment">// to the same value.  So even if an interrupt or another</span>
+                <span class="comment">// core starts at the same time, it just repeats some</span>
+                <span class="comment">// work and eventually writes back the correct value.</span>
+                <span class="kw">let</span> <span class="ident">p</span>: <span class="kw-2">*const</span> <span class="ident">u32</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">CACHED_PTR</span>.<span class="ident">load</span>(<span class="ident">Ordering::Relaxed</span>) {
+                    <span class="number">0</span> =&gt; {
+                        <span class="kw">let</span> <span class="ident">raw</span>: <span class="kw-2">*const</span> <span class="ident">u32</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">lookup</span>;
+                        <span class="ident">CACHED_PTR</span>.<span class="ident">store</span>(<span class="ident">raw</span> <span class="kw">as</span> <span class="ident">u16</span>, <span class="ident">Ordering::Relaxed</span>);
+                        <span class="ident">raw</span>
+                    },
+                    <span class="ident">val</span> =&gt; <span class="ident">val</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">u32</span>,
+                };
+                <span class="kw">unsafe</span> {
+                    <span class="kw">let</span> <span class="ident">func</span> : <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">argname</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ty</span>),<span class="op">*</span> ) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ret</span> <span class="op">=</span> <span class="ident">core::mem::transmute</span>(<span class="ident">p</span>);
+                    <span class="ident">func</span>
+                }
+            }
+        }
+
+        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">outer</span>]</span>)<span class="op">*</span>
+        <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">argname</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ty</span>),<span class="op">*</span> ) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ret</span> {
+            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name::ptr</span>()($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">argname</span>),<span class="kw-2">*</span>)
+        }
+    };
+}
+
+<span class="macro">macro_rules!</span> <span class="ident">rom_functions</span> {
+    () =&gt; {};
+
+    (
+        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">outer</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">c</span>:<span class="ident">literal</span> <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">argname</span>:<span class="ident">ident</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ty</span>:<span class="ident">ty</span>),<span class="op">*</span> ) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ret</span>:<span class="ident">ty</span>;
+
+        $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>:<span class="ident">tt</span>)<span class="op">*</span>
+    ) =&gt; {
+        <span class="macro">declare_rom_function!</span> {
+            $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">outer</span>]</span>)<span class="op">*</span>
+            <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">argname</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ty</span>),<span class="op">*</span> ) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ret</span> {
+                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">crate::rom_data::rom_table_lookup</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">crate::rom_data::FUNC_TABLE</span>, <span class="kw-2">*</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">c</span>)
+            }
+        }
+
+        <span class="macro">rom_functions!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>);
+    };
+
+    (
+        $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">outer</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">c</span>:<span class="ident">literal</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">argname</span>:<span class="ident">ident</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ty</span>:<span class="ident">ty</span>),<span class="op">*</span> ) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ret</span>:<span class="ident">ty</span>;
+
+        $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>:<span class="ident">tt</span>)<span class="op">*</span>
+    ) =&gt; {
+        <span class="macro">declare_rom_function!</span> {
+            $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">outer</span>]</span>)<span class="op">*</span>
+            <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">argname</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ty</span>),<span class="op">*</span> ) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ret</span> {
+                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">crate::rom_data::rom_table_lookup</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">crate::rom_data::FUNC_TABLE</span>, <span class="kw-2">*</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">c</span>)
+            }
+        }
+
+        <span class="macro">rom_functions!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>);
+    };
+}
+
+<span class="macro">rom_functions!</span> {
+    <span class="doccomment">/// Return a count of the number of 1 bits in value.</span>
+    <span class="string">b&quot;P3&quot;</span> <span class="kw">fn</span> <span class="ident">popcount32</span>(<span class="ident">value</span>: <span class="ident">u32</span>) -&gt; <span class="ident">u32</span>;
+
+    <span class="doccomment">/// Return the bits of value in the reverse order.</span>
+    <span class="string">b&quot;R3&quot;</span> <span class="kw">fn</span> <span class="ident">reverse32</span>(<span class="ident">value</span>: <span class="ident">u32</span>) -&gt; <span class="ident">u32</span>;
+
+    <span class="doccomment">/// Return the number of consecutive high order 0 bits of value. If value is zero, returns 32.</span>
+    <span class="string">b&quot;L3&quot;</span> <span class="kw">fn</span> <span class="ident">clz32</span>(<span class="ident">value</span>: <span class="ident">u32</span>) -&gt; <span class="ident">u32</span>;
+
+    <span class="doccomment">/// Return the number of consecutive low order 0 bits of value. If value is zero, returns 32.</span>
+    <span class="string">b&quot;T3&quot;</span> <span class="kw">fn</span> <span class="ident">ctz32</span>(<span class="ident">value</span>: <span class="ident">u32</span>) -&gt; <span class="ident">u32</span>;
+
+    <span class="doccomment">/// Resets the RP2040 and uses the watchdog facility to re-start in BOOTSEL mode:</span>
+    <span class="doccomment">///   * gpio_activity_pin_mask is provided to enable an &#39;activity light&#39; via GPIO attached LED</span>
+    <span class="doccomment">///     for the USB Mass Storage Device:</span>
+    <span class="doccomment">///     * 0 No pins are used as per cold boot.</span>
+    <span class="doccomment">///     * Otherwise a single bit set indicating which GPIO pin should be set to output and</span>
+    <span class="doccomment">///       raised whenever there is mass storage activity from the host.</span>
+    <span class="doccomment">///  * disable_interface_mask may be used to control the exposed USB interfaces:</span>
+    <span class="doccomment">///    * 0 To enable both interfaces (as per cold boot).</span>
+    <span class="doccomment">///    * 1 To disable the USB Mass Storage Interface.</span>
+    <span class="doccomment">///    * 2 to Disable the USB PICOBOOT Interface.</span>
+    <span class="string">b&quot;UB&quot;</span> <span class="kw">fn</span> <span class="ident">reset_to_usb_boot</span>(<span class="ident">gpio_activity_pin_mask</span>: <span class="ident">u32</span>, <span class="ident">disable_interface_mask</span>: <span class="ident">u32</span>) -&gt; ();
+
+    <span class="doccomment">/// Sets n bytes start at ptr to the value c and returns ptr</span>
+    <span class="string">b&quot;MS&quot;</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">memset</span>(<span class="ident">ptr</span>: <span class="kw-2">*mut</span> <span class="ident">u8</span>, <span class="ident">c</span>: <span class="ident">u8</span>, <span class="ident">n</span>: <span class="ident">u32</span>) -&gt; <span class="kw-2">*mut</span> <span class="ident">u8</span>;
+
+    <span class="doccomment">/// Sets n bytes start at ptr to the value c and returns ptr.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Note this is a slightly more efficient variant of _memset that may only</span>
+    <span class="doccomment">/// be used if ptr is word aligned.</span>
+    <span class="comment">// Note the datasheet does not match the actual ROM for the code here, see</span>
+    <span class="comment">// https://github.com/raspberrypi/pico-feedback/issues/217</span>
+    <span class="string">b&quot;S4&quot;</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">memset4</span>(<span class="ident">ptr</span>: <span class="kw-2">*mut</span> <span class="ident">u32</span>, <span class="ident">c</span>: <span class="ident">u8</span>, <span class="ident">n</span>: <span class="ident">u32</span>) -&gt; <span class="kw-2">*mut</span> <span class="ident">u32</span>;
+
+    <span class="doccomment">/// Copies n bytes starting at src to dest and returns dest. The results are undefined if the</span>
+    <span class="doccomment">/// regions overlap.</span>
+    <span class="string">b&quot;MC&quot;</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">memcpy</span>(<span class="ident">dest</span>: <span class="kw-2">*mut</span> <span class="ident">u8</span>, <span class="ident">src</span>: <span class="kw-2">*const</span> <span class="ident">u8</span>, <span class="ident">n</span>: <span class="ident">u32</span>) -&gt; <span class="kw-2">*mut</span> <span class="ident">u8</span>;
+
+    <span class="doccomment">/// Copies n bytes starting at src to dest and returns dest. The results are undefined if the</span>
+    <span class="doccomment">/// regions overlap.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Note this is a slightly more efficient variant of _memcpy that may only be</span>
+    <span class="doccomment">/// used if dest and src are word aligned.</span>
+    <span class="string">b&quot;C4&quot;</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">memcpy44</span>(<span class="ident">dest</span>: <span class="kw-2">*mut</span> <span class="ident">u32</span>, <span class="ident">src</span>: <span class="kw-2">*const</span> <span class="ident">u32</span>, <span class="ident">n</span>: <span class="ident">u32</span>) -&gt; <span class="kw-2">*mut</span> <span class="ident">u8</span>;
+
+    <span class="doccomment">/// Restore all QSPI pad controls to their default state, and connect the SSI to the QSPI pads.</span>
+    <span class="string">b&quot;IF&quot;</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">connect_internal_flash</span>() -&gt; ();
+
+    <span class="doccomment">/// First set up the SSI for serial-mode operations, then issue the fixed XIP exit sequence.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Note that the bootrom code uses the IO forcing logic to drive the CS pin, which must be</span>
+    <span class="doccomment">/// cleared before returning the SSI to XIP mode (e.g. by a call to _flash_flush_cache). This</span>
+    <span class="doccomment">/// function configures the SSI with a fixed SCK clock divisor of /6.</span>
+    <span class="string">b&quot;EX&quot;</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">flash_exit_xip</span>() -&gt; ();
+
+    <span class="doccomment">/// Erase a count bytes, starting at addr (offset from start of flash). Optionally, pass a</span>
+    <span class="doccomment">/// block erase command e.g. D8h block erase, and the size of the block erased by this</span>
+    <span class="doccomment">/// command — this function will use the larger block erase where possible, for much higher</span>
+    <span class="doccomment">/// erase speed. addr must be aligned to a 4096-byte sector, and count must be a multiple of</span>
+    <span class="doccomment">/// 4096 bytes.</span>
+    <span class="string">b&quot;RE&quot;</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">flash_range_erase</span>(<span class="ident">addr</span>: <span class="ident">u32</span>, <span class="ident">count</span>: <span class="ident">usize</span>, <span class="ident">block_size</span>: <span class="ident">u32</span>, <span class="ident">block_cmd</span>: <span class="ident">u8</span>) -&gt; ();
+
+    <span class="doccomment">/// Program data to a range of flash addresses starting at `addr` (and</span>
+    <span class="doccomment">/// offset from the start of flash) and `count` bytes in size. The value</span>
+    <span class="doccomment">/// `addr` must be aligned to a 256-byte boundary, and `count` must be a</span>
+    <span class="doccomment">/// multiple of 256.</span>
+    <span class="string">b&quot;RP&quot;</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">flash_range_program</span>(<span class="ident">addr</span>: <span class="ident">u32</span>, <span class="ident">data</span>: <span class="kw-2">*const</span> <span class="ident">u8</span>, <span class="ident">count</span>: <span class="ident">usize</span>) -&gt; ();
+
+    <span class="doccomment">/// Flush and enable the XIP cache. Also clears the IO forcing on QSPI CSn, so that the SSI can</span>
+    <span class="doccomment">/// drive the flashchip select as normal.</span>
+    <span class="string">b&quot;FC&quot;</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">flash_flush_cache</span>() -&gt; ();
+
+    <span class="doccomment">/// Configure the SSI to generate a standard 03h serial read command, with 24 address bits,</span>
+    <span class="doccomment">/// upon each XIP access. This is a very slow XIP configuration, but is very widely supported.</span>
+    <span class="doccomment">/// The debugger calls this function after performing a flash erase/programming operation, so</span>
+    <span class="doccomment">/// that the freshly-programmed code and data is visible to the debug host, without having to</span>
+    <span class="doccomment">/// know exactly what kind of flash device is connected.</span>
+    <span class="string">b&quot;CX&quot;</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">flash_enter_cmd_xip</span>() -&gt; ();
+
+    <span class="doccomment">/// This is the method that is entered by core 1 on reset to wait to be launched by core 0.</span>
+    <span class="doccomment">/// There are few cases where you should call this method (resetting core 1 is much better).</span>
+    <span class="doccomment">/// This method does not return and should only ever be called on core 1.</span>
+    <span class="string">b&quot;WV&quot;</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">wait_for_vector</span>() -&gt; <span class="op">!</span>;
+}
+
+<span class="comment">// Various C intrinsics in the ROM</span>
+<span class="macro">intrinsics!</span> {
+    <span class="attribute">#[<span class="ident">alias</span> <span class="op">=</span> <span class="ident">__popcountdi2</span>]</span>
+    <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">__popcountsi2</span>(<span class="ident">x</span>: <span class="ident">u32</span>) -&gt; <span class="ident">u32</span> {
+        <span class="ident">popcount32</span>(<span class="ident">x</span>)
+    }
+
+    <span class="attribute">#[<span class="ident">alias</span> <span class="op">=</span> <span class="ident">__clzdi2</span>]</span>
+    <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">__clzsi2</span>(<span class="ident">x</span>: <span class="ident">u32</span>) -&gt; <span class="ident">u32</span> {
+        <span class="ident">clz32</span>(<span class="ident">x</span>)
+    }
+
+    <span class="attribute">#[<span class="ident">alias</span> <span class="op">=</span> <span class="ident">__ctzdi2</span>]</span>
+    <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">__ctzsi2</span>(<span class="ident">x</span>: <span class="ident">u32</span>) -&gt; <span class="ident">u32</span> {
+        <span class="ident">ctz32</span>(<span class="ident">x</span>)
+    }
+
+    <span class="comment">// __rbit is only unofficial, but it show up in the ARM documentation,</span>
+    <span class="comment">// so may as well hook it up.</span>
+    <span class="attribute">#[<span class="ident">alias</span> <span class="op">=</span> <span class="ident">__rbitl</span>]</span>
+    <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">__rbit</span>(<span class="ident">x</span>: <span class="ident">u32</span>) -&gt; <span class="ident">u32</span> {
+        <span class="ident">reverse32</span>(<span class="ident">x</span>)
+    }
+
+    <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;aapcs&quot;</span> <span class="kw">fn</span> <span class="ident">__aeabi_memset</span>(<span class="ident">dest</span>: <span class="kw-2">*mut</span> <span class="ident">u8</span>, <span class="ident">n</span>: <span class="ident">usize</span>, <span class="ident">c</span>: <span class="ident">i32</span>) -&gt; () {
+        <span class="comment">// Different argument order</span>
+        <span class="ident">memset</span>(<span class="ident">dest</span>, <span class="ident">c</span> <span class="kw">as</span> <span class="ident">u8</span>, <span class="ident">n</span> <span class="kw">as</span> <span class="ident">u32</span>);
+    }
+
+    <span class="attribute">#[<span class="ident">alias</span> <span class="op">=</span> <span class="ident">__aeabi_memset8</span>]</span>
+    <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;aapcs&quot;</span> <span class="kw">fn</span> <span class="ident">__aeabi_memset4</span>(<span class="ident">dest</span>: <span class="kw-2">*mut</span> <span class="ident">u8</span>, <span class="ident">n</span>: <span class="ident">usize</span>, <span class="ident">c</span>: <span class="ident">i32</span>) -&gt; () {
+        <span class="comment">// Different argument order</span>
+        <span class="ident">memset4</span>(<span class="ident">dest</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">u32</span>, <span class="ident">c</span> <span class="kw">as</span> <span class="ident">u8</span>, <span class="ident">n</span> <span class="kw">as</span> <span class="ident">u32</span>);
+    }
+
+    <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;aapcs&quot;</span> <span class="kw">fn</span> <span class="ident">__aeabi_memclr</span>(<span class="ident">dest</span>: <span class="kw-2">*mut</span> <span class="ident">u8</span>, <span class="ident">n</span>: <span class="ident">usize</span>) -&gt; () {
+        <span class="ident">memset</span>(<span class="ident">dest</span>, <span class="number">0</span>, <span class="ident">n</span> <span class="kw">as</span> <span class="ident">u32</span>);
+    }
+
+    <span class="attribute">#[<span class="ident">alias</span> <span class="op">=</span> <span class="ident">__aeabi_memclr8</span>]</span>
+    <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;aapcs&quot;</span> <span class="kw">fn</span> <span class="ident">__aeabi_memclr4</span>(<span class="ident">dest</span>: <span class="kw-2">*mut</span> <span class="ident">u8</span>, <span class="ident">n</span>: <span class="ident">usize</span>) -&gt; () {
+        <span class="ident">memset4</span>(<span class="ident">dest</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">u32</span>, <span class="number">0</span>, <span class="ident">n</span> <span class="kw">as</span> <span class="ident">u32</span>);
+    }
+
+    <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;aapcs&quot;</span> <span class="kw">fn</span> <span class="ident">__aeabi_memcpy</span>(<span class="ident">dest</span>: <span class="kw-2">*mut</span> <span class="ident">u8</span>, <span class="ident">src</span>: <span class="kw-2">*const</span> <span class="ident">u8</span>, <span class="ident">n</span>: <span class="ident">usize</span>) -&gt; () {
+        <span class="ident">memcpy</span>(<span class="ident">dest</span>, <span class="ident">src</span>, <span class="ident">n</span> <span class="kw">as</span> <span class="ident">u32</span>);
+    }
+
+    <span class="attribute">#[<span class="ident">alias</span> <span class="op">=</span> <span class="ident">__aeabi_memcpy8</span>]</span>
+    <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;aapcs&quot;</span> <span class="kw">fn</span> <span class="ident">__aeabi_memcpy4</span>(<span class="ident">dest</span>: <span class="kw-2">*mut</span> <span class="ident">u8</span>, <span class="ident">src</span>: <span class="kw-2">*const</span> <span class="ident">u8</span>, <span class="ident">n</span>: <span class="ident">usize</span>) -&gt; () {
+        <span class="ident">memcpy44</span>(<span class="ident">dest</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">u32</span>, <span class="ident">src</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">u32</span>, <span class="ident">n</span> <span class="kw">as</span> <span class="ident">u32</span>);
+    }
+}
+
+<span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">convert_str</span>(<span class="ident">s</span>: <span class="kw-2">*const</span> <span class="ident">u8</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> {
+    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">end</span> <span class="op">=</span> <span class="ident">s</span>;
+    <span class="kw">while</span> <span class="kw-2">*</span><span class="ident">end</span> <span class="op">!</span><span class="op">=</span> <span class="number">0</span> {
+        <span class="ident">end</span> <span class="op">=</span> <span class="ident">end</span>.<span class="ident">add</span>(<span class="number">1</span>);
+    }
+    <span class="kw">let</span> <span class="ident">s</span> <span class="op">=</span> <span class="ident">core::slice::from_raw_parts</span>(<span class="ident">s</span>, <span class="ident">end</span>.<span class="ident">offset_from</span>(<span class="ident">s</span>) <span class="kw">as</span> <span class="ident">usize</span>);
+    <span class="ident">core::str::from_utf8_unchecked</span>(<span class="ident">s</span>)
+}
+
+<span class="doccomment">/// The version number of the rom.</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">rom_version_number</span>() -&gt; <span class="ident">u8</span> {
+    <span class="kw">unsafe</span> { <span class="kw-2">*</span><span class="ident">VERSION_NUMBER</span> }
+}
+
+<span class="doccomment">/// The Raspberry Pi Trading Ltd copyright string.</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">copyright_string</span>() -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> {
+    <span class="kw">let</span> <span class="ident">s</span>: <span class="kw-2">*const</span> <span class="ident">u8</span> <span class="op">=</span> <span class="ident">rom_table_lookup</span>(<span class="ident">DATA_TABLE</span>, <span class="kw-2">*</span><span class="string">b&quot;CR&quot;</span>);
+    <span class="kw">unsafe</span> { <span class="ident">convert_str</span>(<span class="ident">s</span>) }
+}
+
+<span class="doccomment">/// The 8 most significant hex digits of the Bootrom git revision.</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">git_revision</span>() -&gt; <span class="ident">u32</span> {
+    <span class="kw">let</span> <span class="ident">s</span>: <span class="kw-2">*const</span> <span class="ident">u32</span> <span class="op">=</span> <span class="ident">rom_table_lookup</span>(<span class="ident">DATA_TABLE</span>, <span class="kw-2">*</span><span class="string">b&quot;GR&quot;</span>);
+    <span class="kw">unsafe</span> { <span class="kw-2">*</span><span class="ident">s</span> }
+}
+
+<span class="doccomment">/// The start address of the floating point library code and data.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This and fplib_end along with the individual function pointers in</span>
+<span class="doccomment">/// soft_float_table can be used to copy the floating point implementation into</span>
+<span class="doccomment">/// RAM if desired.</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">fplib_start</span>() -&gt; <span class="kw-2">*const</span> <span class="ident">u8</span> {
+    <span class="ident">rom_table_lookup</span>(<span class="ident">DATA_TABLE</span>, <span class="kw-2">*</span><span class="string">b&quot;FS&quot;</span>)
+}
+
+<span class="doccomment">/// See Table 180 in the RP2040 datasheet for the contents of this table.</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">soft_float_table</span>() -&gt; <span class="kw-2">*const</span> <span class="ident">usize</span> {
+    <span class="ident">rom_table_lookup</span>(<span class="ident">DATA_TABLE</span>, <span class="kw-2">*</span><span class="string">b&quot;SF&quot;</span>)
+}
+
+<span class="doccomment">/// The end address of the floating point library code and data.</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">fplib_end</span>() -&gt; <span class="kw-2">*const</span> <span class="ident">u8</span> {
+    <span class="ident">rom_table_lookup</span>(<span class="ident">DATA_TABLE</span>, <span class="kw-2">*</span><span class="string">b&quot;FE&quot;</span>)
+}
+
+<span class="doccomment">/// This entry is only present in the V2 bootrom. See Table 182 in the RP2040 datasheet for the contents of this table.</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">soft_double_table</span>() -&gt; <span class="kw-2">*const</span> <span class="ident">usize</span> {
+    <span class="kw">if</span> <span class="ident">rom_version_number</span>() <span class="op">&lt;</span> <span class="number">2</span> {
+        <span class="macro">panic!</span>(
+            <span class="string">&quot;Double precision operations require V2 bootrom (found: V{})&quot;</span>,
+            <span class="ident">rom_version_number</span>()
+        );
+    }
+    <span class="ident">rom_table_lookup</span>(<span class="ident">DATA_TABLE</span>, <span class="kw-2">*</span><span class="string">b&quot;SD&quot;</span>)
+}
+
+<span class="doccomment">/// ROM functions using single-precision arithmetic (i.e. &#39;f32&#39; in Rust terms)</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">float_funcs</span> {
+
+    <span class="macro">macro_rules!</span> <span class="ident">make_functions</span> {
+        (
+            $(
+                $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">outer</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">offset</span>:<span class="ident">literal</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span> (
+                    $( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">aname</span>:<span class="ident">ident</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">aty</span>:<span class="ident">ty</span> ),<span class="op">*</span>
+                ) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ret</span>:<span class="ident">ty</span>;
+            )<span class="op">*</span>
+        ) =&gt; {
+            $(
+                <span class="macro">declare_rom_function!</span> {
+                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">outer</span>]</span>)<span class="op">*</span>
+                    <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>( $( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">aname</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">aty</span> ),<span class="op">*</span> ) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ret</span> {
+                        <span class="kw">let</span> <span class="ident">table</span>: <span class="kw-2">*const</span> <span class="ident">usize</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">crate::rom_data::soft_float_table</span>();
+                        <span class="kw">unsafe</span> {
+                            <span class="comment">// This is the entry in the table. Our offset is given as a</span>
+                            <span class="comment">// byte offset, but we want the table index (each pointer in</span>
+                            <span class="comment">// the table is 4 bytes long)</span>
+                            <span class="kw">let</span> <span class="ident">entry</span>: <span class="kw-2">*const</span> <span class="ident">usize</span> <span class="op">=</span> <span class="ident">table</span>.<span class="ident">offset</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">offset</span> <span class="op">/</span> <span class="number">4</span>);
+                            <span class="comment">// Read the pointer from the table</span>
+                            <span class="ident">core::ptr::read</span>(<span class="ident">entry</span>) <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">u32</span>
+                        }
+                    }
+                }
+            )<span class="op">*</span>
+        }
+    }
+
+    <span class="macro">make_functions!</span> {
+        <span class="doccomment">/// Calculates `a + b`</span>
+        <span class="number">0x00</span> <span class="ident">fadd</span>(<span class="ident">a</span>: <span class="ident">f32</span>, <span class="ident">b</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span>;
+        <span class="doccomment">/// Calculates `a - b`</span>
+        <span class="number">0x04</span> <span class="ident">fsub</span>(<span class="ident">a</span>: <span class="ident">f32</span>, <span class="ident">b</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span>;
+        <span class="doccomment">/// Calculates `a * b`</span>
+        <span class="number">0x08</span> <span class="ident">fmul</span>(<span class="ident">a</span>: <span class="ident">f32</span>, <span class="ident">b</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span>;
+        <span class="doccomment">/// Calculates `a / b`</span>
+        <span class="number">0x0c</span> <span class="ident">fdiv</span>(<span class="ident">a</span>: <span class="ident">f32</span>, <span class="ident">b</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span>;
+
+        <span class="comment">// 0x10 and 0x14 are deprecated</span>
+
+        <span class="doccomment">/// Calculates `sqrt(v)` (or return -Infinity if v is negative)</span>
+        <span class="number">0x18</span> <span class="ident">fsqrt</span>(<span class="ident">v</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span>;
+        <span class="doccomment">/// Converts an f32 to a signed integer,</span>
+        <span class="doccomment">/// rounding towards -Infinity, and clamping the result to lie within the</span>
+        <span class="doccomment">/// range `-0x80000000` to `0x7FFFFFFF`</span>
+        <span class="number">0x1c</span> <span class="ident">float_to_int</span>(<span class="ident">v</span>: <span class="ident">f32</span>) -&gt; <span class="ident">i32</span>;
+        <span class="doccomment">/// Converts an f32 to an signed fixed point</span>
+        <span class="doccomment">/// integer representation where n specifies the position of the binary</span>
+        <span class="doccomment">/// point in the resulting fixed point representation, e.g.</span>
+        <span class="doccomment">/// `f(0.5f, 16) == 0x8000`. This method rounds towards -Infinity,</span>
+        <span class="doccomment">/// and clamps the resulting integer to lie within the range `0x00000000` to</span>
+        <span class="doccomment">/// `0xFFFFFFFF`</span>
+        <span class="number">0x20</span> <span class="ident">float_to_fix</span>(<span class="ident">v</span>: <span class="ident">f32</span>, <span class="ident">n</span>: <span class="ident">i32</span>) -&gt; <span class="ident">i32</span>;
+        <span class="doccomment">/// Converts an f32 to an unsigned integer,</span>
+        <span class="doccomment">/// rounding towards -Infinity, and clamping the result to lie within the</span>
+        <span class="doccomment">/// range `0x00000000` to `0xFFFFFFFF`</span>
+        <span class="number">0x24</span> <span class="ident">float_to_uint</span>(<span class="ident">v</span>: <span class="ident">f32</span>) -&gt; <span class="ident">u32</span>;
+        <span class="doccomment">/// Converts an f32 to an unsigned fixed point</span>
+        <span class="doccomment">/// integer representation where n specifies the position of the binary</span>
+        <span class="doccomment">/// point in the resulting fixed point representation, e.g.</span>
+        <span class="doccomment">/// `f(0.5f, 16) == 0x8000`. This method rounds towards -Infinity,</span>
+        <span class="doccomment">/// and clamps the resulting integer to lie within the range `0x00000000` to</span>
+        <span class="doccomment">/// `0xFFFFFFFF`</span>
+        <span class="number">0x28</span> <span class="ident">float_to_ufix</span>(<span class="ident">v</span>: <span class="ident">f32</span>, <span class="ident">n</span>: <span class="ident">i32</span>) -&gt; <span class="ident">u32</span>;
+        <span class="doccomment">/// Converts a signed integer to the nearest</span>
+        <span class="doccomment">/// f32 value, rounding to even on tie</span>
+        <span class="number">0x2c</span> <span class="ident">int_to_float</span>(<span class="ident">v</span>: <span class="ident">i32</span>) -&gt; <span class="ident">f32</span>;
+        <span class="doccomment">/// Converts a signed fixed point integer</span>
+        <span class="doccomment">/// representation to the nearest f32 value, rounding to even on tie. `n`</span>
+        <span class="doccomment">/// specifies the position of the binary point in fixed point, so `f =</span>
+        <span class="doccomment">/// nearest(v/(2^n))`</span>
+        <span class="number">0x30</span> <span class="ident">fix_to_float</span>(<span class="ident">v</span>: <span class="ident">i32</span>, <span class="ident">n</span>: <span class="ident">i32</span>) -&gt; <span class="ident">f32</span>;
+        <span class="doccomment">/// Converts an unsigned integer to the nearest</span>
+        <span class="doccomment">/// f32 value, rounding to even on tie</span>
+        <span class="number">0x34</span> <span class="ident">uint_to_float</span>(<span class="ident">v</span>: <span class="ident">u32</span>) -&gt; <span class="ident">f32</span>;
+        <span class="doccomment">/// Converts an unsigned fixed point integer</span>
+        <span class="doccomment">/// representation to the nearest f32 value, rounding to even on tie. `n`</span>
+        <span class="doccomment">/// specifies the position of the binary point in fixed point, so `f =</span>
+        <span class="doccomment">/// nearest(v/(2^n))`</span>
+        <span class="number">0x38</span> <span class="ident">ufix_to_float</span>(<span class="ident">v</span>: <span class="ident">u32</span>, <span class="ident">n</span>: <span class="ident">i32</span>) -&gt; <span class="ident">f32</span>;
+        <span class="doccomment">/// Calculates the cosine of `angle`. The value</span>
+        <span class="doccomment">/// of `angle` is in radians, and must be in the range `-1024` to `1024`</span>
+        <span class="number">0x3c</span> <span class="ident">fcos</span>(<span class="ident">angle</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span>;
+        <span class="doccomment">/// Calculates the sine of `angle`. The value of</span>
+        <span class="doccomment">/// `angle` is in radians, and must be in the range `-1024` to `1024`</span>
+        <span class="number">0x40</span> <span class="ident">fsin</span>(<span class="ident">angle</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span>;
+        <span class="doccomment">/// Calculates the tangent of `angle`. The value</span>
+        <span class="doccomment">/// of `angle` is in radians, and must be in the range `-1024` to `1024`</span>
+        <span class="number">0x44</span> <span class="ident">ftan</span>(<span class="ident">angle</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span>;
+
+        <span class="comment">// 0x48 is deprecated</span>
+
+        <span class="doccomment">/// Calculates the exponential value of `v`,</span>
+        <span class="doccomment">/// i.e. `e ** v`</span>
+        <span class="number">0x4c</span> <span class="ident">fexp</span>(<span class="ident">v</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span>;
+        <span class="doccomment">/// Calculates the natural logarithm of `v`. If `v &lt;= 0` return -Infinity</span>
+        <span class="number">0x50</span> <span class="ident">fln</span>(<span class="ident">v</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span>;
+    }
+
+    <span class="macro">macro_rules!</span> <span class="ident">make_functions_v2</span> {
+        (
+            $(
+                $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">outer</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">offset</span>:<span class="ident">literal</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span> (
+                    $( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">aname</span>:<span class="ident">ident</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">aty</span>:<span class="ident">ty</span> ),<span class="op">*</span>
+                ) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ret</span>:<span class="ident">ty</span>;
+            )<span class="op">*</span>
+        ) =&gt; {
+            $(
+                <span class="macro">declare_rom_function!</span> {
+                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">outer</span>]</span>)<span class="op">*</span>
+                    <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>( $( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">aname</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">aty</span> ),<span class="op">*</span> ) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ret</span> {
+                        <span class="kw">if</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">crate::rom_data::rom_version_number</span>() <span class="op">&lt;</span> <span class="number">2</span> {
+                            <span class="macro">panic!</span>(
+                                <span class="string">&quot;Floating point function requires V2 bootrom (found: V{})&quot;</span>,
+                                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">crate::rom_data::rom_version_number</span>()
+                            );
+                        }
+                        <span class="kw">let</span> <span class="ident">table</span>: <span class="kw-2">*const</span> <span class="ident">usize</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">crate::rom_data::soft_float_table</span>();
+                        <span class="kw">unsafe</span> {
+                            <span class="comment">// This is the entry in the table. Our offset is given as a</span>
+                            <span class="comment">// byte offset, but we want the table index (each pointer in</span>
+                            <span class="comment">// the table is 4 bytes long)</span>
+                            <span class="kw">let</span> <span class="ident">entry</span>: <span class="kw-2">*const</span> <span class="ident">usize</span> <span class="op">=</span> <span class="ident">table</span>.<span class="ident">offset</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">offset</span> <span class="op">/</span> <span class="number">4</span>);
+                            <span class="comment">// Read the pointer from the table</span>
+                            <span class="ident">core::ptr::read</span>(<span class="ident">entry</span>) <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">u32</span>
+                        }
+                    }
+                }
+            )<span class="op">*</span>
+        }
+    }
+
+    <span class="comment">// These are only on BootROM v2 or higher</span>
+    <span class="macro">make_functions_v2!</span> {
+        <span class="doccomment">/// Compares two floating point numbers, returning:</span>
+        <span class="doccomment">///     • 0 if a == b</span>
+        <span class="doccomment">///     • -1 if a &lt; b</span>
+        <span class="doccomment">///     • 1 if a &gt; b</span>
+        <span class="number">0x54</span> <span class="ident">fcmp</span>(<span class="ident">a</span>: <span class="ident">f32</span>, <span class="ident">b</span>: <span class="ident">f32</span>) -&gt; <span class="ident">i32</span>;
+        <span class="doccomment">/// Computes the arc tangent of `y/x` using the</span>
+        <span class="doccomment">/// signs of arguments to determine the correct quadrant</span>
+        <span class="number">0x58</span> <span class="ident">fatan2</span>(<span class="ident">y</span>: <span class="ident">f32</span>, <span class="ident">x</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span>;
+        <span class="doccomment">/// Converts a signed 64-bit integer to the</span>
+        <span class="doccomment">/// nearest f32 value, rounding to even on tie</span>
+        <span class="number">0x5c</span> <span class="ident">int64_to_float</span>(<span class="ident">v</span>: <span class="ident">i64</span>) -&gt; <span class="ident">f32</span>;
+        <span class="doccomment">/// Converts a signed fixed point 64-bit integer</span>
+        <span class="doccomment">/// representation to the nearest f32 value, rounding to even on tie. `n`</span>
+        <span class="doccomment">/// specifies the position of the binary point in fixed point, so `f =</span>
+        <span class="doccomment">/// nearest(v/(2^n))`</span>
+        <span class="number">0x60</span> <span class="ident">fix64_to_float</span>(<span class="ident">v</span>: <span class="ident">i64</span>, <span class="ident">n</span>: <span class="ident">i32</span>) -&gt; <span class="ident">f32</span>;
+        <span class="doccomment">/// Converts an unsigned 64-bit integer to the</span>
+        <span class="doccomment">/// nearest f32 value, rounding to even on tie</span>
+        <span class="number">0x64</span> <span class="ident">uint64_to_float</span>(<span class="ident">v</span>: <span class="ident">u64</span>) -&gt; <span class="ident">f32</span>;
+        <span class="doccomment">/// Converts an unsigned fixed point 64-bit</span>
+        <span class="doccomment">/// integer representation to the nearest f32 value, rounding to even on</span>
+        <span class="doccomment">/// tie. `n` specifies the position of the binary point in fixed point, so</span>
+        <span class="doccomment">/// `f = nearest(v/(2^n))`</span>
+        <span class="number">0x68</span> <span class="ident">ufix64_to_float</span>(<span class="ident">v</span>: <span class="ident">u64</span>, <span class="ident">n</span>: <span class="ident">i32</span>) -&gt; <span class="ident">f32</span>;
+        <span class="doccomment">/// Convert an f32 to a signed 64-bit integer, rounding towards -Infinity,</span>
+        <span class="doccomment">/// and clamping the result to lie within the range `-0x8000000000000000` to</span>
+        <span class="doccomment">/// `0x7FFFFFFFFFFFFFFF`</span>
+        <span class="number">0x6c</span> <span class="ident">float_to_int64</span>(<span class="ident">v</span>: <span class="ident">f32</span>) -&gt; <span class="ident">i64</span>;
+        <span class="doccomment">/// Converts an f32 to a signed fixed point</span>
+        <span class="doccomment">/// 64-bit integer representation where n specifies the position of the</span>
+        <span class="doccomment">/// binary point in the resulting fixed point representation - e.g. `f(0.5f,</span>
+        <span class="doccomment">/// 16) == 0x8000`. This method rounds towards -Infinity, and clamps the</span>
+        <span class="doccomment">/// resulting integer to lie within the range `-0x8000000000000000` to</span>
+        <span class="doccomment">/// `0x7FFFFFFFFFFFFFFF`</span>
+        <span class="number">0x70</span> <span class="ident">float_to_fix64</span>(<span class="ident">v</span>: <span class="ident">f32</span>, <span class="ident">n</span>: <span class="ident">i32</span>) -&gt; <span class="ident">f32</span>;
+        <span class="doccomment">/// Converts an f32 to an unsigned 64-bit</span>
+        <span class="doccomment">/// integer, rounding towards -Infinity, and clamping the result to lie</span>
+        <span class="doccomment">/// within the range `0x0000000000000000` to `0xFFFFFFFFFFFFFFFF`</span>
+        <span class="number">0x74</span> <span class="ident">float_to_uint64</span>(<span class="ident">v</span>: <span class="ident">f32</span>) -&gt; <span class="ident">u64</span>;
+        <span class="doccomment">/// Converts an f32 to an unsigned fixed point</span>
+        <span class="doccomment">/// 64-bit integer representation where n specifies the position of the</span>
+        <span class="doccomment">/// binary point in the resulting fixed point representation, e.g. `f(0.5f,</span>
+        <span class="doccomment">/// 16) == 0x8000`. This method rounds towards -Infinity, and clamps the</span>
+        <span class="doccomment">/// resulting integer to lie within the range `0x0000000000000000` to</span>
+        <span class="doccomment">/// `0xFFFFFFFFFFFFFFFF`</span>
+        <span class="number">0x78</span> <span class="ident">float_to_ufix64</span>(<span class="ident">v</span>: <span class="ident">f32</span>, <span class="ident">n</span>: <span class="ident">i32</span>) -&gt; <span class="ident">u64</span>;
+        <span class="doccomment">/// Converts an f32 to an f64.</span>
+        <span class="number">0x7c</span> <span class="ident">float_to_double</span>(<span class="ident">v</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f64</span>;
+    }
+}
+
+<span class="doccomment">/// Functions using double-precision arithmetic (i.e. &#39;f64&#39; in Rust terms)</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">double_funcs</span> {
+
+    <span class="macro">macro_rules!</span> <span class="ident">make_double_funcs</span> {
+        (
+            $(
+                $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">outer</span>:<span class="ident">meta</span>]</span>)<span class="op">*</span>
+                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">offset</span>:<span class="ident">literal</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span> (
+                    $( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">aname</span>:<span class="ident">ident</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">aty</span>:<span class="ident">ty</span> ),<span class="op">*</span>
+                ) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ret</span>:<span class="ident">ty</span>;
+            )<span class="op">*</span>
+        ) =&gt; {
+            $(
+                <span class="macro">declare_rom_function!</span> {
+                    $(<span class="attribute">#[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">outer</span>]</span>)<span class="op">*</span>
+                    <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>( $( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">aname</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">aty</span> ),<span class="op">*</span> ) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ret</span> {
+                        <span class="kw">let</span> <span class="ident">table</span>: <span class="kw-2">*const</span> <span class="ident">usize</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">crate::rom_data::soft_double_table</span>();
+                        <span class="kw">unsafe</span> {
+                            <span class="comment">// This is the entry in the table. Our offset is given as a</span>
+                            <span class="comment">// byte offset, but we want the table index (each pointer in</span>
+                            <span class="comment">// the table is 4 bytes long)</span>
+                            <span class="kw">let</span> <span class="ident">entry</span>: <span class="kw-2">*const</span> <span class="ident">usize</span> <span class="op">=</span> <span class="ident">table</span>.<span class="ident">offset</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">offset</span> <span class="op">/</span> <span class="number">4</span>);
+                            <span class="comment">// Read the pointer from the table</span>
+                            <span class="ident">core::ptr::read</span>(<span class="ident">entry</span>) <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">u32</span>
+                        }
+                    }
+                }
+            )<span class="op">*</span>
+        }
+    }
+
+    <span class="macro">make_double_funcs!</span> {
+        <span class="doccomment">/// Calculates `a + b`</span>
+        <span class="number">0x00</span> <span class="ident">dadd</span>(<span class="ident">a</span>: <span class="ident">f64</span>, <span class="ident">b</span>: <span class="ident">f64</span>) -&gt; <span class="ident">f64</span>;
+        <span class="doccomment">/// Calculates `a - b`</span>
+        <span class="number">0x04</span> <span class="ident">dsub</span>(<span class="ident">a</span>: <span class="ident">f64</span>, <span class="ident">b</span>: <span class="ident">f64</span>) -&gt; <span class="ident">f64</span>;
+        <span class="doccomment">/// Calculates `a * b`</span>
+        <span class="number">0x08</span> <span class="ident">dmul</span>(<span class="ident">a</span>: <span class="ident">f64</span>, <span class="ident">b</span>: <span class="ident">f64</span>) -&gt; <span class="ident">f64</span>;
+        <span class="doccomment">/// Calculates `a / b`</span>
+        <span class="number">0x0c</span> <span class="ident">ddiv</span>(<span class="ident">a</span>: <span class="ident">f64</span>, <span class="ident">b</span>: <span class="ident">f64</span>) -&gt; <span class="ident">f64</span>;
+
+        <span class="comment">// 0x10 and 0x14 are deprecated</span>
+
+        <span class="doccomment">/// Calculates `sqrt(v)` (or return -Infinity if v is negative)</span>
+        <span class="number">0x18</span> <span class="ident">dsqrt</span>(<span class="ident">v</span>: <span class="ident">f64</span>) -&gt; <span class="ident">f64</span>;
+        <span class="doccomment">/// Converts an f64 to a signed integer,</span>
+        <span class="doccomment">/// rounding towards -Infinity, and clamping the result to lie within the</span>
+        <span class="doccomment">/// range `-0x80000000` to `0x7FFFFFFF`</span>
+        <span class="number">0x1c</span> <span class="ident">double_to_int</span>(<span class="ident">v</span>: <span class="ident">f64</span>) -&gt; <span class="ident">i32</span>;
+        <span class="doccomment">/// Converts an f64 to an signed fixed point</span>
+        <span class="doccomment">/// integer representation where n specifies the position of the binary</span>
+        <span class="doccomment">/// point in the resulting fixed point representation, e.g.</span>
+        <span class="doccomment">/// `f(0.5f, 16) == 0x8000`. This method rounds towards -Infinity,</span>
+        <span class="doccomment">/// and clamps the resulting integer to lie within the range `0x00000000` to</span>
+        <span class="doccomment">/// `0xFFFFFFFF`</span>
+        <span class="number">0x20</span> <span class="ident">double_to_fix</span>(<span class="ident">v</span>: <span class="ident">f64</span>, <span class="ident">n</span>: <span class="ident">i32</span>) -&gt; <span class="ident">i32</span>;
+        <span class="doccomment">/// Converts an f64 to an unsigned integer,</span>
+        <span class="doccomment">/// rounding towards -Infinity, and clamping the result to lie within the</span>
+        <span class="doccomment">/// range `0x00000000` to `0xFFFFFFFF`</span>
+        <span class="number">0x24</span> <span class="ident">double_to_uint</span>(<span class="ident">v</span>: <span class="ident">f64</span>) -&gt; <span class="ident">u32</span>;
+        <span class="doccomment">/// Converts an f64 to an unsigned fixed point</span>
+        <span class="doccomment">/// integer representation where n specifies the position of the binary</span>
+        <span class="doccomment">/// point in the resulting fixed point representation, e.g.</span>
+        <span class="doccomment">/// `f(0.5f, 16) == 0x8000`. This method rounds towards -Infinity,</span>
+        <span class="doccomment">/// and clamps the resulting integer to lie within the range `0x00000000` to</span>
+        <span class="doccomment">/// `0xFFFFFFFF`</span>
+        <span class="number">0x28</span> <span class="ident">double_to_ufix</span>(<span class="ident">v</span>: <span class="ident">f64</span>, <span class="ident">n</span>: <span class="ident">i32</span>) -&gt; <span class="ident">u32</span>;
+        <span class="doccomment">/// Converts a signed integer to the nearest</span>
+        <span class="doccomment">/// double value, rounding to even on tie</span>
+        <span class="number">0x2c</span> <span class="ident">int_to_double</span>(<span class="ident">v</span>: <span class="ident">i32</span>) -&gt; <span class="ident">f64</span>;
+        <span class="doccomment">/// Converts a signed fixed point integer</span>
+        <span class="doccomment">/// representation to the nearest double value, rounding to even on tie. `n`</span>
+        <span class="doccomment">/// specifies the position of the binary point in fixed point, so `f =</span>
+        <span class="doccomment">/// nearest(v/(2^n))`</span>
+        <span class="number">0x30</span> <span class="ident">fix_to_double</span>(<span class="ident">v</span>: <span class="ident">i32</span>, <span class="ident">n</span>: <span class="ident">i32</span>) -&gt; <span class="ident">f64</span>;
+        <span class="doccomment">/// Converts an unsigned integer to the nearest</span>
+        <span class="doccomment">/// double value, rounding to even on tie</span>
+        <span class="number">0x34</span> <span class="ident">uint_to_double</span>(<span class="ident">v</span>: <span class="ident">u32</span>) -&gt; <span class="ident">f64</span>;
+        <span class="doccomment">/// Converts an unsigned fixed point integer</span>
+        <span class="doccomment">/// representation to the nearest double value, rounding to even on tie. `n`</span>
+        <span class="doccomment">/// specifies the position of the binary point in fixed point, so f =</span>
+        <span class="doccomment">/// nearest(v/(2^n))</span>
+        <span class="number">0x38</span> <span class="ident">ufix_to_double</span>(<span class="ident">v</span>: <span class="ident">u32</span>, <span class="ident">n</span>: <span class="ident">i32</span>) -&gt; <span class="ident">f64</span>;
+        <span class="doccomment">/// Calculates the cosine of `angle`. The value</span>
+        <span class="doccomment">/// of `angle` is in radians, and must be in the range `-1024` to `1024`</span>
+        <span class="number">0x3c</span> <span class="ident">dcos</span>(<span class="ident">angle</span>: <span class="ident">f64</span>) -&gt; <span class="ident">f64</span>;
+        <span class="doccomment">/// Calculates the sine of `angle`. The value of</span>
+        <span class="doccomment">/// `angle` is in radians, and must be in the range `-1024` to `1024`</span>
+        <span class="number">0x40</span> <span class="ident">dsin</span>(<span class="ident">angle</span>: <span class="ident">f64</span>) -&gt; <span class="ident">f64</span>;
+        <span class="doccomment">/// Calculates the tangent of `angle`. The value</span>
+        <span class="doccomment">/// of `angle` is in radians, and must be in the range `-1024` to `1024`</span>
+        <span class="number">0x44</span> <span class="ident">dtan</span>(<span class="ident">angle</span>: <span class="ident">f64</span>) -&gt; <span class="ident">f64</span>;
+
+        <span class="comment">// 0x48 is deprecated</span>
+
+        <span class="doccomment">/// Calculates the exponential value of `v`,</span>
+        <span class="doccomment">/// i.e. `e ** v`</span>
+        <span class="number">0x4c</span> <span class="ident">dexp</span>(<span class="ident">v</span>: <span class="ident">f64</span>) -&gt; <span class="ident">f64</span>;
+        <span class="doccomment">/// Calculates the natural logarithm of v. If v &lt;= 0 return -Infinity</span>
+        <span class="number">0x50</span> <span class="ident">dln</span>(<span class="ident">v</span>: <span class="ident">f64</span>) -&gt; <span class="ident">f64</span>;
+
+        <span class="comment">// These are only on BootROM v2 or higher</span>
+
+        <span class="doccomment">/// Compares two floating point numbers, returning:</span>
+        <span class="doccomment">///     • 0 if a == b</span>
+        <span class="doccomment">///     • -1 if a &lt; b</span>
+        <span class="doccomment">///     • 1 if a &gt; b</span>
+        <span class="number">0x54</span> <span class="ident">dcmp</span>(<span class="ident">a</span>: <span class="ident">f64</span>, <span class="ident">b</span>: <span class="ident">f64</span>) -&gt; <span class="ident">i32</span>;
+        <span class="doccomment">/// Computes the arc tangent of `y/x` using the</span>
+        <span class="doccomment">/// signs of arguments to determine the correct quadrant</span>
+        <span class="number">0x58</span> <span class="ident">datan2</span>(<span class="ident">y</span>: <span class="ident">f64</span>, <span class="ident">x</span>: <span class="ident">f64</span>) -&gt; <span class="ident">f64</span>;
+        <span class="doccomment">/// Converts a signed 64-bit integer to the</span>
+        <span class="doccomment">/// nearest double value, rounding to even on tie</span>
+        <span class="number">0x5c</span> <span class="ident">int64_to_double</span>(<span class="ident">v</span>: <span class="ident">i64</span>) -&gt; <span class="ident">f64</span>;
+        <span class="doccomment">/// Converts a signed fixed point 64-bit integer</span>
+        <span class="doccomment">/// representation to the nearest double value, rounding to even on tie. `n`</span>
+        <span class="doccomment">/// specifies the position of the binary point in fixed point, so `f =</span>
+        <span class="doccomment">/// nearest(v/(2^n))`</span>
+        <span class="number">0x60</span> <span class="ident">fix64_to_doubl</span>(<span class="ident">v</span>: <span class="ident">i64</span>, <span class="ident">n</span>: <span class="ident">i32</span>) -&gt; <span class="ident">f64</span>;
+        <span class="doccomment">/// Converts an unsigned 64-bit integer to the</span>
+        <span class="doccomment">/// nearest double value, rounding to even on tie</span>
+        <span class="number">0x64</span> <span class="ident">uint64_to_double</span>(<span class="ident">v</span>: <span class="ident">u64</span>) -&gt; <span class="ident">f64</span>;
+        <span class="doccomment">/// Converts an unsigned fixed point 64-bit</span>
+        <span class="doccomment">/// integer representation to the nearest double value, rounding to even on</span>
+        <span class="doccomment">/// tie. `n` specifies the position of the binary point in fixed point, so</span>
+        <span class="doccomment">/// `f = nearest(v/(2^n))`</span>
+        <span class="number">0x68</span> <span class="ident">ufix64_to_double</span>(<span class="ident">v</span>: <span class="ident">u64</span>, <span class="ident">n</span>: <span class="ident">i32</span>) -&gt; <span class="ident">f64</span>;
+        <span class="doccomment">/// Convert an f64 to a signed 64-bit integer, rounding towards -Infinity,</span>
+        <span class="doccomment">/// and clamping the result to lie within the range `-0x8000000000000000` to</span>
+        <span class="doccomment">/// `0x7FFFFFFFFFFFFFFF`</span>
+        <span class="number">0x6c</span> <span class="ident">double_to_int64</span>(<span class="ident">v</span>: <span class="ident">f64</span>) -&gt; <span class="ident">i64</span>;
+        <span class="doccomment">/// Converts an f64 to a signed fixed point</span>
+        <span class="doccomment">/// 64-bit integer representation where n specifies the position of the</span>
+        <span class="doccomment">/// binary point in the resulting fixed point representation - e.g. `f(0.5f,</span>
+        <span class="doccomment">/// 16) == 0x8000`. This method rounds towards -Infinity, and clamps the</span>
+        <span class="doccomment">/// resulting integer to lie within the range `-0x8000000000000000` to</span>
+        <span class="doccomment">/// `0x7FFFFFFFFFFFFFFF`</span>
+        <span class="number">0x70</span> <span class="ident">double_to_fix64</span>(<span class="ident">v</span>: <span class="ident">f64</span>, <span class="ident">n</span>: <span class="ident">i32</span>) -&gt; <span class="ident">i64</span>;
+        <span class="doccomment">/// Converts an f64 to an unsigned 64-bit</span>
+        <span class="doccomment">/// integer, rounding towards -Infinity, and clamping the result to lie</span>
+        <span class="doccomment">/// within the range `0x0000000000000000` to `0xFFFFFFFFFFFFFFFF`</span>
+        <span class="number">0x74</span> <span class="ident">double_to_uint64</span>(<span class="ident">v</span>: <span class="ident">f64</span>) -&gt; <span class="ident">u64</span>;
+        <span class="doccomment">/// Converts an f64 to an unsigned fixed point</span>
+        <span class="doccomment">/// 64-bit integer representation where n specifies the position of the</span>
+        <span class="doccomment">/// binary point in the resulting fixed point representation, e.g. `f(0.5f,</span>
+        <span class="doccomment">/// 16) == 0x8000`. This method rounds towards -Infinity, and clamps the</span>
+        <span class="doccomment">/// resulting integer to lie within the range `0x0000000000000000` to</span>
+        <span class="doccomment">/// `0xFFFFFFFFFFFFFFFF`</span>
+        <span class="number">0x78</span> <span class="ident">double_to_ufix64</span>(<span class="ident">v</span>: <span class="ident">f64</span>, <span class="ident">n</span>: <span class="ident">i32</span>) -&gt; <span class="ident">u64</span>;
+        <span class="doccomment">/// Converts an f64 to an f32</span>
+        <span class="number">0x7c</span> <span class="ident">double_to_float</span>(<span class="ident">v</span>: <span class="ident">f64</span>) -&gt; <span class="ident">f32</span>;
+    }
+}
+</code></pre></div>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="rp2040_hal" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0" ></div></body></html>

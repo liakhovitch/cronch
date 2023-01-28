@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["DMARDLR_SPEC","DMA RX data level"],["DMARDL_R","Field `DMARDL` reader - Receive data watermark level (DMARDLR+1)"],["DMARDL_W","Field `DMARDL` writer - Receive data watermark level (DMARDLR+1)"],["R","Register `DMARDLR` reader"],["W","Register `DMARDLR` writer"]]};

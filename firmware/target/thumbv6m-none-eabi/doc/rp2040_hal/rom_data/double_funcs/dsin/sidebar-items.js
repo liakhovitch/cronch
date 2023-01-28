@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":[["ptr","Retrieve a function pointer."]]};

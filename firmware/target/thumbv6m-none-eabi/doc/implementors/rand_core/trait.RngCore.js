@@ -1,0 +1,4 @@
+(function() {var implementors = {};
+implementors["rand_core"] = [];
+implementors["rp2040_hal"] = [{"text":"impl <a class=\"trait\" href=\"rand_core/trait.RngCore.html\" title=\"trait rand_core::RngCore\">RngCore</a> for <a class=\"struct\" href=\"rp2040_hal/rosc/struct.RingOscillator.html\" title=\"struct rp2040_hal::rosc::RingOscillator\">RingOscillator</a>&lt;<a class=\"struct\" href=\"rp2040_hal/rosc/struct.Enabled.html\" title=\"struct rp2040_hal::rosc::Enabled\">Enabled</a>&gt;","synthetic":false,"types":["rp2040_hal::rosc::RingOscillator"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

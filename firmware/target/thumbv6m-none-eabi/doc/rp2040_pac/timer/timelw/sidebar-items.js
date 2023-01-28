@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["TIMELW_SPEC","Write to bits 31:0 of time writes do not get copied to time until timehw is written"],["W","Register `TIMELW` writer"]]};

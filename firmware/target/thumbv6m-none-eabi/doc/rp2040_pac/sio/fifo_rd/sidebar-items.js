@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["FIFO_RD_SPEC","Read access to this core’s RX FIFO"],["R","Register `FIFO_RD` reader"]]};

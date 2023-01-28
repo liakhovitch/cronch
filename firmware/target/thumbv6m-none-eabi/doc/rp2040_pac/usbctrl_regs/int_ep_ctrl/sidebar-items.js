@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["INT_EP_ACTIVE_R","Field `INT_EP_ACTIVE` reader - Host: Enable interrupt endpoint 1 -> 15"],["INT_EP_ACTIVE_W","Field `INT_EP_ACTIVE` writer - Host: Enable interrupt endpoint 1 -> 15"],["INT_EP_CTRL_SPEC","interrupt endpoint control register"],["R","Register `INT_EP_CTRL` reader"],["W","Register `INT_EP_CTRL` writer"]]};

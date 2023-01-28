@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["CLR_RX_UNDER_R","Field `CLR_RX_UNDER` reader - Read this register to clear the RX_UNDER interrupt (bit 0) of the IC_RAW_INTR_STAT register."],["IC_CLR_RX_UNDER_SPEC","Clear RX_UNDER Interrupt Register"],["R","Register `IC_CLR_RX_UNDER` reader"]]};

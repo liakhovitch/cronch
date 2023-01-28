@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["N_CHANNELS_R","Field `N_CHANNELS` reader - "],["N_CHANNELS_SPEC","The number of channels this DMA instance is equipped with. This DMA supports up to 16 hardware channels, but can be configured with as few as one, to minimise silicon area."],["R","Register `N_CHANNELS` reader"]]};

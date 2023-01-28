@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["INSTR_MEM0_W","Field `INSTR_MEM0` writer - "],["INSTR_MEM_SPEC","Write-only access to instruction memory location %s"],["W","Register `INSTR_MEM%s` writer"]]};

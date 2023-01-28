@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["DESIGNER1_R","Field `DESIGNER1` reader - These bits read back as 0x4"],["R","Register `SSPPERIPHID2` reader"],["REVISION_R","Field `REVISION` reader - These bits return the peripheral revision"],["SSPPERIPHID2_SPEC","Peripheral identification registers, SSPPeriphID0-3 on page 3-13"]]};

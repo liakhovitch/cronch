@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["INTERP1_PEEK_FULL_SPEC","Read FULL result, without altering any internal state (PEEK)."],["R","Register `INTERP1_PEEK_FULL` reader"]]};

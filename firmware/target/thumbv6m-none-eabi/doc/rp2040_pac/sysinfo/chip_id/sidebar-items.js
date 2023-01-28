@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["CHIP_ID_SPEC","JEDEC JEP-106 compliant chip identifier."],["MANUFACTURER_R","Field `MANUFACTURER` reader - "],["PART_R","Field `PART` reader - "],["R","Register `CHIP_ID` reader"],["REVISION_R","Field `REVISION` reader - "]]};

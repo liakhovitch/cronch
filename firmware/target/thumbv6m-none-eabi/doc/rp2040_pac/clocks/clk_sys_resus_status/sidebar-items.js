@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["CLK_SYS_RESUS_STATUS_SPEC","This register you can `read`. See API."],["R","Register `CLK_SYS_RESUS_STATUS` reader"],["RESUSSED_R","Field `RESUSSED` reader - Clock has been resuscitated, correct the error then send ctrl_clear=1"]]};

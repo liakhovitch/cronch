@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["COUNT_R","Field `COUNT` reader - "],["R","Register `SOF_RD` reader"],["SOF_RD_SPEC","Read the last SOF (Start of Frame) frame number seen. In device mode the last SOF received from the host. In host mode the last SOF sent by the host."]]};

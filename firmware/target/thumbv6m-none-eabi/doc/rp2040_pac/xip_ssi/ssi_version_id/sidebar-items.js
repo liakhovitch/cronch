@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["R","Register `SSI_VERSION_ID` reader"],["SSI_COMP_VERSION_R","Field `SSI_COMP_VERSION` reader - SNPS component version (format X.YY)"],["SSI_VERSION_ID_SPEC","Version ID"]]};

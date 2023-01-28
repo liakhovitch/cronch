@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["CPUID_SPEC","Processor core identifier Value is 0 when read from processor core 0, and 1 when read from processor core 1."],["R","Register `CPUID` reader"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["IC_COMP_VERSION_R","Field `IC_COMP_VERSION` reader - "],["IC_COMP_VERSION_SPEC","I2C Component Version Register"],["R","Register `IC_COMP_VERSION` reader"]]};

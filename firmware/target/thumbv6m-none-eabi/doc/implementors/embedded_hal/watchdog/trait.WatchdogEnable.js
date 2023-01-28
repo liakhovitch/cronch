@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["rp2040_hal"] = [{"text":"impl <a class=\"trait\" href=\"embedded_hal/watchdog/trait.WatchdogEnable.html\" title=\"trait embedded_hal::watchdog::WatchdogEnable\">WatchdogEnable</a> for <a class=\"struct\" href=\"rp2040_hal/watchdog/struct.Watchdog.html\" title=\"struct rp2040_hal::watchdog::Watchdog\">Watchdog</a>","synthetic":false,"types":["rp2040_hal::watchdog::Watchdog"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

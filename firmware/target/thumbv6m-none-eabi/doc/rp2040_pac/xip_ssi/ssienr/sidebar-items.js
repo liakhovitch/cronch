@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["R","Register `SSIENR` reader"],["SSIENR_SPEC","SSI Enable"],["SSI_EN_R","Field `SSI_EN` reader - SSI enable"],["SSI_EN_W","Field `SSI_EN` writer - SSI enable"],["W","Register `SSIENR` writer"]]};

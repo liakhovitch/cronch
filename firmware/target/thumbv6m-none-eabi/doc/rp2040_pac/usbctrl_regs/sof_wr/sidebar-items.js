@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["COUNT_W","Field `COUNT` writer - "],["SOF_WR_SPEC","Set the SOF (Start of Frame) frame number in the host controller. The SOF packet is sent every 1ms and the host will increment the frame number by 1 each time."],["W","Register `SOF_WR` writer"]]};

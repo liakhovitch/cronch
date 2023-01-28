@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["NoneT","Type-level version of the [None] variant"]],"trait":[["Is","Marker trait for type identity"]],"type":[["IsType","Type alias for [`Is::Type`]"]]};

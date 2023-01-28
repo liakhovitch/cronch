@@ -1,0 +1,13 @@
+(sym_lib_table
+  (lib (name "200MSP3T1B1M2QEH")(type "KiCad")(uri "${KIPRJMOD}/symbols/200MSP3T1B1M2QEH.kicad_sym")(options "")(descr ""))
+  (lib (name "ADP5587ACPZ-R7")(type "Legacy")(uri "${KIPRJMOD}/symbols/ADP5587ACPZ-R7.lib")(options "")(descr ""))
+  (lib (name "IS31FL3218-GRLS2")(type "Legacy")(uri "${KIPRJMOD}/symbols/IS31FL3218-GRLS2.lib")(options "")(descr ""))
+  (lib (name "IS31FL3728-QFLS2-TR")(type "Legacy")(uri "${KIPRJMOD}/symbols/IS31FL3728-QFLS2-TR.lib")(options "")(descr ""))
+  (lib (name "IS66WVS2M8ALL-104NLI")(type "Legacy")(uri "${KIPRJMOD}/symbols/IS66WVS2M8ALL-104NLI.lib")(options "")(descr ""))
+  (lib (name "SC0915")(type "KiCad")(uri "${KIPRJMOD}/symbols/SC0915.kicad_sym")(options "")(descr ""))
+  (lib (name "SJ2-3574A-SMT-TR")(type "Legacy")(uri "${KIPRJMOD}/symbols/SJ2-3574A-SMT-TR.lib")(options "")(descr ""))
+  (lib (name "TLV320AIC3254IRHBT")(type "KiCad")(uri "${KIPRJMOD}/symbols/TLV320AIC3254IRHBT.kicad_sym")(options "")(descr ""))
+  (lib (name "ECE1088-DZK")(type "Legacy")(uri "${KIPRJMOD}/symbols/ECE1088-DZK.lib")(options "")(descr ""))
+  (lib (name "PCAL6524HEAZ")(type "Legacy")(uri "${KIPRJMOD}/symbols/PCAL6524HEAZ.lib")(options "")(descr ""))
+  (lib (name "SS14D0839VG5PA")(type "Legacy")(uri "${KIPRJMOD}/symbols/SS14D0839VG5PA.lib")(options "")(descr ""))
+)

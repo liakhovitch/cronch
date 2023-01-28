@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["Disabled","ROSC is disabled (typestate)"],["Dormant","ROSC is in dormant mode (see Chapter 2, Section 17, §7)"],["Enabled","ROSC is initialized, ie we’ve given parameters (typestate)"],["RingOscillator","A Ring Oscillator."]],"trait":[["State","State of the Ring Oscillator (typestate trait)"]]};

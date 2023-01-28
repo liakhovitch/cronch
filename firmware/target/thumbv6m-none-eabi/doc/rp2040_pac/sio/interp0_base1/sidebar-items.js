@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["INTERP0_BASE1_SPEC","Read/write access to BASE1 register."],["R","Register `INTERP0_BASE1` reader"],["W","Register `INTERP0_BASE1` writer"]]};

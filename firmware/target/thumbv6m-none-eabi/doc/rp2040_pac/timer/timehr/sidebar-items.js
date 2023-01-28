@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["R","Register `TIMEHR` reader"],["TIMEHR_SPEC","Read from bits 63:32 of time always read timelr before timehr"]]};

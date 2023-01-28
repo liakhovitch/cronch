@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["GPIO_HI_IN_R","Field `GPIO_HI_IN` reader - Input value on QSPI IO in order 0..5: SCLK, SSn, SD0, SD1, SD2, SD3"],["GPIO_HI_IN_SPEC","Input value for QSPI pins"],["R","Register `GPIO_HI_IN` reader"]]};

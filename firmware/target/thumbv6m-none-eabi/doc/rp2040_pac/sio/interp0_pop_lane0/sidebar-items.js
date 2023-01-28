@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["INTERP0_POP_LANE0_SPEC","Read LANE0 result, and simultaneously write lane results to both accumulators (POP)."],["R","Register `INTERP0_POP_LANE0` reader"]]};

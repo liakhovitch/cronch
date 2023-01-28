@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["platform","Indicates the type of platform in use"]],"struct":[["RegisterBlock","Register block"]],"type":[["PLATFORM","PLATFORM register accessor: an alias for `Reg<PLATFORM_SPEC>`"]]};

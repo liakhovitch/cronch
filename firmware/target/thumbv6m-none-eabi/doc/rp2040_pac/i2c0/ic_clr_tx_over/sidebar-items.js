@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["CLR_TX_OVER_R","Field `CLR_TX_OVER` reader - Read this register to clear the TX_OVER interrupt (bit 3) of the IC_RAW_INTR_STAT register."],["IC_CLR_TX_OVER_SPEC","Clear TX_OVER Interrupt Register"],["R","Register `IC_CLR_TX_OVER` reader"]]};

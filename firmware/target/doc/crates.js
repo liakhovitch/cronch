@@ -1,0 +1,1 @@
+window.ALL_CRATES = ["cortex_m_rt","cortex_m_rt_macros","num_enum_derive","paste","proc_macro2","quote","rp2040_hal_macros","syn","unicode_ident"];

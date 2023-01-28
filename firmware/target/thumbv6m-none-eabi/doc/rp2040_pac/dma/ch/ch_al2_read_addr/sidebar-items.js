@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["CH_AL2_READ_ADDR_SPEC","Alias for channel 0 READ_ADDR register"],["R","Register `CH_AL2_READ_ADDR` reader"],["W","Register `CH_AL2_READ_ADDR` writer"]]};

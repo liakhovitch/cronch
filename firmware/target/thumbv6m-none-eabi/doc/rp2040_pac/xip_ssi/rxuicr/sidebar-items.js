@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["R","Register `RXUICR` reader"],["RXUICR_R","Field `RXUICR` reader - Clear-on-read receive FIFO underflow interrupt"],["RXUICR_SPEC","RX FIFO underflow interrupt clear"]]};

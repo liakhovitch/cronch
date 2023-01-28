@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["TXF_SPEC","Direct write access to the TX FIFO for this state machine. Each write pushes one word to the FIFO. Attempting to write to a full FIFO has no effect on the FIFO state or contents, and sets the sticky FDEBUG_TXOVER error flag for this FIFO."],["W","Register `TXF%s` writer"]]};

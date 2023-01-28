@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["R","Register `RX_SAMPLE_DLY` reader"],["RSD_R","Field `RSD` reader - RXD sample delay (in SCLK cycles)"],["RSD_W","Field `RSD` writer - RXD sample delay (in SCLK cycles)"],["RX_SAMPLE_DLY_SPEC","RX sample delay"],["W","Register `RX_SAMPLE_DLY` writer"]]};

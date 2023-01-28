@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["_115200_8_N_1","115200 baud, 8 data bits, no parity, 1 stop bit"],["_19200_8_N_1","19200 baud, 8 data bits, no parity, 1 stop bit"],["_38400_8_N_1","38400 baud, 8 data bits, no parity, 1 stop bit"],["_57600_8_N_1","57600 baud, 8 data bits, no parity, 1 stop bit"],["_9600_8_N_1","9600 baud, 8 data bits, no parity, 1 stop bit"]]};

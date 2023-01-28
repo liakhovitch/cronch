@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["FORCE_R","Field `FORCE` reader - "],["R","Register `REASON` reader"],["REASON_SPEC","Logs the reason for the last reset. Both bits are zero for the case of a hardware reset."],["TIMER_R","Field `TIMER` reader - "]]};

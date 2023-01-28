@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["R","Register `SCRATCH0` reader"],["SCRATCH0_SPEC","Scratch register. Information persists through soft reset of the chip."],["W","Register `SCRATCH0` writer"]]};

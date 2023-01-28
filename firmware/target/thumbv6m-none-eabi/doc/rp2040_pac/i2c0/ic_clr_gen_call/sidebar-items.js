@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["CLR_GEN_CALL_R","Field `CLR_GEN_CALL` reader - Read this register to clear the GEN_CALL interrupt (bit 11) of IC_RAW_INTR_STAT register."],["IC_CLR_GEN_CALL_SPEC","Clear GEN_CALL Interrupt Register"],["R","Register `IC_CLR_GEN_CALL` reader"]]};

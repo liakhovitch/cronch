@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["R","Register `TIMERAWH` reader"],["TIMERAWH_SPEC","Raw read from bits 63:32 of time (no side effects)"]]};

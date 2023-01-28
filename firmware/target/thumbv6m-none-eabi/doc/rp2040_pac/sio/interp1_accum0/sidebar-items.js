@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["INTERP1_ACCUM0_SPEC","Read/write access to accumulator 0"],["R","Register `INTERP1_ACCUM0` reader"],["W","Register `INTERP1_ACCUM0` writer"]]};

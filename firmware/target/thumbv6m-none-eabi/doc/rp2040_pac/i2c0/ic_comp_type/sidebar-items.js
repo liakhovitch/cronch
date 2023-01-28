@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["IC_COMP_TYPE_R","Field `IC_COMP_TYPE` reader - Designware Component Type number = 0x44_57_01_40. This assigned unique hex value is constant and is derived from the two ASCII letters ‘DW’ followed by a 16-bit unsigned number."],["IC_COMP_TYPE_SPEC","I2C Component Type Register"],["R","Register `IC_COMP_TYPE` reader"]]};

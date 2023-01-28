@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["CLR_START_DET_R","Field `CLR_START_DET` reader - Read this register to clear the START_DET interrupt (bit 10) of the IC_RAW_INTR_STAT register."],["IC_CLR_START_DET_SPEC","Clear START_DET Interrupt Register"],["R","Register `IC_CLR_START_DET` reader"]]};

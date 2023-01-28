@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP IS66WVS2M8ALL-104NLI
+D SRAM 16Mb, SerialRAM, 1.65V-1.95V, 104MHz, 8 pin SOIC 150 mil, RoHS
+K
+F https://au.mouser.com/datasheet/2/198/66_67WVS2M8ALL_BLL-2933435.pdf
+$ENDCMP
+#
+#End Doc Library

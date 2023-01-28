@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["Cs","Pin ID representing pin "],["Sck","Pin ID representing pin "],["Sd0","Pin ID representing pin "],["Sd1","Pin ID representing pin "],["Sd2","Pin ID representing pin "],["Sd3","Pin ID representing pin "]],"struct":[["Pins","Collection of all the individual [`Pin`]s"]],"trait":[["BankPinId","Bank0 bank pin id"]]};

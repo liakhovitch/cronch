@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["R","Register `TOP` reader"],["TOP_R","Field `TOP` reader - "],["TOP_SPEC","Counter wrap value"],["TOP_W","Field `TOP` writer - "],["W","Register `TOP` writer"]]};

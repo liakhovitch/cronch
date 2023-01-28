@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["PAUSE_R","Field `PAUSE` reader - "],["PAUSE_SPEC","Set high to pause the timer"],["PAUSE_W","Field `PAUSE` writer - "],["R","Register `PAUSE` reader"],["W","Register `PAUSE` writer"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["DynChannelId","Channel ids"],["DynSliceMode","Slice modes"]],"struct":[["DynSliceId","Value-level `struct` representing slice IDs"]]};

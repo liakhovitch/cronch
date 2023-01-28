@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["Adc","Adc"],["TempSense","Internal temperature sensor type"]]};

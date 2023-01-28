@@ -1,0 +1,20 @@
+.PCAL6524HEAZ :1 ;Interface - I/O Expanders PCAL6524HE/HUQFN32///REEL 7 Q2/T3 *STANDARD MARK
+QFN50P500X500X60-33N-D
+*STM IC
+*NGS
+*PLB 1="P0_0" 2="P0_1" 3="P0_2" 4="P0_3" 5="P0_4" 6="P0_5" 7="P0_6" 8="P0_7" 9="P1_0" 10="P1_1" 11="P1_2" 12="P1_3" 13="P1_4" 14="P1_5" 15="P1_6" 16="P1_7" 17="P2_0" 18="P2_1" 19="P2_2" 20="P2_3" 21="P2_4" 22="P2_5" 23="P2_6" 24="P2_7" 25="VSS" 26="ADDR" 27="VDD(P)" 28="'RESET'" 29="SCL" 30="SDA" 31="VDD(I2C-BUS)" 32="'INT'" 33="EP"
+*MXP 33
+*DFN PCAL6524HEAZ
+~!Manufacturer_Name (NXP)
+~!Manufacturer_Part_Number (PCAL6524HEAZ)
+~!Mouser Part Number (771-PCAL6524HEAZ)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/NXP-Semiconductors/PCAL6524HEAZ?qs=gH1BdSMZm8UzrKpsyR%252B%2FSg%3D%3D)
+~!Arrow Part Number (PCAL6524HEAZ)
+~!Link Arrow Price/Stock (https://www.arrow.com/en/products/pcal6524heaz/nxp-semiconductors?region=nac)
+~!Mouser Testing Part Number (-)
+~!Mouser Testing Price/Stock (-)
+~!Link Datasheet (http://www.nxp.com/docs/en/data-sheet/PCAL6524.pdf)
+~!Height (0.6mm)
+~!3D_Model (PCAL6524HEAZ)
+PCAL6524HEAZ
+1.1!U 2.1!U 3.1!U 4.1!U 5.1!U 6.1!U 7.1!U 8.1!U 9.1!U 10.1!U 11.1!U 12.1!U 13.1!U 14.1!U 15.1!U 16.1!U 24.1!U 23.1!U 22.1!U 21.1!U 20.1!U 19.1!U 18.1!U 17.1!U 33.1!U 32.1!U 31.1!U 30.1!U 29.1!U 28.1!U 27.1!U 26.1!U 25.1!U 

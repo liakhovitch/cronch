@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["FC0_MAX_KHZ_R","Field `FC0_MAX_KHZ` reader - "],["FC0_MAX_KHZ_SPEC","Maximum pass frequency in kHz. This is optional. Set to 0x1ffffff if you are not using the pass/fail flags"],["FC0_MAX_KHZ_W","Field `FC0_MAX_KHZ` writer - "],["R","Register `FC0_MAX_KHZ` reader"],["W","Register `FC0_MAX_KHZ` writer"]]};

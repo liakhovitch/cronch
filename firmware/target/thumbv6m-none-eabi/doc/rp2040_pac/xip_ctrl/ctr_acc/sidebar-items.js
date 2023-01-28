@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["CTR_ACC_SPEC","Cache Access counter A 32 bit saturating counter that increments upon each XIP access, whether the cache is hit or not. This includes noncacheable accesses. Write any value to clear."],["R","Register `CTR_ACC` reader"],["W","Register `CTR_ACC` writer"]]};
