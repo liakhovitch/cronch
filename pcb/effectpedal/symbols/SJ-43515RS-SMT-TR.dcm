@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP SJ-43515RS-SMT-TR
+D 4 conductor 3.5 mm Surface Mount Audio Jack w/ Ring Switch
+K
+F https://www.mouser.com/datasheet/2/670/sj-4351x-smt_series-1312932.pdf
+$ENDCMP
+#
+#End Doc Library

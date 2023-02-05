@@ -1,9 +1,0 @@
-EESchema-DOCLIB  Version 2.0
-#
-$CMP PCAL6524HEAZ
-D Interface - I/O Expanders PCAL6524HE/HUQFN32///REEL 7 Q2/T3 *STANDARD MARK
-K
-F http://www.nxp.com/docs/en/data-sheet/PCAL6524.pdf
-$ENDCMP
-#
-#End Doc Library

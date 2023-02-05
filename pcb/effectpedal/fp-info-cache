@@ -1,4 +1,4 @@
-15072946506809
+23454080173222
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -86443,12 +86443,33 @@ MODULE_SC0915
 53
 53
 footprints
+PTS810SJG250SMTRLFS
+<b>pts810</b><br>
+
+0
+4
+4
+footprints
+PTV09A4015FB103
+PTV09A-4015F-B103-1
+Variable Resistor
+0
+5
+5
+footprints
 QFN50P400X400X80-25N-D
 IS31FL3728-QFLS2-TR
 Integrated Circuit
 0
 25
 25
+footprints
+QFN50P500X500X60-33N-D
+SOT1426-1
+Integrated Circuit
+0
+33
+33
 footprints
 QFN50P500X500X100-29N-D
 28 TERMINAL QFN 5X5MM BODY 0.5MM PITCH
@@ -86464,12 +86485,12 @@ QFN50P500X500X100-33N
 33
 33
 footprints
-SJ23574ASMTTR
-SJ2-3574A-SMT-TR
+SJ43515RSSMTTR
+SJ-43515RS-SMT-TR-2
 Connector
 0
-4
-4
+6
+6
 footprints
 SOIC127P600X175-8N
 10.2 8-PIN JEDEC 150MIL BROAD SMALL OUTLINE INTEGRATED CIRCUIT (SOIC) PACKAGE (N)
@@ -86485,6 +86506,13 @@ Integrated Circuit
 24
 24
 footprints
+SS14D0839VG5PA
+SS14D0839VG5PA-4
+Switch
+0
+7
+7
+footprints
 SW-T3-2B-A-A3-S1
 
 
@@ -86498,3 +86526,10 @@ SW_200MSP3T1B1M2QEH
 0
 3
 3
+footprints
+SW_TS04-66-43-BK-100-SMT
+
+
+0
+4
+4

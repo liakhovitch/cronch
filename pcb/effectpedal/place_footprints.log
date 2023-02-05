@@ -1,0 +1,645 @@
+02-04 16:04:10 com_github_MitjaNemec_PlaceFootprints.action_place_footprints 409:Plugin executed on: 'linux'
+02-04 16:04:10 com_github_MitjaNemec_PlaceFootprints.action_place_footprints 410:Plugin executed with python version: '3.10.9 (main, Dec  6 2022, 18:44:57) [GCC 11.3.0]'
+02-04 16:04:10 com_github_MitjaNemec_PlaceFootprints.action_place_footprints 411:KiCad build version: 6.0.9
+02-04 16:04:10 com_github_MitjaNemec_PlaceFootprints.action_place_footprints 412:Plugin version: 1.2.8
+02-04 16:04:10 com_github_MitjaNemec_PlaceFootprints.action_place_footprints 413:Frame repr: <wx._core.Frame object at 0x7fc18b67fd00>
+02-04 16:04:16 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:04:16 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:04:16 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:04:16 svg2mod 304:  Inlining 1 segments...
+02-04 16:04:16 svg2mod 339:  Writing Text with 24 points
+02-04 16:04:16 svg2mod 339:  Writing Text with 4 points
+02-04 16:04:17 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:04:17 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:04:17 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:04:17 svg2mod 304:  Inlining 3 segments...
+02-04 16:04:17 svg2mod 339:  Writing Text with 61 points
+02-04 16:04:17 svg2mod 339:  Writing Text with 16 points
+02-04 16:04:17 svg2mod 339:  Writing Text with 4 points
+02-04 16:04:19 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:04:19 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:04:19 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:04:19 svg2mod 304:  Inlining 3 segments...
+02-04 16:04:19 svg2mod 339:  Writing Text with 61 points
+02-04 16:04:19 svg2mod 339:  Writing Text with 16 points
+02-04 16:04:19 svg2mod 339:  Writing Text with 4 points
+02-04 16:04:22 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:04:22 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:04:22 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:04:22 svg2mod 304:  Inlining 3 segments...
+02-04 16:04:22 svg2mod 339:  Writing Text with 61 points
+02-04 16:04:22 svg2mod 339:  Writing Text with 16 points
+02-04 16:04:22 svg2mod 339:  Writing Text with 4 points
+02-04 16:04:23 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:04:23 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:04:23 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:04:23 svg2mod 304:  Inlining 3 segments...
+02-04 16:04:23 svg2mod 339:  Writing Text with 61 points
+02-04 16:04:23 svg2mod 339:  Writing Text with 16 points
+02-04 16:04:23 svg2mod 339:  Writing Text with 4 points
+02-04 16:04:24 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:04:24 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:04:24 svg2mod 304:  Inlining 3 segments...
+02-04 16:04:24 svg2mod 339:  Writing Text with 61 points
+02-04 16:04:24 svg2mod 339:  Writing Text with 16 points
+02-04 16:04:24 svg2mod 339:  Writing Text with 4 points
+02-04 16:04:40 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:04:40 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:04:40 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:04:40 svg2mod 304:  Inlining 1 segments...
+02-04 16:04:40 svg2mod 339:  Writing Text with 30 points
+02-04 16:04:41 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:04:41 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:04:41 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:04:41 svg2mod 304:  Inlining 3 segments...
+02-04 16:04:41 svg2mod 339:  Writing Text with 73 points
+02-04 16:04:43 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:04:43 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:04:43 svg2mod 304:  Inlining 3 segments...
+02-04 16:04:43 svg2mod 339:  Writing Text with 73 points
+02-04 16:05:32 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:05:32 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:05:32 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:05:32 svg2mod 304:  Inlining 1 segments...
+02-04 16:05:32 svg2mod 339:  Writing Text with 24 points
+02-04 16:05:32 svg2mod 339:  Writing Text with 4 points
+02-04 16:05:32 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:05:32 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:05:32 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:05:32 svg2mod 304:  Inlining 3 segments...
+02-04 16:05:32 svg2mod 339:  Writing Text with 61 points
+02-04 16:05:32 svg2mod 339:  Writing Text with 16 points
+02-04 16:05:32 svg2mod 339:  Writing Text with 4 points
+02-04 16:05:36 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:05:36 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:05:36 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:05:36 svg2mod 304:  Inlining 3 segments...
+02-04 16:05:36 svg2mod 339:  Writing Text with 73 points
+02-04 16:05:36 svg2mod 339:  Writing Text with 16 points
+02-04 16:05:36 svg2mod 339:  Writing Text with 4 points
+02-04 16:05:38 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:05:38 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:05:38 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:05:38 svg2mod 304:  Inlining 3 segments...
+02-04 16:05:38 svg2mod 339:  Writing Text with 59 points
+02-04 16:05:38 svg2mod 339:  Writing Text with 16 points
+02-04 16:05:38 svg2mod 339:  Writing Text with 4 points
+02-04 16:05:42 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:05:42 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:05:42 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:05:42 svg2mod 304:  Inlining 3 segments...
+02-04 16:05:42 svg2mod 339:  Writing Text with 58 points
+02-04 16:05:42 svg2mod 339:  Writing Text with 16 points
+02-04 16:05:42 svg2mod 339:  Writing Text with 4 points
+02-04 16:05:46 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:05:46 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:05:46 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:05:46 svg2mod 304:  Inlining 3 segments...
+02-04 16:05:46 svg2mod 339:  Writing Text with 57 points
+02-04 16:05:46 svg2mod 339:  Writing Text with 16 points
+02-04 16:05:46 svg2mod 339:  Writing Text with 4 points
+02-04 16:05:50 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:05:50 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:05:50 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:05:50 svg2mod 304:  Inlining 3 segments...
+02-04 16:05:50 svg2mod 339:  Writing Text with 74 points
+02-04 16:05:50 svg2mod 339:  Writing Text with 16 points
+02-04 16:05:50 svg2mod 339:  Writing Text with 4 points
+02-04 16:05:52 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:05:52 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:05:52 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:05:52 svg2mod 304:  Inlining 3 segments...
+02-04 16:05:52 svg2mod 339:  Writing Text with 89 points
+02-04 16:05:52 svg2mod 339:  Writing Text with 16 points
+02-04 16:05:52 svg2mod 339:  Writing Text with 4 points
+02-04 16:05:55 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:05:55 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:05:55 svg2mod 304:  Inlining 3 segments...
+02-04 16:05:55 svg2mod 339:  Writing Text with 89 points
+02-04 16:05:55 svg2mod 339:  Writing Text with 16 points
+02-04 16:05:55 svg2mod 339:  Writing Text with 4 points
+02-04 16:06:18 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:06:18 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:06:18 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:06:18 svg2mod 304:  Inlining 2 segments...
+02-04 16:06:18 svg2mod 339:  Writing Text with 65 points
+02-04 16:06:18 svg2mod 339:  Writing Text with 4 points
+02-04 16:06:18 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:06:18 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:06:18 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:06:18 svg2mod 304:  Inlining 3 segments...
+02-04 16:06:18 svg2mod 339:  Writing Text with 89 points
+02-04 16:06:18 svg2mod 339:  Writing Text with 16 points
+02-04 16:06:18 svg2mod 339:  Writing Text with 4 points
+02-04 16:06:22 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:06:22 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:06:22 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:06:22 svg2mod 304:  Inlining 3 segments...
+02-04 16:06:22 svg2mod 339:  Writing Text with 89 points
+02-04 16:06:22 svg2mod 339:  Writing Text with 16 points
+02-04 16:06:22 svg2mod 339:  Writing Text with 4 points
+02-04 16:06:23 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:06:23 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:06:23 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:06:23 svg2mod 304:  Inlining 3 segments...
+02-04 16:06:23 svg2mod 339:  Writing Text with 89 points
+02-04 16:06:23 svg2mod 339:  Writing Text with 16 points
+02-04 16:06:23 svg2mod 339:  Writing Text with 4 points
+02-04 16:06:27 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:06:27 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:06:27 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:06:27 svg2mod 304:  Inlining 3 segments...
+02-04 16:06:27 svg2mod 339:  Writing Text with 123 points
+02-04 16:06:27 svg2mod 339:  Writing Text with 16 points
+02-04 16:06:27 svg2mod 339:  Writing Text with 4 points
+02-04 16:06:27 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:06:27 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:06:27 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:06:27 svg2mod 304:  Inlining 3 segments...
+02-04 16:06:27 svg2mod 339:  Writing Text with 89 points
+02-04 16:06:27 svg2mod 339:  Writing Text with 16 points
+02-04 16:06:27 svg2mod 339:  Writing Text with 4 points
+02-04 16:06:29 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:06:29 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:06:29 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:06:29 svg2mod 304:  Inlining 3 segments...
+02-04 16:06:29 svg2mod 339:  Writing Text with 90 points
+02-04 16:06:29 svg2mod 339:  Writing Text with 16 points
+02-04 16:06:29 svg2mod 339:  Writing Text with 4 points
+02-04 16:06:31 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:06:31 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:06:31 svg2mod 304:  Inlining 3 segments...
+02-04 16:06:31 svg2mod 339:  Writing Text with 90 points
+02-04 16:06:31 svg2mod 339:  Writing Text with 16 points
+02-04 16:06:31 svg2mod 339:  Writing Text with 4 points
+02-04 16:07:27 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:07:27 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:07:27 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:07:27 svg2mod 339:  Writing Text with 11 points
+02-04 16:07:27 svg2mod 304:  Inlining 1 segments...
+02-04 16:07:27 svg2mod 339:  Writing Text with 15 points
+02-04 16:07:27 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:07:27 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:07:27 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:07:27 svg2mod 339:  Writing Text with 11 points
+02-04 16:07:27 svg2mod 304:  Inlining 1 segments...
+02-04 16:07:27 svg2mod 339:  Writing Text with 39 points
+02-04 16:07:27 svg2mod 304:  Inlining 1 segments...
+02-04 16:07:27 svg2mod 339:  Writing Text with 15 points
+02-04 16:07:28 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:07:28 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:07:28 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:07:28 svg2mod 339:  Writing Text with 11 points
+02-04 16:07:28 svg2mod 304:  Inlining 1 segments...
+02-04 16:07:28 svg2mod 339:  Writing Text with 15 points
+02-04 16:07:29 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:07:29 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:07:29 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:07:29 svg2mod 304:  Inlining 1 segments...
+02-04 16:07:29 svg2mod 339:  Writing Text with 15 points
+02-04 16:07:30 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:07:30 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:07:30 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:07:30 svg2mod 339:  Writing Text with 11 points
+02-04 16:07:30 svg2mod 304:  Inlining 1 segments...
+02-04 16:07:30 svg2mod 339:  Writing Text with 15 points
+02-04 16:07:30 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:07:30 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:07:30 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:07:30 svg2mod 339:  Writing Text with 11 points
+02-04 16:07:30 svg2mod 304:  Inlining 1 segments...
+02-04 16:07:30 svg2mod 339:  Writing Text with 39 points
+02-04 16:07:30 svg2mod 304:  Inlining 1 segments...
+02-04 16:07:30 svg2mod 339:  Writing Text with 15 points
+02-04 16:07:34 svg2mod 1301:Font "Roboto-Bold" does not natively support style "Regular" using "Path" instead
+02-04 16:07:34 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:07:34 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:07:34 svg2mod 304:  Inlining 1 segments...
+02-04 16:07:34 svg2mod 339:  Writing Text with 15 points
+02-04 16:07:34 svg2mod 339:  Writing Text with 11 points
+02-04 16:07:34 svg2mod 304:  Inlining 1 segments...
+02-04 16:07:34 svg2mod 339:  Writing Text with 40 points
+02-04 16:07:35 svg2mod 1301:Font "UbuntuMono-B" does not natively support style "Regular" using "Path" instead
+02-04 16:07:35 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:07:35 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:07:35 svg2mod 304:  Inlining 1 segments...
+02-04 16:07:35 svg2mod 339:  Writing Text with 37 points
+02-04 16:07:35 svg2mod 304:  Inlining 1 segments...
+02-04 16:07:35 svg2mod 339:  Writing Text with 39 points
+02-04 16:07:35 svg2mod 339:  Writing Text with 23 points
+02-04 16:07:37 svg2mod 1301:Font "FredokaOne" does not natively support style "Regular" using "Path" instead
+02-04 16:07:37 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:07:37 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:07:37 svg2mod 304:  Inlining 1 segments...
+02-04 16:07:37 svg2mod 339:  Writing Text with 30 points
+02-04 16:07:37 svg2mod 304:  Inlining 1 segments...
+02-04 16:07:37 svg2mod 339:  Writing Text with 41 points
+02-04 16:07:37 svg2mod 339:  Writing Text with 44 points
+02-04 16:07:39 svg2mod 1301:Font "mplus-1mn-medium" does not natively support style "Regular" using "Path" instead
+02-04 16:07:39 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:07:39 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:07:39 svg2mod 304:  Inlining 1 segments...
+02-04 16:07:39 svg2mod 339:  Writing Text with 16 points
+02-04 16:07:39 svg2mod 304:  Inlining 1 segments...
+02-04 16:07:39 svg2mod 339:  Writing Text with 35 points
+02-04 16:07:39 svg2mod 339:  Writing Text with 13 points
+02-04 16:07:41 svg2mod 1301:Font "PressStart2P-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:07:41 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:07:41 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:07:41 svg2mod 304:  Inlining 1 segments...
+02-04 16:07:41 svg2mod 339:  Writing Text with 27 points
+02-04 16:07:41 svg2mod 339:  Writing Text with 21 points
+02-04 16:07:41 svg2mod 304:  Inlining 1 segments...
+02-04 16:07:41 svg2mod 339:  Writing Text with 24 points
+02-04 16:07:43 svg2mod 1301:Font "Bungee-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:07:43 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:07:43 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:07:43 svg2mod 304:  Inlining 1 segments...
+02-04 16:07:43 svg2mod 339:  Writing Text with 40 points
+02-04 16:07:43 svg2mod 304:  Inlining 1 segments...
+02-04 16:07:43 svg2mod 339:  Writing Text with 32 points
+02-04 16:07:43 svg2mod 339:  Writing Text with 28 points
+02-04 16:07:45 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:07:45 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:07:45 svg2mod 304:  Inlining 1 segments...
+02-04 16:07:45 svg2mod 339:  Writing Text with 40 points
+02-04 16:07:45 svg2mod 304:  Inlining 1 segments...
+02-04 16:07:45 svg2mod 339:  Writing Text with 32 points
+02-04 16:07:45 svg2mod 339:  Writing Text with 28 points
+02-04 16:08:04 svg2mod 1301:Font "Bungee-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:08:04 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:08:04 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:08:04 svg2mod 304:  Inlining 1 segments...
+02-04 16:08:04 svg2mod 339:  Writing Text with 40 points
+02-04 16:08:04 svg2mod 304:  Inlining 1 segments...
+02-04 16:08:04 svg2mod 339:  Writing Text with 32 points
+02-04 16:08:04 svg2mod 339:  Writing Text with 28 points
+02-04 16:08:07 svg2mod 1301:Font "LuckiestGuy-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:08:07 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:08:07 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:08:07 svg2mod 339:  Writing Text with 11 points
+02-04 16:08:07 svg2mod 304:  Inlining 1 segments...
+02-04 16:08:07 svg2mod 339:  Writing Text with 15 points
+02-04 16:08:07 svg2mod 304:  Inlining 1 segments...
+02-04 16:08:07 svg2mod 339:  Writing Text with 41 points
+02-04 16:08:12 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:08:12 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:08:12 svg2mod 339:  Writing Text with 11 points
+02-04 16:08:12 svg2mod 304:  Inlining 1 segments...
+02-04 16:08:12 svg2mod 339:  Writing Text with 15 points
+02-04 16:08:12 svg2mod 304:  Inlining 1 segments...
+02-04 16:08:12 svg2mod 339:  Writing Text with 41 points
+02-04 16:10:25 svg2mod 1301:Font "LuckiestGuy-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:10:25 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:10:25 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:10:25 svg2mod 339:  Writing Text with 11 points
+02-04 16:10:25 svg2mod 304:  Inlining 1 segments...
+02-04 16:10:25 svg2mod 339:  Writing Text with 15 points
+02-04 16:10:26 svg2mod 1301:Font "LuckiestGuy-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:10:26 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:10:26 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:10:26 svg2mod 339:  Writing Text with 11 points
+02-04 16:10:26 svg2mod 304:  Inlining 1 segments...
+02-04 16:10:26 svg2mod 339:  Writing Text with 15 points
+02-04 16:10:26 svg2mod 304:  Inlining 1 segments...
+02-04 16:10:26 svg2mod 339:  Writing Text with 41 points
+02-04 16:10:28 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:10:28 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:10:28 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:10:28 svg2mod 339:  Writing Text with 11 points
+02-04 16:10:28 svg2mod 304:  Inlining 1 segments...
+02-04 16:10:28 svg2mod 339:  Writing Text with 39 points
+02-04 16:10:28 svg2mod 304:  Inlining 1 segments...
+02-04 16:10:28 svg2mod 339:  Writing Text with 15 points
+02-04 16:10:30 svg2mod 1301:Font "MuseoModerno-Italic-VariableFont_wght" does not natively support style "Regular" using "Path" instead
+02-04 16:10:30 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:10:30 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:10:30 svg2mod 339:  Writing Text with 50 points
+02-04 16:10:30 svg2mod 304:  Inlining 1 segments...
+02-04 16:10:30 svg2mod 339:  Writing Text with 22 points
+02-04 16:10:30 svg2mod 304:  Inlining 1 segments...
+02-04 16:10:30 svg2mod 339:  Writing Text with 44 points
+02-04 16:10:32 svg2mod 1301:Font "MuseoModerno-VariableFont_wght" does not natively support style "Regular" using "Path" instead
+02-04 16:10:32 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:10:32 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:10:32 svg2mod 304:  Inlining 1 segments...
+02-04 16:10:32 svg2mod 339:  Writing Text with 22 points
+02-04 16:10:32 svg2mod 339:  Writing Text with 45 points
+02-04 16:10:32 svg2mod 304:  Inlining 1 segments...
+02-04 16:10:32 svg2mod 339:  Writing Text with 46 points
+02-04 16:10:34 svg2mod 1301:Font "Chango-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:10:34 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:10:34 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:10:34 svg2mod 304:  Inlining 1 segments...
+02-04 16:10:34 svg2mod 339:  Writing Text with 40 points
+02-04 16:10:34 svg2mod 339:  Writing Text with 52 points
+02-04 16:10:34 svg2mod 304:  Inlining 1 segments...
+02-04 16:10:34 svg2mod 339:  Writing Text with 57 points
+02-04 16:10:36 svg2mod 1301:Font "Roboto-Bold" does not natively support style "Regular" using "Path" instead
+02-04 16:10:36 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:10:36 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:10:36 svg2mod 304:  Inlining 1 segments...
+02-04 16:10:36 svg2mod 339:  Writing Text with 15 points
+02-04 16:10:36 svg2mod 339:  Writing Text with 11 points
+02-04 16:10:36 svg2mod 304:  Inlining 1 segments...
+02-04 16:10:36 svg2mod 339:  Writing Text with 40 points
+02-04 16:10:40 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:10:40 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:10:40 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:10:40 svg2mod 339:  Writing Text with 11 points
+02-04 16:10:40 svg2mod 304:  Inlining 1 segments...
+02-04 16:10:40 svg2mod 339:  Writing Text with 39 points
+02-04 16:10:40 svg2mod 304:  Inlining 1 segments...
+02-04 16:10:40 svg2mod 339:  Writing Text with 15 points
+02-04 16:10:41 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:10:41 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:10:41 svg2mod 339:  Writing Text with 11 points
+02-04 16:10:41 svg2mod 304:  Inlining 1 segments...
+02-04 16:10:41 svg2mod 339:  Writing Text with 39 points
+02-04 16:10:41 svg2mod 304:  Inlining 1 segments...
+02-04 16:10:41 svg2mod 339:  Writing Text with 15 points
+02-04 16:10:50 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:10:50 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:10:50 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:10:50 svg2mod 339:  Writing Text with 11 points
+02-04 16:10:50 svg2mod 304:  Inlining 1 segments...
+02-04 16:10:50 svg2mod 339:  Writing Text with 39 points
+02-04 16:10:50 svg2mod 304:  Inlining 1 segments...
+02-04 16:10:50 svg2mod 339:  Writing Text with 15 points
+02-04 16:10:54 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:10:54 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:10:54 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:10:54 svg2mod 351:  Writing Text with 14 points
+02-04 16:10:54 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:10:54 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:10:54 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:10:54 svg2mod 339:  Writing Text with 14 points
+02-04 16:10:54 svg2mod 339:  Writing Text with 32 points
+02-04 16:10:54 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:10:54 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:10:54 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:10:54 svg2mod 339:  Writing Text with 14 points
+02-04 16:10:54 svg2mod 339:  Writing Text with 32 points
+02-04 16:10:54 svg2mod 339:  Writing Text with 7 points
+02-04 16:10:56 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:10:56 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:10:56 svg2mod 339:  Writing Text with 14 points
+02-04 16:10:56 svg2mod 339:  Writing Text with 32 points
+02-04 16:10:56 svg2mod 339:  Writing Text with 7 points
+02-04 16:11:18 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:11:18 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:11:18 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:11:18 svg2mod 304:  Inlining 1 segments...
+02-04 16:11:18 svg2mod 339:  Writing Text with 15 points
+02-04 16:11:18 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:11:18 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:11:18 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:11:18 svg2mod 339:  Writing Text with 11 points
+02-04 16:11:18 svg2mod 304:  Inlining 1 segments...
+02-04 16:11:18 svg2mod 339:  Writing Text with 39 points
+02-04 16:11:18 svg2mod 304:  Inlining 1 segments...
+02-04 16:11:18 svg2mod 339:  Writing Text with 15 points
+02-04 16:11:20 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:11:20 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:11:20 svg2mod 339:  Writing Text with 11 points
+02-04 16:11:20 svg2mod 304:  Inlining 1 segments...
+02-04 16:11:20 svg2mod 339:  Writing Text with 39 points
+02-04 16:11:20 svg2mod 304:  Inlining 1 segments...
+02-04 16:11:20 svg2mod 339:  Writing Text with 15 points
+02-04 16:11:36 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:11:36 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:11:36 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:11:36 svg2mod 339:  Writing Text with 14 points
+02-04 16:11:36 svg2mod 339:  Writing Text with 32 points
+02-04 16:11:36 svg2mod 339:  Writing Text with 7 points
+02-04 16:11:50 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:11:50 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:11:50 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:11:50 svg2mod 304:  Inlining 1 segments...
+02-04 16:11:50 svg2mod 339:  Writing Text with 63 points
+02-04 16:11:50 svg2mod 339:  Writing Text with 64 points
+02-04 16:11:51 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:11:51 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:11:51 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:11:51 svg2mod 304:  Inlining 1 segments...
+02-04 16:11:51 svg2mod 339:  Writing Text with 63 points
+02-04 16:11:51 svg2mod 339:  Writing Text with 52 points
+02-04 16:11:51 svg2mod 339:  Writing Text with 64 points
+02-04 16:11:51 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:11:51 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:11:51 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:11:51 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:11:51 svg2mod 304:  Inlining 1 segments...
+02-04 16:11:51 svg2mod 339:  Writing Text with 63 points
+02-04 16:11:51 svg2mod 339:  Writing Text with 52 points
+02-04 16:11:51 svg2mod 339:  Writing Text with 64 points
+02-04 16:11:54 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:11:54 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:11:54 svg2mod 304:  Inlining 1 segments...
+02-04 16:11:54 svg2mod 339:  Writing Text with 63 points
+02-04 16:11:54 svg2mod 339:  Writing Text with 52 points
+02-04 16:11:54 svg2mod 339:  Writing Text with 64 points
+02-04 16:12:30 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:12:30 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:12:30 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:12:30 svg2mod 339:  Writing Text with 11 points
+02-04 16:12:30 svg2mod 304:  Inlining 1 segments...
+02-04 16:12:30 svg2mod 339:  Writing Text with 39 points
+02-04 16:12:30 svg2mod 304:  Inlining 1 segments...
+02-04 16:12:30 svg2mod 339:  Writing Text with 30 points
+02-04 16:12:31 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:12:31 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:12:31 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:12:31 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:12:31 svg2mod 339:  Writing Text with 11 points
+02-04 16:12:31 svg2mod 304:  Inlining 1 segments...
+02-04 16:12:31 svg2mod 339:  Writing Text with 39 points
+02-04 16:12:31 svg2mod 304:  Inlining 1 segments...
+02-04 16:12:31 svg2mod 339:  Writing Text with 30 points
+02-04 16:12:33 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:12:33 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:12:33 svg2mod 339:  Writing Text with 11 points
+02-04 16:12:33 svg2mod 304:  Inlining 1 segments...
+02-04 16:12:33 svg2mod 339:  Writing Text with 39 points
+02-04 16:12:33 svg2mod 304:  Inlining 1 segments...
+02-04 16:12:33 svg2mod 339:  Writing Text with 30 points
+02-04 16:12:45 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:12:45 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:12:45 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:12:45 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:12:45 svg2mod 339:  Writing Text with 11 points
+02-04 16:12:45 svg2mod 304:  Inlining 1 segments...
+02-04 16:12:45 svg2mod 339:  Writing Text with 39 points
+02-04 16:12:45 svg2mod 304:  Inlining 1 segments...
+02-04 16:12:45 svg2mod 339:  Writing Text with 30 points
+02-04 16:12:46 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:12:46 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:12:46 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:12:46 svg2mod 304:  Inlining 1 segments...
+02-04 16:12:46 svg2mod 339:  Writing Text with 63 points
+02-04 16:12:46 svg2mod 304:  Inlining 1 segments...
+02-04 16:12:46 svg2mod 339:  Writing Text with 30 points
+02-04 16:12:47 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:12:47 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:12:47 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:12:47 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:12:47 svg2mod 304:  Inlining 1 segments...
+02-04 16:12:47 svg2mod 339:  Writing Text with 63 points
+02-04 16:12:47 svg2mod 304:  Inlining 1 segments...
+02-04 16:12:47 svg2mod 339:  Writing Text with 30 points
+02-04 16:12:48 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:12:48 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:12:48 svg2mod 304:  Inlining 1 segments...
+02-04 16:12:48 svg2mod 339:  Writing Text with 63 points
+02-04 16:12:48 svg2mod 304:  Inlining 1 segments...
+02-04 16:12:48 svg2mod 339:  Writing Text with 30 points
+02-04 16:12:59 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:12:59 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:12:59 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:12:59 svg2mod 304:  Inlining 1 segments...
+02-04 16:12:59 svg2mod 339:  Writing Text with 63 points
+02-04 16:12:59 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:12:59 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:12:59 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:12:59 svg2mod 304:  Inlining 1 segments...
+02-04 16:12:59 svg2mod 339:  Writing Text with 63 points
+02-04 16:12:59 svg2mod 304:  Inlining 1 segments...
+02-04 16:12:59 svg2mod 339:  Writing Text with 30 points
+02-04 16:13:01 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:13:01 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:13:01 svg2mod 304:  Inlining 1 segments...
+02-04 16:13:01 svg2mod 339:  Writing Text with 63 points
+02-04 16:13:01 svg2mod 304:  Inlining 1 segments...
+02-04 16:13:01 svg2mod 339:  Writing Text with 30 points
+02-04 16:13:35 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:13:35 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:13:35 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:13:35 svg2mod 351:  Writing Text with 13 points
+02-04 16:13:36 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:13:36 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:13:36 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:13:36 svg2mod 339:  Writing Text with 13 points
+02-04 16:13:36 svg2mod 304:  Inlining 1 segments...
+02-04 16:13:36 svg2mod 339:  Writing Text with 63 points
+02-04 16:13:36 svg2mod 304:  Inlining 1 segments...
+02-04 16:13:36 svg2mod 339:  Writing Text with 30 points
+02-04 16:13:38 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:13:38 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:13:38 svg2mod 339:  Writing Text with 13 points
+02-04 16:13:38 svg2mod 304:  Inlining 1 segments...
+02-04 16:13:38 svg2mod 339:  Writing Text with 63 points
+02-04 16:13:38 svg2mod 304:  Inlining 1 segments...
+02-04 16:13:38 svg2mod 339:  Writing Text with 30 points
+02-04 16:13:51 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:13:51 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:13:51 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:13:51 svg2mod 339:  Writing Text with 13 points
+02-04 16:13:51 svg2mod 304:  Inlining 1 segments...
+02-04 16:13:51 svg2mod 339:  Writing Text with 63 points
+02-04 16:13:51 svg2mod 304:  Inlining 1 segments...
+02-04 16:13:51 svg2mod 339:  Writing Text with 30 points
+02-04 16:13:52 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:13:52 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:13:52 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:13:52 svg2mod 339:  Writing Text with 14 points
+02-04 16:13:52 svg2mod 339:  Writing Text with 64 points
+02-04 16:13:53 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:13:53 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:13:53 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:13:53 svg2mod 339:  Writing Text with 14 points
+02-04 16:13:53 svg2mod 339:  Writing Text with 12 points
+02-04 16:13:53 svg2mod 339:  Writing Text with 64 points
+02-04 16:13:55 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:13:55 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:13:55 svg2mod 339:  Writing Text with 14 points
+02-04 16:13:55 svg2mod 339:  Writing Text with 12 points
+02-04 16:13:55 svg2mod 339:  Writing Text with 64 points
+02-04 16:14:04 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:14:04 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:14:04 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:14:04 svg2mod 339:  Writing Text with 14 points
+02-04 16:14:04 svg2mod 339:  Writing Text with 12 points
+02-04 16:14:04 svg2mod 339:  Writing Text with 64 points
+02-04 16:14:13 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:14:13 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:14:13 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:14:13 svg2mod 351:  Writing Text with 13 points
+02-04 16:14:13 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:14:13 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:14:13 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:14:13 svg2mod 339:  Writing Text with 13 points
+02-04 16:14:13 svg2mod 304:  Inlining 1 segments...
+02-04 16:14:13 svg2mod 339:  Writing Text with 63 points
+02-04 16:14:13 svg2mod 304:  Inlining 1 segments...
+02-04 16:14:13 svg2mod 339:  Writing Text with 30 points
+02-04 16:14:15 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:14:15 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:14:15 svg2mod 339:  Writing Text with 13 points
+02-04 16:14:15 svg2mod 304:  Inlining 1 segments...
+02-04 16:14:15 svg2mod 339:  Writing Text with 63 points
+02-04 16:14:15 svg2mod 304:  Inlining 1 segments...
+02-04 16:14:15 svg2mod 339:  Writing Text with 30 points
+02-04 16:14:22 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:14:22 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:14:22 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:14:22 svg2mod 339:  Writing Text with 13 points
+02-04 16:14:22 svg2mod 304:  Inlining 1 segments...
+02-04 16:14:22 svg2mod 339:  Writing Text with 63 points
+02-04 16:14:22 svg2mod 304:  Inlining 1 segments...
+02-04 16:14:22 svg2mod 339:  Writing Text with 30 points
+02-04 16:14:24 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:14:24 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:14:24 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:14:24 svg2mod 339:  Writing Text with 32 points
+02-04 16:14:24 svg2mod 339:  Writing Text with 64 points
+02-04 16:14:24 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:14:24 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:14:24 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:14:24 svg2mod 339:  Writing Text with 32 points
+02-04 16:14:24 svg2mod 339:  Writing Text with 64 points
+02-04 16:14:24 svg2mod 304:  Inlining 2 segments...
+02-04 16:14:24 svg2mod 339:  Writing Text with 48 points
+02-04 16:14:33 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:14:33 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:14:33 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:14:33 svg2mod 351:  Writing Text with 64 points
+02-04 16:14:33 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:14:33 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:14:33 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:14:33 svg2mod 339:  Writing Text with 32 points
+02-04 16:14:33 svg2mod 339:  Writing Text with 64 points
+02-04 16:14:33 svg2mod 304:  Inlining 2 segments...
+02-04 16:14:33 svg2mod 339:  Writing Text with 48 points
+02-04 16:14:35 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:14:35 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:14:35 svg2mod 339:  Writing Text with 32 points
+02-04 16:14:35 svg2mod 339:  Writing Text with 64 points
+02-04 16:14:35 svg2mod 304:  Inlining 2 segments...
+02-04 16:14:35 svg2mod 339:  Writing Text with 48 points
+02-04 16:14:47 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:14:47 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:14:47 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:14:47 svg2mod 339:  Writing Text with 32 points
+02-04 16:14:47 svg2mod 339:  Writing Text with 64 points
+02-04 16:14:47 svg2mod 304:  Inlining 2 segments...
+02-04 16:14:47 svg2mod 339:  Writing Text with 48 points
+02-04 16:14:55 svg2mod 1301:Font "Bungee-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:14:55 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:14:55 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:14:55 svg2mod 339:  Writing Text with 35 points
+02-04 16:14:55 svg2mod 304:  Inlining 2 segments...
+02-04 16:14:55 svg2mod 339:  Writing Text with 45 points
+02-04 16:14:55 svg2mod 339:  Writing Text with 45 points
+02-04 16:14:57 svg2mod 1301:Font "RacingSansOne-Regular" does not natively support style "Regular" using "Path" instead
+02-04 16:14:57 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:14:57 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:14:57 svg2mod 339:  Writing Text with 32 points
+02-04 16:14:57 svg2mod 339:  Writing Text with 64 points
+02-04 16:14:57 svg2mod 304:  Inlining 2 segments...
+02-04 16:14:57 svg2mod 339:  Writing Text with 48 points
+02-04 16:14:59 svg2mod-unfiltered 262:Found SVG layer: F.SilkS
+02-04 16:14:59 svg2mod 263:  Detailed names: [F.SilkS]
+02-04 16:14:59 svg2mod 339:  Writing Text with 32 points
+02-04 16:14:59 svg2mod 339:  Writing Text with 64 points
+02-04 16:14:59 svg2mod 304:  Inlining 2 segments...
+02-04 16:14:59 svg2mod 339:  Writing Text with 48 points
