@@ -244,232 +244,232 @@
       (reference "D4") (unit 1) (value "D_Schottky") (footprint "Diode_SMD:D_0805_2012Metric")
     )
     (path "/c70208db-94d0-4b8e-8d47-793b121bf4ab/178a475b-10f9-4e78-ba46-7b44c3fed689"
-      (reference "D5") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D5") (unit 1) (value "LED, orange") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/c70208db-94d0-4b8e-8d47-793b121bf4ab/c4b4b8ed-c66b-4e07-b634-f50d749d4341"
-      (reference "D6") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D6") (unit 1) (value "LED, orange") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/c70208db-94d0-4b8e-8d47-793b121bf4ab/91ca44f9-c5fa-43d8-bb0a-0be678f86c70"
-      (reference "D7") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D7") (unit 1) (value "LED, orange") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/c70208db-94d0-4b8e-8d47-793b121bf4ab/57d78d05-84fd-4ce2-8910-6f519e4816d4"
-      (reference "D8") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D8") (unit 1) (value "LED, orange") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/c70208db-94d0-4b8e-8d47-793b121bf4ab/b4cfc45e-fdbc-4700-9ed9-ad9f9658697c"
-      (reference "D9") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D9") (unit 1) (value "LED, orange") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/c70208db-94d0-4b8e-8d47-793b121bf4ab/758abe6b-ae7a-43cf-99ce-6405db56548c"
-      (reference "D10") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D10") (unit 1) (value "LED, orange") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/c70208db-94d0-4b8e-8d47-793b121bf4ab/a82690eb-3639-435e-a19d-ba811609629b"
-      (reference "D11") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D11") (unit 1) (value "LED, orange") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/c70208db-94d0-4b8e-8d47-793b121bf4ab/b23944d1-ddc3-4594-8afd-d4d86ca2a15a"
-      (reference "D12") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D12") (unit 1) (value "LED, orange") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/c70208db-94d0-4b8e-8d47-793b121bf4ab/1cd93a09-a948-4305-8442-f9c426aad705"
-      (reference "D13") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D13") (unit 1) (value "LED, orange") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/c70208db-94d0-4b8e-8d47-793b121bf4ab/abc63841-75f2-40bb-b865-4a015663e5b4"
-      (reference "D14") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D14") (unit 1) (value "LED, orange") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/c70208db-94d0-4b8e-8d47-793b121bf4ab/12d5cbdc-d3ff-402d-b85b-0c2303186135"
-      (reference "D15") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D15") (unit 1) (value "LED, orange") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/c70208db-94d0-4b8e-8d47-793b121bf4ab/9e9d8693-d701-496c-974b-fdb83bcf1ecf"
-      (reference "D16") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D16") (unit 1) (value "LED, orange") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/ec7a26d3-dac8-4ea5-a5d2-86806d3c2b03"
-      (reference "D17") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D17") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/962f1690-79ab-4bc5-b875-4804d8de378a"
-      (reference "D18") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D18") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/dff39194-d1a4-4aff-9fbd-23a01251e138"
-      (reference "D19") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D19") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/0570f19b-f90c-4508-8d37-a6698f8420ce"
-      (reference "D20") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D20") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/ac2b1c0f-f7fe-401b-b4cc-8394c683441d"
-      (reference "D21") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D21") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/f34a9bc9-02e4-4c68-831c-a0e915d761a1"
-      (reference "D22") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D22") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/7420d3e0-3c51-4232-a616-5bcf60889fed"
-      (reference "D23") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D23") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/d598c998-4272-48a2-9a8a-0e89a363d8fd"
-      (reference "D24") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D24") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/5e953d2c-0310-4e0a-8ca2-e517cd1708ae"
-      (reference "D25") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D25") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/31adc115-ae17-4fdf-af74-a47dfae8330a"
-      (reference "D26") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D26") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/e623b421-af55-4bc3-b69e-6cc259447225"
-      (reference "D27") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D27") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/63223399-bb11-4667-9ba4-38b0f18dc1ae"
-      (reference "D28") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D28") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/06d81077-8ede-4c54-9bc7-f8ba0d2f455e"
-      (reference "D29") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D29") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/6d81673f-cfde-4e0a-b896-a91eef9418ac"
-      (reference "D30") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D30") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/b07c2dbf-5da2-4bef-824c-767a658ff5f4"
-      (reference "D31") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D31") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/7c971076-2029-4e4e-9b7b-ae8b9bf8e4e3"
-      (reference "D32") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D32") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/7a7faf4a-450c-4a95-9a6c-b8ce7f28a499"
-      (reference "D33") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D33") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/779ee987-ac26-4cb0-8fda-a323be712492"
-      (reference "D34") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D34") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/11ddfa9a-b21e-4acf-b2cd-b8aa641372ad"
-      (reference "D35") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D35") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/0a79b72b-0b35-4a9b-bbcf-cdaf17dff2de"
-      (reference "D36") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D36") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/f58e9cb1-0fcf-4bab-8624-da7c27d4c7ed"
-      (reference "D37") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D37") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/37a37c3e-bc42-4e8a-ae17-9688c2198cc8"
-      (reference "D38") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D38") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/6eae8081-31b6-4880-9a08-788a90ec3aee"
-      (reference "D39") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D39") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/340a04ce-e740-4a91-ad61-92bea830f1c5"
-      (reference "D40") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D40") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/4390001d-7b7b-4075-b54a-59b605f92fa0"
-      (reference "D41") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D41") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/acd2272a-21d1-4dff-a392-667d5c857f68"
-      (reference "D42") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D42") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/d0069ffd-70fd-43dd-966e-d0f159a6144a"
-      (reference "D43") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D43") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/228531a5-7e72-4e9a-b3a8-85583a2ce41c"
-      (reference "D44") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D44") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/7dba05ad-5f38-4332-ad96-65e47a945dc4"
-      (reference "D45") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D45") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/e3ffcca4-6b19-4cd8-bf27-4f026a684232"
-      (reference "D46") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D46") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/6472eb01-cbe9-4bbe-897d-87b425547dd5"
-      (reference "D47") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D47") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/5ab10bb1-0849-4a47-adcd-e2862989f69b"
-      (reference "D48") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D48") (unit 1) (value "LED, red") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/46d6b9be-dd03-406a-a16b-7a06439d8e3b"
-      (reference "D49") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D49") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/426e883f-9f2f-4f55-8b79-6c281b0532db"
-      (reference "D50") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D50") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/19b054e3-e348-41d6-868f-2bf16507e4ad"
-      (reference "D51") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D51") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/4cbd5cbd-938e-47c1-a255-9f4cf15670a0"
-      (reference "D52") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D52") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/db727999-5193-4209-8866-719fe9ad25eb"
-      (reference "D53") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D53") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/18013e72-d7ae-4543-a31b-38a5ac957101"
-      (reference "D54") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D54") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/972a2dc2-7118-445c-b999-1a07ffa8b73a"
-      (reference "D55") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D55") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/04d4b916-15bb-4985-9341-ee3a54c9771e"
-      (reference "D56") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D56") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/fae36850-87bd-4fd4-aa58-9c5fcc049f32"
-      (reference "D57") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D57") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/0adf3cef-5e58-4a81-b0c9-1a382e5f1e5a"
-      (reference "D58") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D58") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/07e4e172-892c-4287-86cd-3c9543dca7f2"
-      (reference "D59") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D59") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/550f8e4f-afe2-451b-9a8e-938dc2a26665"
-      (reference "D60") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D60") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/78551923-b349-432e-b0ed-2126634bc3cb"
-      (reference "D61") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D61") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/5a0a01fe-97a7-461b-ba68-f90152cdd263"
-      (reference "D62") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D62") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/ad4d0e17-9b49-4a9e-972c-91207f489331"
-      (reference "D63") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D63") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/98cbd53f-622c-4b4e-9b31-bbc7a9ffb48e"
-      (reference "D64") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D64") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/3bb4efd6-a55f-4692-a463-cd6d729022b8"
-      (reference "D65") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D65") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/dfd58343-f81f-4d6f-bdf3-a85f2bc5a4c0"
-      (reference "D66") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D66") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/23938b9f-c9f1-45f3-9ba3-b8316fa1a598"
-      (reference "D67") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D67") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/7fdcd876-2eaf-482e-96cf-b38d0459ef80"
-      (reference "D68") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D68") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/a1aad9fa-28bc-42a1-9e95-b09a83d68358"
-      (reference "D69") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D69") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/efb8131e-542b-45c2-a6df-c39281a579e4"
-      (reference "D70") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D70") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/1f18f3ae-8a76-49aa-85cf-b6707505b549"
-      (reference "D71") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D71") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/af22fcab-bbb3-42f1-8d08-79d0450308a2"
-      (reference "D72") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D72") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/e0fe3eb3-8a96-4ffe-b67e-6bc390a4954f"
-      (reference "D73") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D73") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/0d9e97fe-7fe5-48a8-a21e-83b5bfd2a4d5"
-      (reference "D74") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D74") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/0fb633d0-3d56-4e67-a55b-a59ffc01e435"
-      (reference "D75") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D75") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/e1b543c4-33f1-4371-9c42-c50999feed55"
-      (reference "D76") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D76") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/234c8524-186e-4c58-ad9d-916b27deb014"
-      (reference "D77") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D77") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/38b51841-aae4-4cb7-934d-714ba07b4021"
-      (reference "D78") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D78") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/7372b597-2b85-43fa-aadc-756dc03cfe92"
-      (reference "D79") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D79") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/f4b3c64d-9200-4b15-94a4-a3ea12cc32f8/ab6ad189-6305-4126-8e75-e45e17497125"
-      (reference "D80") (unit 1) (value "LED") (footprint "LED_SMD:LED_0805_2012Metric")
+      (reference "D80") (unit 1) (value "LED, green") (footprint "LED_SMD:LED_0805_2012Metric")
     )
     (path "/dc8e07a7-dc21-4022-abf4-087e8c13943c/2fbaa690-10a5-4d3f-b30b-4e010a7c1ba1"
       (reference "IC1") (unit 1) (value "IS66WVS2M8ALL-104NLI") (footprint "footprints:SOIC127P600X175-8N")
