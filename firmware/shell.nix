@@ -9,11 +9,13 @@ let
     gcc
     probe-run
     elf2uf2-rs
+    gdb
     # cargo-binutils
     # flip-link
   ];
 
   inputsHost = with pkgsBuildHost; [
+    (pkgs.callPackage ./nix_stuff/rp_openocd.drv {})
     #rustc
     # llvmPackages.bintools-unwrapped
     # lld

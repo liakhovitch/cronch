@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["R","Register `TXD_DRIVE_EDGE` reader"],["TDE_R","Field `TDE` reader - TXD drive edge"],["TDE_W","Field `TDE` writer - TXD drive edge"],["TXD_DRIVE_EDGE_SPEC","TX drive edge"],["W","Register `TXD_DRIVE_EDGE` writer"]]};

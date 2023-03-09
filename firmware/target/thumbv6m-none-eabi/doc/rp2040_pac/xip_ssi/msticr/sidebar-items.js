@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["MSTICR_R","Field `MSTICR` reader - Clear-on-read multi-master contention interrupt"],["MSTICR_SPEC","Multi-master interrupt clear"],["R","Register `MSTICR` reader"]]};

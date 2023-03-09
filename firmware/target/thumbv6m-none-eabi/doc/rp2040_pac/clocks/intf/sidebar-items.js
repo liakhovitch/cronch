@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["CLK_SYS_RESUS_R","Field `CLK_SYS_RESUS` reader - "],["CLK_SYS_RESUS_W","Field `CLK_SYS_RESUS` writer - "],["INTF_SPEC","Interrupt Force"],["R","Register `INTF` reader"],["W","Register `INTF` writer"]]};

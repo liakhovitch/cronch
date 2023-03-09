@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["INTERP0_BASE_1AND0_SPEC","On write, the lower 16 bits go to BASE0, upper bits to BASE1 simultaneously. Each half is sign-extended to 32 bits if that lane’s SIGNED flag is set."],["W","Register `INTERP0_BASE_1AND0` writer"]]};

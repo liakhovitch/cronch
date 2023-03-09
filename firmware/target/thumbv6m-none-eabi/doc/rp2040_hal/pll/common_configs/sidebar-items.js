@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":[["PLL_SYS_125MHZ","Default, nominal configuration for PLL_SYS"],["PLL_USB_48MHZ","Default, nominal configuration for PLL_USB."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["GPIO_OUT_CLR_SPEC","GPIO output value clear"],["GPIO_OUT_CLR_W","Field `GPIO_OUT_CLR` writer - Perform an atomic bit-clear on GPIO_OUT, i.e. `GPIO_OUT &= ~wdata`"],["W","Register `GPIO_OUT_CLR` writer"]]};

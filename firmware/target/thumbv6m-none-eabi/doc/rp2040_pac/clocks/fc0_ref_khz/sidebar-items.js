@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["FC0_REF_KHZ_R","Field `FC0_REF_KHZ` reader - "],["FC0_REF_KHZ_SPEC","Reference clock frequency in kHz"],["FC0_REF_KHZ_W","Field `FC0_REF_KHZ` writer - "],["R","Register `FC0_REF_KHZ` reader"],["W","Register `FC0_REF_KHZ` writer"]]};

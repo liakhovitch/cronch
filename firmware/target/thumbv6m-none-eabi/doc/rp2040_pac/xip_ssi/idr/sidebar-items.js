@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["IDCODE_R","Field `IDCODE` reader - Peripheral dentification code"],["IDR_SPEC","Identification register"],["R","Register `IDR` reader"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["CH_WRITE_ADDR_SPEC","DMA Channel 0 Write Address pointer This register updates automatically each time a write completes. The current value is the next address to be written by this channel."],["R","Register `CH_WRITE_ADDR` reader"],["W","Register `CH_WRITE_ADDR` writer"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["INTS_SPEC","Interrupt status after masking & forcing"],["R","Register `INTS` reader"],["RTC_R","Field `RTC` reader - "]]};

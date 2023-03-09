@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["R","Register `RANDOMBIT` reader"],["RANDOMBIT_R","Field `RANDOMBIT` reader - "],["RANDOMBIT_SPEC","This just reads the state of the oscillator output so randomness is compromised if the ring oscillator is stopped or run at a harmonic of the bus frequency"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["FC0_MIN_KHZ_R","Field `FC0_MIN_KHZ` reader - "],["FC0_MIN_KHZ_SPEC","Minimum pass frequency in kHz. This is optional. Set to 0 if you are not using the pass/fail flags"],["FC0_MIN_KHZ_W","Field `FC0_MIN_KHZ` writer - "],["R","Register `FC0_MIN_KHZ` reader"],["W","Register `FC0_MIN_KHZ` writer"]]};

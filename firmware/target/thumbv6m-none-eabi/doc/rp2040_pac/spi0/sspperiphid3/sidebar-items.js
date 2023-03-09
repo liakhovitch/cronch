@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["CONFIGURATION_R","Field `CONFIGURATION` reader - These bits read back as 0x00"],["R","Register `SSPPERIPHID3` reader"],["SSPPERIPHID3_SPEC","Peripheral identification registers, SSPPeriphID0-3 on page 3-13"]]};

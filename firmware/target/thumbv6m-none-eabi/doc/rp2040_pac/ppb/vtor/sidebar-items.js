@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["R","Register `VTOR` reader"],["TBLOFF_R","Field `TBLOFF` reader - Bits [31:8] of the indicate the vector table offset address."],["TBLOFF_W","Field `TBLOFF` writer - Bits [31:8] of the indicate the vector table offset address."],["VTOR_SPEC","The VTOR holds the vector table offset address."],["W","Register `VTOR` writer"]]};

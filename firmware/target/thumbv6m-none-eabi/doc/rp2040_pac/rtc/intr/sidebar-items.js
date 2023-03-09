@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["INTR_SPEC","Raw Interrupts"],["R","Register `INTR` reader"],["RTC_R","Field `RTC` reader - "]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["R","Register `RXFLR` reader"],["RXFLR_SPEC","RX FIFO level"],["RXTFL_R","Field `RXTFL` reader - Receive FIFO level"]]};

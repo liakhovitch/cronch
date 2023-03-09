@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["INTE_SPEC","Interrupt Enable"],["R","Register `INTE` reader"],["RTC_R","Field `RTC` reader - "],["RTC_W","Field `RTC` writer - "],["W","Register `INTE` writer"]]};

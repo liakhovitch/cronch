@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["CLK_REF_DIV_SPEC","Clock divisor, can be changed on-the-fly"],["INT_R","Field `INT` reader - Integer component of the divisor, 0 -> divide by 2^16"],["INT_W","Field `INT` writer - Integer component of the divisor, 0 -> divide by 2^16"],["R","Register `CLK_REF_DIV` reader"],["W","Register `CLK_REF_DIV` writer"]]};

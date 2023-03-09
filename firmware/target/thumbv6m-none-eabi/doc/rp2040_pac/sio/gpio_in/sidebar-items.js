@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["GPIO_IN_R","Field `GPIO_IN` reader - Input value for GPIO0…29"],["GPIO_IN_SPEC","Input value for GPIO pins"],["R","Register `GPIO_IN` reader"]]};

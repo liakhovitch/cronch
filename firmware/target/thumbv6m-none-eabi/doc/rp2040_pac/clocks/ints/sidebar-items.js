@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["CLK_SYS_RESUS_R","Field `CLK_SYS_RESUS` reader - "],["INTS_SPEC","Interrupt status after masking & forcing"],["R","Register `INTS` reader"]]};

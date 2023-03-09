@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["RO","Read-Only register"],["RW","Read-Write register"],["WO","Write-Only register"]]};

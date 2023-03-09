@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["R","Register `RXOICR` reader"],["RXOICR_R","Field `RXOICR` reader - Clear-on-read receive FIFO overflow interrupt"],["RXOICR_SPEC","RX FIFO overflow interrupt clear"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["FIFO_R","Field `FIFO` reader - Triggered when the sample FIFO reaches a certain level. This level can be programmed via the FCS_THRESH field."],["INTS_SPEC","Interrupt status after masking & forcing"],["R","Register `INTS` reader"]]};

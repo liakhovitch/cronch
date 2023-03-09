@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["Disabled","Spi is disabled"],["Enabled","Spi is enabled"],["Spi","Spi"]],"trait":[["DataSize","Data size used in spi"],["SpiDevice","Pac SPI device"],["State","State of the SPI"]]};

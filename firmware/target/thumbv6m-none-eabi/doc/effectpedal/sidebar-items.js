@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":[["__cortex_m_rt_main","Entry point to our bare-metal application."]],"mod":[["double_buf",""]]};

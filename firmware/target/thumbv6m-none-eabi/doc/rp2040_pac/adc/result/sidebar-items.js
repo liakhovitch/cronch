@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["R","Register `RESULT` reader"],["RESULT_R","Field `RESULT` reader - "],["RESULT_SPEC","Result of most recent ADC conversion"]]};

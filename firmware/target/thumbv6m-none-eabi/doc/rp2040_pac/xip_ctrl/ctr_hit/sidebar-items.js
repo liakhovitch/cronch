@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["CTR_HIT_SPEC","Cache Hit counter A 32 bit saturating counter that increments upon each cache hit, i.e. when an XIP access is serviced directly from cached data. Write any value to clear."],["R","Register `CTR_HIT` reader"],["W","Register `CTR_HIT` writer"]]};

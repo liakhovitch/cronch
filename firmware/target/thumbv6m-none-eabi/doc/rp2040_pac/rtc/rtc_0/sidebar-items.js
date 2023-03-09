@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["DOTW_R","Field `DOTW` reader - Day of the week"],["HOUR_R","Field `HOUR` reader - Hours"],["MIN_R","Field `MIN` reader - Minutes"],["R","Register `RTC_0` reader"],["RTC_0_SPEC","RTC register 0 Read this before RTC 1!"],["SEC_R","Field `SEC` reader - Seconds"]]};

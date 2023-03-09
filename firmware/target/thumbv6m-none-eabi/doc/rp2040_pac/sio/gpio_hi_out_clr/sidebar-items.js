@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["GPIO_HI_OUT_CLR_SPEC","QSPI output value clear"],["GPIO_HI_OUT_CLR_W","Field `GPIO_HI_OUT_CLR` writer - Perform an atomic bit-clear on GPIO_HI_OUT, i.e. `GPIO_HI_OUT &= ~wdata`"],["W","Register `GPIO_HI_OUT_CLR` writer"]]};

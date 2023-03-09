@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["INTE1_R","Field `INTE1` reader - Set bit n to pass interrupts from channel n to DMA IRQ 1."],["INTE1_SPEC","Interrupt Enables for IRQ 1"],["INTE1_W","Field `INTE1` writer - Set bit n to pass interrupts from channel n to DMA IRQ 1."],["R","Register `INTE1` reader"],["W","Register `INTE1` writer"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["FLEVEL_SPEC","FIFO levels"],["R","Register `FLEVEL` reader"],["RX0_R","Field `RX0` reader - "],["RX1_R","Field `RX1` reader - "],["RX2_R","Field `RX2` reader - "],["RX3_R","Field `RX3` reader - "],["TX0_R","Field `TX0` reader - "],["TX1_R","Field `TX1` reader - "],["TX2_R","Field `TX2` reader - "],["TX3_R","Field `TX3` reader - "]]};

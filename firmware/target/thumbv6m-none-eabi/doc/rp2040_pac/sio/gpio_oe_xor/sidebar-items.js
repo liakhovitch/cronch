@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["GPIO_OE_XOR_SPEC","GPIO output enable XOR"],["GPIO_OE_XOR_W","Field `GPIO_OE_XOR` writer - Perform an atomic bitwise XOR on GPIO_OE, i.e. `GPIO_OE ^= wdata`"],["W","Register `GPIO_OE_XOR` writer"]]};

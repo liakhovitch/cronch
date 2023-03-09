@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["IC_RX_TL_SPEC","I2C Receive FIFO Threshold Register"],["R","Register `IC_RX_TL` reader"],["RX_TL_R","Field `RX_TL` reader - Receive FIFO Threshold Level."],["RX_TL_W","Field `RX_TL` writer - Receive FIFO Threshold Level."],["W","Register `IC_RX_TL` writer"]]};

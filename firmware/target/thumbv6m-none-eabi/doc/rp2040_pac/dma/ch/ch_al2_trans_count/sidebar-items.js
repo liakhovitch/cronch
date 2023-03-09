@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["CH_AL2_TRANS_COUNT_SPEC","Alias for channel 0 TRANS_COUNT register"],["R","Register `CH_AL2_TRANS_COUNT` reader"],["W","Register `CH_AL2_TRANS_COUNT` writer"]]};

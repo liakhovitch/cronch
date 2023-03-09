@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["GITREF_RP2040_SPEC","Git hash of the chip source. Used to identify chip version."],["R","Register `GITREF_RP2040` reader"]]};

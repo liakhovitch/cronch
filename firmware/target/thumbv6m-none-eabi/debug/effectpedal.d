@@ -1,1 +1,0 @@
-/home/admin/Documents/classes/special_project/firmware/target/thumbv6m-none-eabi/debug/effectpedal: /home/admin/Documents/classes/special_project/firmware/src/double_buf.rs /home/admin/Documents/classes/special_project/firmware/src/main.rs

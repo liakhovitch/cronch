@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["R","Register `SPINLOCK_ST` reader"],["SPINLOCK_ST_SPEC","Spinlock state A bitmap containing the state of all 32 spinlocks (1=locked). Mainly intended for debugging."]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["FC0_DELAY_R","Field `FC0_DELAY` reader - "],["FC0_DELAY_SPEC","Delays the start of frequency counting to allow the mux to settle Delay is measured in multiples of the reference clock period"],["FC0_DELAY_W","Field `FC0_DELAY` writer - "],["R","Register `FC0_DELAY` reader"],["W","Register `FC0_DELAY` writer"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["DBG_PADOE_SPEC","Read to sample the pad output enables (direction) PIO is currently driving to the GPIOs. On RP2040 there are 30 GPIOs, so the two most significant bits are hardwired to 0."],["R","Register `DBG_PADOE` reader"]]};

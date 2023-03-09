@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["CH_TRANS_COUNT_SPEC","DMA Channel 0 Transfer Count Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE)."],["R","Register `CH_TRANS_COUNT` reader"],["W","Register `CH_TRANS_COUNT` writer"]]};

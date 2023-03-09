@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["R","Register `SETUP_PACKET_HIGH` reader"],["SETUP_PACKET_HIGH_SPEC","Bytes 4-7 of the setup packet from the host."],["W","Register `SETUP_PACKET_HIGH` writer"],["WINDEX_R","Field `WINDEX` reader - "],["WINDEX_W","Field `WINDEX` writer - "],["WLENGTH_R","Field `WLENGTH` reader - "],["WLENGTH_W","Field `WLENGTH` writer - "]]};

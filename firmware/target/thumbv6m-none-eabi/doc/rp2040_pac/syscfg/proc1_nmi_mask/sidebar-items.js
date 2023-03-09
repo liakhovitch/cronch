@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["PROC1_NMI_MASK_SPEC","Processor core 1 NMI source mask Set a bit high to enable NMI from that IRQ"],["R","Register `PROC1_NMI_MASK` reader"],["W","Register `PROC1_NMI_MASK` writer"]]};

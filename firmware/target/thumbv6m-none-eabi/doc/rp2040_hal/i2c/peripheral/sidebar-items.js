@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"enum":[["I2CEvent","I2C bus events"]],"struct":[["I2CPeripheralEventIterator","Provides Async features to I2C peripheral."]]};

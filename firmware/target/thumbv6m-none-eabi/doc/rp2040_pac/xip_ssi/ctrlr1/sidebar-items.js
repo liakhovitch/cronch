@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["CTRLR1_SPEC","Master Control register 1"],["NDF_R","Field `NDF` reader - Number of data frames"],["NDF_W","Field `NDF` writer - Number of data frames"],["R","Register `CTRLR1` reader"],["W","Register `CTRLR1` writer"]]};

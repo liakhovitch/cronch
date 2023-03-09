@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["DMACR_SPEC","DMA control"],["R","Register `DMACR` reader"],["RDMAE_R","Field `RDMAE` reader - Receive DMA enable"],["RDMAE_W","Field `RDMAE` writer - Receive DMA enable"],["TDMAE_R","Field `TDMAE` reader - Transmit DMA enable"],["TDMAE_W","Field `TDMAE` writer - Transmit DMA enable"],["W","Register `DMACR` writer"]]};

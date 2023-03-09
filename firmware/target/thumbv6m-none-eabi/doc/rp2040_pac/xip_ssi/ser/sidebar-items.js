@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["R","Register `SER` reader"],["SER_R","Field `SER` reader - For each bit: 0 -> slave not selected 1 -> slave selected"],["SER_SPEC","Slave enable"],["SER_W","Field `SER` writer - For each bit: 0 -> slave not selected 1 -> slave selected"],["W","Register `SER` writer"]]};

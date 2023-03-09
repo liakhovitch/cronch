@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["FBDIV_INT_R","Field `FBDIV_INT` reader - see ctrl reg description for constraints"],["FBDIV_INT_SPEC","Feedback divisor (note: this PLL does not support fractional division)"],["FBDIV_INT_W","Field `FBDIV_INT` writer - see ctrl reg description for constraints"],["R","Register `FBDIV_INT` reader"],["W","Register `FBDIV_INT` writer"]]};

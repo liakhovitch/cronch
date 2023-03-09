@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["TIMEHW_SPEC","Write to bits 63:32 of time always write timelw before timehw"],["W","Register `TIMEHW` writer"]]};

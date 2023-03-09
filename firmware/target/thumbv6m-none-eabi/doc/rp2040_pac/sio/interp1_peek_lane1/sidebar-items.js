@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["INTERP1_PEEK_LANE1_SPEC","Read LANE1 result, without altering any internal state (PEEK)."],["R","Register `INTERP1_PEEK_LANE1` reader"]]};

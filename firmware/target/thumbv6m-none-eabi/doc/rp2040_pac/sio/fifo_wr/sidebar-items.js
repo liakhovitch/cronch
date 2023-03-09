@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["FIFO_WR_SPEC","Write access to this core’s TX FIFO"],["W","Register `FIFO_WR` writer"]]};

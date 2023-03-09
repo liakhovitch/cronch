@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CLionExternalBuildManager">
+    <target id="a4ea162a-552d-4519-8be2-228b7317ede3" name="Rust" defaultType="TOOL">
+      <configuration id="258c77f4-e5a1-4194-b98e-8d53b56a8da3" name="Rust" toolchainName="Default">
+        <build type="TOOL">
+          <tool actionId="Tool_External Tools_Cargo Build" />
+        </build>
+        <clean type="TOOL">
+          <tool actionId="Tool_External Tools_Cargo Clean" />
+        </clean>
+      </configuration>
+    </target>
+  </component>
+</project>

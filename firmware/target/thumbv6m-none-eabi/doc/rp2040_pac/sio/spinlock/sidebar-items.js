@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["R","Register `SPINLOCK%s` reader"],["SPINLOCK_SPEC","Reading from a spinlock address will:"],["W","Register `SPINLOCK%s` writer"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["INTR_R","Field `INTR` reader - Raw interrupt status for DMA Channels 0..15. Bit n corresponds to channel n. Ignores any masking or forcing. Channel interrupts can be cleared by writing a bit mask to INTR, INTS0 or INTS1."],["INTR_SPEC","Interrupt Status (raw)"],["R","Register `INTR` reader"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["CH6_DBG_TCR_SPEC","Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer"],["R","Register `CH6_DBG_TCR` reader"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["CH_AL1_TRANS_COUNT_TRIG_SPEC","Alias for channel 0 TRANS_COUNT register This is a trigger register (0xc). Writing a nonzero value will reload the channel counter and start the channel."],["R","Register `CH_AL1_TRANS_COUNT_TRIG` reader"],["W","Register `CH_AL1_TRANS_COUNT_TRIG` writer"]]};

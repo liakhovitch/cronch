@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["A_R","Field `A` reader - "],["A_W","Field `A` writer - "],["B_R","Field `B` reader - "],["B_W","Field `B` writer - "],["CC_SPEC","Counter compare values"],["R","Register `CC` reader"],["W","Register `CC` writer"]]};

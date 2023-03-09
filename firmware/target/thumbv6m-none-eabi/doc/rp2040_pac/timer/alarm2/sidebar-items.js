@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["ALARM2_SPEC","Arm alarm 2, and configure the time it will fire. Once armed, the alarm fires when TIMER_ALARM2 == TIMELR. The alarm will disarm itself once it fires, and can be disarmed early using the ARMED status register."],["R","Register `ALARM2` reader"],["W","Register `ALARM2` writer"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["DAY_R","Field `DAY` reader - Day of the month (1..31)"],["MONTH_R","Field `MONTH` reader - Month (1..12)"],["R","Register `RTC_1` reader"],["RTC_1_SPEC","RTC register 1."],["YEAR_R","Field `YEAR` reader - Year"]]};

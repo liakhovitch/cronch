@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["DIV_SDIVIDEND_SPEC","Divider signed dividend The same as UDIVIDEND, but starts a signed calculation, rather than unsigned."],["R","Register `DIV_SDIVIDEND` reader"],["W","Register `DIV_SDIVIDEND` writer"]]};

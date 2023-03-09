@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["RegisterBlock","Register block for ARMv7-M"]]};

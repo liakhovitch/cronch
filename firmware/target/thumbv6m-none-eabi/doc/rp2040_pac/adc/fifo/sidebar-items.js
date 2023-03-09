@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["ERR_R","Field `ERR` reader - 1 if this particular sample experienced a conversion error. Remains in the same location if the sample is shifted."],["FIFO_SPEC","Conversion result FIFO"],["R","Register `FIFO` reader"],["VAL_R","Field `VAL` reader - "]]};

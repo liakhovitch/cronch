@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["Delay","System timer (SysTick) as a delay provider."]]};

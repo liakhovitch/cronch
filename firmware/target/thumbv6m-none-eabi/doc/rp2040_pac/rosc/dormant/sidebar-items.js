@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["DORMANT_SPEC","Ring Oscillator pause control This is used to save power by pausing the ROSC On power-up this field is initialised to WAKE An invalid write will also select WAKE Warning: setup the irq before selecting dormant mode"],["R","Register `DORMANT` reader"],["W","Register `DORMANT` writer"]]};

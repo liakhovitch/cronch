@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["VectorTable","Data type for a properly aligned interrupt vector table"]]};

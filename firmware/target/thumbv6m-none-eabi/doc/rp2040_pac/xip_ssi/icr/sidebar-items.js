@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["ICR_R","Field `ICR` reader - Clear-on-read all active interrupts"],["ICR_SPEC","Interrupt clear"],["R","Register `ICR` reader"]]};

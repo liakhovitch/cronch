@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["CTR_R","Field `CTR` reader - "],["CTR_SPEC","Direct access to the PWM counter"],["CTR_W","Field `CTR` writer - "],["R","Register `CTR` reader"],["W","Register `CTR` writer"]]};

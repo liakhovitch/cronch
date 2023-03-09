@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"enum":[["VOLTAGE_SELECT_A","Value on reset: 0"]],"struct":[["R","Register `VOLTAGE_SELECT` reader"],["VOLTAGE_SELECT_R","Field `VOLTAGE_SELECT` reader - "],["VOLTAGE_SELECT_SPEC","Voltage select. Per bank control"],["VOLTAGE_SELECT_W","Field `VOLTAGE_SELECT` writer - "],["W","Register `VOLTAGE_SELECT` writer"]]};

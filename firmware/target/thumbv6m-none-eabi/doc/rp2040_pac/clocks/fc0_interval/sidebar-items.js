@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["FC0_INTERVAL_R","Field `FC0_INTERVAL` reader - "],["FC0_INTERVAL_SPEC","The test interval is 0.98us * 2interval, but let’s call it 1us * 2interval The default gives a test interval of 250us"],["FC0_INTERVAL_W","Field `FC0_INTERVAL` writer - "],["R","Register `FC0_INTERVAL` reader"],["W","Register `FC0_INTERVAL` writer"]]};
