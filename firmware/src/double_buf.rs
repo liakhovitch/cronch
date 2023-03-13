@@ -59,6 +59,8 @@ impl <LTR, RTL, const A: usize, const B: usize>DoubleBuf<LTR, RTL, A, B> where
     ///
     /// * 'new_ltr' - Closure that constructs the left-to-right buffer.
     /// * 'new_rtl' - Closure that constructs the right-to-left buffer.
+    // Note: We need to take closures as arguments so that we can make two copies of the initial
+    //       values without requiring that the types be Copy.
     pub unsafe fn new<F, G>(new_ltr: F, new_rtl: G)->Self where
         F: Fn() -> LTR, G: Fn() -> RTL,
     {
@@ -131,7 +133,7 @@ pub trait DoubleBufPort{
 /// When called on a *Right*, rw should never block.
 /// No matter what, the write operation always happens first.
     fn rw<F, G>(&mut self, write: F, read: G) where
-      F: Fn(&mut Self::W), G: FnMut(& Self::R);
+      F: FnMut(&mut Self::W), G: FnMut(& Self::R);
 }
 
 /// The *Left* side of a DoubleBuffer. Implements DoubleBufPort for reading and writing.
@@ -163,8 +165,8 @@ Spinlock<B>: SpinlockValid,
     type R = RTL;
     type W = LTR;
 
-    fn rw<F, G>(&mut self, write: F, mut read: G) where
-        F: Fn(&mut Self::W), G: FnMut(& Self::R)
+    fn rw<F, G>(&mut self, mut write: F, mut read: G) where
+        F: FnMut(&mut Self::W), G: FnMut(& Self::R)
     {
         // Determine which lock is currently held and which buffer it corresponds to
         let (current_buf, next_buf) = match self.held_lock {
@@ -233,8 +235,8 @@ impl <'a, LTR, RTL, const A: usize, const B: usize> DoubleBufPort for Right<'a, 
     type R = LTR;
     type W = RTL;
 
-    fn rw<F, G>(&mut self, write: F, mut read: G) where
-        F: Fn(&mut Self::W), G: FnMut(& Self::R)
+    fn rw<F, G>(&mut self, mut write: F, mut read: G) where
+        F: FnMut(&mut Self::W), G: FnMut(& Self::R)
     {
         // Lock whichever buffer is available
         let (lock, buf) = loop{

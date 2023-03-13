@@ -1,4 +1,5 @@
 use debugless_unwrap::DebuglessUnwrap;
+use embedded_hal::prelude::_embedded_hal_blocking_i2c_Write;
 
 const INIT_CMD_1:&[&[u8]] = &[
     // Clock setup
@@ -69,8 +70,8 @@ const INIT_CMD_2:&[&[u8]] = &[
     // ^ Note: automute can be configured here
 ];
 
-pub fn tlv320_init<T: embedded_hal::blocking::i2c::Write>(
-    i2c:&mut T, delay: &mut cortex_m::delay::Delay){
+pub fn init_tlv320(
+    i2c:&mut impl _embedded_hal_blocking_i2c_Write, delay: &mut cortex_m::delay::Delay){
     // Initial reset
     i2c.write(0x18, &[0x00, 0x00]).debugless_unwrap();     // Select page 0
     i2c.write(0x18, &[0x01, 0x01]).debugless_unwrap();     // Software reset
@@ -79,11 +80,11 @@ pub fn tlv320_init<T: embedded_hal::blocking::i2c::Write>(
     for cmd in INIT_CMD_1{
         i2c.write(0x18, cmd).debugless_unwrap();
     }
+
     // Wait for anti-pop soft-stepping to complete before continuing
-    //delay.delay_ms(3500);
-    /*
+    delay.delay_ms(3500);
+
     for cmd in INIT_CMD_2{
         i2c.write(0x18, cmd).debugless_unwrap();
     }
-     */
 }
