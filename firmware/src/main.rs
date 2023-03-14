@@ -6,11 +6,11 @@
 #![no_std]
 #![no_main]
 
-pub mod double_buf;
-pub mod tlv320;
-pub mod ui;
-pub mod init;
-
+mod double_buf;
+mod tlv320;
+mod ui;
+mod init;
+mod panic;
 
 use cortex_m::singleton;
 
@@ -28,9 +28,7 @@ use embedded_hal::prelude::*;
 
 use fugit::RateExtU32;
 
-// Ensure we halt the program on panic (if we don't mention this crate it won't
-// be linked)
-use panic_halt as _;
+//use panic_halt as _;
 
 use rp_pico::hal;
 use hal::{
