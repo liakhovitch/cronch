@@ -146,13 +146,13 @@ impl <'a, 'b, T: i2c_Write + i2c_Read> LedStrip<'a, 'b, T> {
                 (red, green)
             }
             StripState::Fdbk(n) => {
-                self.animate_level(n, (out.fdbk_knob >> 7) as u32)
+                self.animate_level(n, (out.fdbk_knob >> 3) as u32)
             }
             StripState::Clk(n) => {
-                self.animate_level(n, (out.clk_knob >> 7) as u32)
+                self.animate_level(n, (out.clk_knob >> 3) as u32)
             }
             StripState::Mix(n) => {
-                self.animate_balance(n, (out.mix_knob >> 7) as u32)
+                self.animate_balance(n, (out.mix_knob >> 3) as u32)
             }
             StripState::Init(n) => {
                 self.animate_init(n)

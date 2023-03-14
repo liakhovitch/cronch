@@ -7,16 +7,16 @@ use super::UiErr;
 
 pub struct Knob<T: Channel<Adc, ID = u8>> {
     pin: T,
-    direction: bool,
     prev: u16,
+    shift: u32,
 }
 
 impl <T: Channel<Adc, ID = u8>> Knob<T> {
-    pub fn new(pin: T) -> Self {
+    pub fn new(pin: T, shift: u32) -> Self {
         Knob{
             pin,
-            direction: true,
             prev: 0,
+            shift,
         }
     }
 
@@ -30,36 +30,17 @@ impl <T: Channel<Adc, ID = u8>> Knob<T> {
         let val = (( 1<<12 ) - 1) - reading_avg as u16;
 
         // Awful hysteresis logic
-        let threshold = 128;
-        match (self.direction, val > self.prev) {
-            (true, true) => {
-                self.prev = val + (threshold / 2);
-                Ok(Some(val))
-            },
-            (true, false) => {
-                if val <= self.prev - threshold {
-                    self.direction = false;
-                    self.prev = val + (threshold / 2);
-                    Ok(Some(val))
-                } else {
-                    Ok(None)
-                }
-            },
-            (false, false) => {
-                self.prev = if val > (threshold / 2) { val - (threshold/2) }
-                else { 0 };
-                Ok(Some(val))
-            },
-            (false, true) => {
-                if val > self.prev + threshold {
-                    self.direction = true;
-                    self.prev = if val > (threshold / 2) { val - (threshold/2) }
-                    else { 0 };
-                    Ok(Some(val))
-                } else {
-                    Ok(None)
-                }
-            },
+        if val < (self.prev << self.shift) || val >= ((self.prev + 2) << self.shift){
+            self.prev = if val >= (1 << (self.shift - 1)) {
+                (val - (1 << (self.shift - 1))) >> self.shift
+            }
+            else {
+                0
+            };
+            Ok(Some(self.prev))
+        }
+        else {
+            Ok(None)
         }
     }
 }

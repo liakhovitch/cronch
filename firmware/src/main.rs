@@ -93,9 +93,9 @@ fn main() -> ! {
 
     // Init ADC
     let mut adc = Adc::new(pac.ADC, &mut pac.RESETS);
-    let mut mix_knob = knob::Knob::new(pins.gpio26.into_floating_input());
-    let mut clk_knob = knob::Knob::new(pins.gpio27.into_floating_input());
-    let mut fdbk_knob = knob::Knob::new(pins.gpio28.into_floating_input());
+    let mut mix_knob = knob::Knob::new(pins.gpio26.into_floating_input(), 4);
+    let mut clk_knob = knob::Knob::new(pins.gpio27.into_floating_input(), 4);
+    let mut fdbk_knob = knob::Knob::new(pins.gpio28.into_floating_input(), 4);
 
     // Init UI I2C
     let mut ui_i2c = init_ui_i2c!(pins, pac, clocks);
@@ -113,19 +113,17 @@ fn main() -> ! {
         let timer = rp2040_hal::timer::Timer::new(unsafe{ pac::Peripherals::steal().TIMER }, &mut unsafe{ pac::Peripherals::steal().RESETS });
 
         // Init LED strip
-        let mut led_strip = led_strip::LedStrip::new(&mut ui_i2c, &timer, &sio.hwdivider, 800, 2000).unwrap();
+        let mut led_strip = led_strip::LedStrip::new(&mut ui_i2c, &timer, &sio.hwdivider, 800, 800).unwrap();
 
         // Init front panel IO expanders
         let expanders = expanders::Expanders::new(&mut ui_i2c).unwrap();
 
         let mut out: ui::UiOutput = Default::default();
         let mut input: ui::UiInput = Default::default();
-        // Read the ADCs a few times to stabilize the hysteresis
-        for _ in 0..16{
-            if let Some(n) = fdbk_knob.read(&mut adc).unwrap() { out.fdbk_knob = n };
-            if let Some(n) = clk_knob.read(&mut adc).unwrap() { out.clk_knob = n };
-            if let Some(n) = mix_knob.read(&mut adc).unwrap() { out.mix_knob = n };
-        }
+        // Read the ADCs to stabilize the hysteresis state
+        if let Some(n) = fdbk_knob.read(&mut adc).unwrap() { out.fdbk_knob = n };
+        if let Some(n) = clk_knob.read(&mut adc).unwrap() { out.clk_knob = n };
+        if let Some(n) = mix_knob.read(&mut adc).unwrap() { out.mix_knob = n };
 
         loop {
             led_strip.update(&mut ui_i2c, &out, &input).unwrap();
