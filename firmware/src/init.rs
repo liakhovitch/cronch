@@ -4,6 +4,7 @@ Because init code is meant to be used only once in a very specific context, I be
 may actually be the idiomatically correct tool for this.
  */
 
+#[macro_export]
 macro_rules! init_clocks {
     ($pac:ident, $watchdog:ident) => {{
         hal::clocks::init_clocks_and_plls(
@@ -18,6 +19,7 @@ macro_rules! init_clocks {
     }}
 }
 
+#[macro_export]
 macro_rules! init_audio_clk {
     ($pwm_slices:ident, $pins:ident) => {
         // Configure audio chip clock signal
@@ -31,6 +33,7 @@ macro_rules! init_audio_clk {
     }
 }
 
+#[macro_export]
 macro_rules! init_ui_i2c {
     ($pins:ident, $pac:ident, $clocks:ident) => {{
         let sda_pin = $pins.gpio2.into_mode::<hal::gpio::FunctionI2C>();
@@ -47,6 +50,7 @@ macro_rules! init_ui_i2c {
     }}
 }
 
+#[macro_export]
 macro_rules! init_audio_i2c {
     ($pins:ident, $pac:ident, $clocks:ident) => {{
     // Extra scope turns this entire block into one expression, needed for ret value to work properly
@@ -66,6 +70,7 @@ macro_rules! init_audio_i2c {
     }}
 }
 
+#[macro_export]
 macro_rules! init_psram {
     ($pins:ident, $pac:ident, $clocks:ident, $delay:ident) => {{
         let _spi_sclk = $pins.gpio8.into_mode::<hal::gpio::FunctionSpi>();

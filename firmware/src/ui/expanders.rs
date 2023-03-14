@@ -1,91 +1,6 @@
-use embedded_hal::prelude::_embedded_hal_blocking_i2c_Write as i2c_Write;
-use embedded_hal::prelude::_embedded_hal_blocking_i2c_Read as i2c_Read;
+use super::{OP1, OP2, UiErr};
+use embedded_hal::blocking::i2c::{Read as i2c_Read, Write as i2c_Write};
 use core::marker::PhantomData;
-
-#[derive(Debug)]
-pub struct UiErr;
-
-impl UiErr{
-    fn new<T>(_: T)->Self{
-        UiErr{}
-    }
-}
-
-#[derive(Default)]
-pub struct UiInput {
-    pub read_addr: u16,
-    pub write_addr: u16,
-}
-
-#[derive(Default)]
-pub struct UiOutput {
-    pub op1: OP1,
-    pub op2: OP2,
-    pub op1_en: bool,
-    pub op2_en: bool,
-    pub op1_arg: u16,
-    pub op2_arg: u16,
-    pub rev: bool,
-    pub wr_prot: bool,
-    pub fb_lr_swap: bool,
-    pub fb_phase_flip: bool,
-    pub fdbk_knob: u16,
-    pub clk_knob: u16,
-    pub mix_knob: u16,
-}
-
-#[derive(Default)]
-pub enum OP1 {
-    #[default]
-    AND,
-    MUL,
-    OSC,
-    RND,
-}
-
-#[derive(Default)]
-pub enum OP2 {
-    #[default]
-    OR,
-    XOR,
-    MSK,
-    SUB,
-}
-
-// We can't own the actual I2C resource or a mutable reference, as the bus is shared.
-// Thus, a reference to an I2C resource must be passed into each call to a member function.
-// The associated type and PhantomData ensure that we're at least using the same I2C peripheral
-//     across different member calls on the same LedStrip object.
-pub struct LedStrip<T: i2c_Write + i2c_Read> {
-    i2c_type: PhantomData<T>,
-}
-
-impl <T: i2c_Write + i2c_Read> LedStrip<T> {
-    pub fn new<>(i2c: &mut T)->Result<Self, UiErr> {
-        i2c.write(0x60, &[
-            0x00, 0x00,
-            0x0D, 0b00001000,
-            0x0F, 0x00,
-            0x0C, 0x00,
-        ]).map_err(UiErr::new)?;
-        Ok(LedStrip{i2c_type: PhantomData})
-    }
-
-    pub fn write(&self, i2c: &mut T, red: u32, green: u32)->Result<(), UiErr>{
-        i2c.write(0x60, &[
-            1, green.to_le_bytes()[0],
-            2, green.to_le_bytes()[1],
-            3, green.to_le_bytes()[2],
-            4, green.to_le_bytes()[3],
-            5, red.to_le_bytes()[0],
-            6, red.to_le_bytes()[1],
-            7, red.to_le_bytes()[2],
-            8, red.to_le_bytes()[3],
-            0x0c, 0x00
-        ]).map_err(UiErr::new)?;
-        Ok(())
-    }
-}
 
 pub struct Expanders<T: i2c_Write + i2c_Read> {
     i2c_type: PhantomData<T>,
@@ -97,21 +12,21 @@ impl <T: i2c_Write + i2c_Read> Expanders<T> {
         i2c.write(0x23, &[0x06, 0xFF]).map_err(UiErr::new)?; // Turn off LEDs
         i2c.write(0x23, &[0x5C, 0b00000100]).map_err(UiErr::new)?; // Open-drain output
         i2c.write(0x23, &[0x0C, 0xFF, 0xFF, 0x00]).map_err(UiErr::new)?; // DDR
-        i2c.write(0x23, &[0x08, 0xFF, 0xFF, 0x00]).map_err(UiErr::new)?; // Invert inputs
+        i2c.write(0x23, &[0x08, 0x00, 0xEE, 0x00]).map_err(UiErr::new)?; // Invert inputs
         // Minimum drive strength
         i2c.write(0x23, &[0x40, 0x00, 0x00, 0x00, 0x00, 0xFF, 0xFF]).map_err(UiErr::new)?;
         i2c.write(0x23, &[0x4C, 0xFF, 0xFF, 0x00]).map_err(UiErr::new)?; // Enable pull-ups
 
         // Init expander 2 (All argument switches except upper-left bank)
         i2c.write(0x22, &[0x0C, 0xFF, 0xFF, 0xFF]).map_err(UiErr::new)?; // DDR
-        i2c.write(0x22, &[0x08, 0xFF, 0xFF, 0xFF]).map_err(UiErr::new)?; // Invert inputs
+        i2c.write(0x22, &[0x08, 0x00, 0x00, 0x00]).map_err(UiErr::new)?; // Invert inputs
         i2c.write(0x22, &[0x4C, 0xFF, 0xFF, 0xFF]).map_err(UiErr::new)?; // Enable pull-ups
 
         // Init expander 0
         i2c.write(0x20, &[0x06, 0xF0]).map_err(UiErr::new)?; // Turn off LEDs
         i2c.write(0x20, &[0x5C, 0b00000100]).map_err(UiErr::new)?; // Open-drain output
         i2c.write(0x20, &[0x0C, 0xFF, 0xFF, 0x0F]).map_err(UiErr::new)?; // DDR
-        i2c.write(0x20, &[0x08, 0xFF, 0xFF, 0x0F]).map_err(UiErr::new)?; // Invert inputs
+        i2c.write(0x20, &[0x08, 0x00, 0x00, 0x00]).map_err(UiErr::new)?; // Invert inputs
         // Minimum drive strength
         i2c.write(0x20, &[0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF]).map_err(UiErr::new)?;
         i2c.write(0x20, &[0x4C, 0xFF, 0xFF, 0x0F]).map_err(UiErr::new)?; // Enable pull-ups
@@ -120,27 +35,29 @@ impl <T: i2c_Write + i2c_Read> Expanders<T> {
     }
 
     /// Read operator select sliders and EN switches
-    pub fn read_opsel_en(&self, i2c: &mut T, op1: &mut OP1, op2: &mut OP2,
+    pub fn read_opsel_en(&self, i2c: &mut T, op1: &mut Option<OP1>, op2: &mut Option<OP2>,
                          op1_en: &mut bool, op2_en: &mut bool)->Result<(), UiErr> {
         let mut buf: [u8; 1] = [0];
         i2c.write(0x23, &[0x01]).map_err(UiErr::new)?;
         i2c.read(0x23, &mut buf).map_err(UiErr::new)?;
 
         *op1 = match buf[0] & 0b11100000 {
-            0b00000000 => OP1::RND,
-            0b00100000 => OP1::OSC,
-            0b01000000 => OP1::MUL,
-            _          => OP1::AND,
+            0b00000000 => Some(OP1::RND),
+            0b00100000 => Some(OP1::OSC),
+            0b01000000 => Some(OP1::MUL),
+            0b10000000 => Some(OP1::AND),
+            _          => None,
         };
         *op2 = match buf[0] & 0b00001110 {
-            0b00000000 => OP2::SUB,
-            0b00000010 => OP2::MSK,
-            0b00000100 => OP2::XOR,
-            _          => OP2::OR,
+            0b00000000 => Some(OP2::SUB),
+            0b00000010 => Some(OP2::MSK),
+            0b00000100 => Some(OP2::XOR),
+            0b00001000 => Some(OP2::OR),
+            _          => None,
         };
 
-        *op1_en = buf[0] & 0b00000001 == 0;
-        *op2_en = buf[0] & 0b00010000 == 0;
+        *op1_en = buf[0] & 0b00000001 != 0;
+        *op2_en = buf[0] & 0b00010000 != 0;
 
         Ok(())
     }
@@ -154,8 +71,8 @@ impl <T: i2c_Write + i2c_Read> Expanders<T> {
         i2c.write(0x22, &[0x00]).map_err(UiErr::new)?;
         i2c.read(0x22, &mut buf2).map_err(UiErr::new)?;
 
-        *op1_args = u16::from_le_bytes([buf1[0], buf2[0]]);
-        *op2_args = u16::from_le_bytes([buf2[2], buf2[1]]);
+        *op1_args = u16::from_le_bytes([buf2[0], buf1[0]]);
+        *op2_args = u16::from_le_bytes([buf2[1], buf2[2]]);
 
         Ok(())
     }

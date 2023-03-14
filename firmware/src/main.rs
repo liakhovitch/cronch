@@ -9,10 +9,9 @@
 pub mod double_buf;
 pub mod tlv320;
 pub mod ui;
-#[macro_use]
 pub mod init;
 
-use cortex_m::asm::nop;
+
 use cortex_m::singleton;
 
 use double_buf::{DoubleBuf, DoubleBufPort};
@@ -22,12 +21,10 @@ use rp_pico::entry;
 // GPIO traits
 use embedded_hal::{
     digital::v2::OutputPin,
-    blocking::i2c::Write,
     PwmPin,
-    adc::OneShot,
 };
 
-use embedded_hal::prelude::{_embedded_hal_blocking_i2c_Read, _embedded_hal_blocking_spi_Transfer};
+use embedded_hal::prelude::*;
 
 use fugit::RateExtU32;
 
@@ -38,14 +35,13 @@ use panic_halt as _;
 use rp_pico::hal;
 use hal::{
     prelude::*,
-    gpio::{Pin},
     adc::Adc,
     multicore::{Multicore, Stack},
     pac,
 };
 
 use tlv320::init_tlv320;
-use ui::*;
+use ui::{expanders, led_strip, knob};
 
 // Reserve memory for Core 1's stack
 // (Stack memory for Core 0 is reserved automatically)
@@ -66,6 +62,7 @@ fn main() -> ! {
 
     // Init systick timer and delay
     let mut delay = cortex_m::delay::Delay::new(core.SYST, clocks.system_clock.freq().to_Hz());
+    let timer = rp2040_hal::timer::Timer::new(pac.TIMER , &mut pac.RESETS);
 
     // Init single-cycle IO
     let mut sio = hal::Sio::new(pac.SIO);
@@ -89,67 +86,53 @@ fn main() -> ! {
     delay.delay_ms(5);
 
     // Create a statically allocated double buffer to share data between cores
-    let intercore = singleton!(:DoubleBuf::<UiOutput, UiInput, 0, 1> = unsafe{
+    let intercore = singleton!(:DoubleBuf::<ui::UiOutput, ui::UiInput, 0, 1> = unsafe{
         DoubleBuf::new(||{Default::default()}, ||{Default::default()})
     }).unwrap();
     let (mut intercore_ui, mut intercore_audio) = intercore.split().unwrap();
 
     // Init ADC
     let mut adc = Adc::new(pac.ADC, &mut pac.RESETS);
-    let mut mix_knob_pin = pins.gpio26.into_floating_input();
-    let mut clk_knob_pin = pins.gpio27.into_floating_input();
-    let mut fdbk_knob_pin = pins.gpio28.into_floating_input();
+    let mut mix_knob = knob::Knob::new(pins.gpio26.into_floating_input());
+    let mut clk_knob = knob::Knob::new(pins.gpio27.into_floating_input());
+    let mut fdbk_knob = knob::Knob::new(pins.gpio28.into_floating_input());
 
     // Init UI I2C
     let mut ui_i2c = init_ui_i2c!(pins, pac, clocks);
 
     // Setup core 1
     let mut mc = Multicore::new(&mut pac.PSM, &mut pac.PPB, &mut sio.fifo);
-    let core_freq = clocks.system_clock.freq().to_Hz();
     mc.cores()[1].spawn(unsafe { &mut CORE1_STACK.mem }, move || {
+        // -- ALL CODE IN THIS SCOPE RUNS ON CORE1, IN PARALLEL WITH CORE0 --
+
         // Acquire core peripherals for Core 1
-        let core = unsafe { pac::CorePeripherals::steal() };
-        let delay = cortex_m::delay::Delay::new(core.SYST, core_freq);
+        let _core = unsafe { pac::CorePeripherals::steal() };
+        // SIO peripherals are also duplicated for each core so stealing them is OK
+        let sio = hal::Sio::new(unsafe{ pac::Peripherals::steal().SIO });
+        // Init 64-bit timebase timer
+        let timer = rp2040_hal::timer::Timer::new(unsafe{ pac::Peripherals::steal().TIMER }, &mut unsafe{ pac::Peripherals::steal().RESETS });
 
         // Init LED strip
-        let led_strip = LedStrip::new(&mut ui_i2c).unwrap();
+        let mut led_strip = led_strip::LedStrip::new(&mut ui_i2c, &timer, &sio.hwdivider, 800, 2000).unwrap();
 
         // Init front panel IO expanders
-        let expanders = Expanders::new(&mut ui_i2c).unwrap();
+        let expanders = expanders::Expanders::new(&mut ui_i2c).unwrap();
+
+        let mut out: ui::UiOutput = Default::default();
+        let mut input: ui::UiInput = Default::default();
+        // Read the ADCs a few times to stabilize the hysteresis
+        for _ in 0..16{
+            if let Some(n) = fdbk_knob.read(&mut adc).unwrap() { out.fdbk_knob = n };
+            if let Some(n) = clk_knob.read(&mut adc).unwrap() { out.clk_knob = n };
+            if let Some(n) = mix_knob.read(&mut adc).unwrap() { out.mix_knob = n };
+        }
 
         loop {
+            led_strip.update(&mut ui_i2c, &out, &input).unwrap();
 
-            let mut reading_avg: u32 = 0;
-            for _ in 0..32 {
-                let reading: u16 = adc.read(&mut mix_knob_pin).unwrap();
-                reading_avg += reading as u32;
-            }
-            reading_avg >>= 5;
-            let shift: u32 = (reading_avg >> 6) as u32;
-            let mix_disp: u32 = if shift < 32{
-                0xFFFFFFFF >> (31 - shift)
-            } else {
-                0xFFFFFFFF << shift
-            };
-            let mut reading_avg: u32 = 0;
-            for _ in 0..32 {
-                let reading: u16 = adc.read(&mut clk_knob_pin).unwrap();
-                reading_avg += reading as u32;
-            }
-            reading_avg >>= 5;
-            let shift: u32 = (reading_avg >> 7) as u32;
-            let clk_disp: u32 = 0x01 << shift;
+            read_panel!(out, ui_i2c, expanders, adc, fdbk_knob, clk_knob, mix_knob, led_strip);
 
-            //let (mix_disp_r, clk_disp_r) = vals_read;
-            //led_strip.write(&mut ui_i2c, clk_disp_r, mix_disp_r).unwrap();
-
-            intercore_ui.rw(|w|{
-                expanders.read_opsel_en(&mut ui_i2c, &mut w.op1, &mut w.op2, &mut w.op1_en, &mut w.op2_en).unwrap();
-                expanders.write_opsel_leds(&mut ui_i2c, &w.op1, &w.op2, &w.op1_en, &w.op2_en).unwrap();
-            }, |r|{
-                let red: u16 = 1 << (r.write_addr >> 11);
-                let green: u16 = 1 << (r.read_addr >> 11);
-            });
+            intercore_ui.rw(|w|{ *w = out; }, |r|{ input = *r; });
         }
     }).unwrap();
 
@@ -185,8 +168,8 @@ fn main() -> ! {
     let mut led_pin = pins.led.into_push_pull_output();
     led_pin.set_high().unwrap();
 
-
-    let mut save = (0u32, 0u32);
+    let mut out: ui::UiInput = Default::default();
+    let mut input: ui::UiOutput = Default::default();
 
     loop {
         /*
@@ -195,9 +178,10 @@ fn main() -> ! {
         led_pin.set_low().unwrap();
         delay.delay_ms(2000);
          */
-
-        let write = save;
-        //intercore_audio.rw(|x|{*x = write}, |x|{save = *x});
+        delay.delay_ms(10);
+        out.write_addr = input.op1_arg << 11;
+        out.read_addr = input.op2_arg << 11;
+        intercore_audio.rw(|w|{ *w = out; }, |r|{ input = *r; });
     }
 }
 
