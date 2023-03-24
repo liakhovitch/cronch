@@ -1,5 +1,5 @@
 # Crönch!
-Not-entirely-sane digital delay pedal madness
+Not-entirely-sane digital delay pedal
 
 **Note: This project is not finished. PCB contains undocumented errors and code may not compile.**
 
@@ -36,3 +36,7 @@ Some key points:
 - [ ] Variable clock rate
 
 ## Images
+![Side](images/closeup.jpg)
+![Front](images/topdown.jpg)
+### Bonus: I built a reflow oven!
+![Chad, the Absolute Chad](images/chad.jpg)
