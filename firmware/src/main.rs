@@ -59,7 +59,7 @@ fn main() -> ! {
 
     // Init systick timer and delay
     let mut delay = cortex_m::delay::Delay::new(core.SYST, clocks.system_clock.freq().to_Hz());
-    let timer = rp2040_hal::timer::Timer::new(pac.TIMER , &mut pac.RESETS);
+    let _timer = rp2040_hal::timer::Timer::new(pac.TIMER , &mut pac.RESETS);
 
     // Init single-cycle IO
     let mut sio = hal::Sio::new(pac.SIO);
@@ -166,18 +166,25 @@ fn main() -> ! {
 
     let (mut pio, sm0, sm1, sm2, sm3) = pac.PIO0.split(&mut pac.RESETS);
     let mut i2s = i2s::I2S::new(&mut pio, pins.gpio17, pins.gpio18, pins.gpio19, pins.gpio20, sm0, sm1, sm2, sm3);
+    // Turn off PIO input synchronizers. This is necessary to allow PIO inputs to run at full speed so we can support 192KHz 32bit audio
     unsafe{ pac::Peripherals::steal().PIO0.input_sync_bypass.write(|w| w.bits(0xFFFFFFFF)); }
 
     loop {
 
-        sample.0 = i2s.read_left();
         i2s.write_left(sample.0);
-        sample.1 = i2s.read_right();
         i2s.write_right(sample.1);
+        sample.0 = i2s.read_left();
+        sample.1 = i2s.read_right();
 
         out.write_addr = out.write_addr.wrapping_add(1);
         out.read_addr = out.write_addr;
         intercore_audio.rw(|w|{ *w = out; }, |r|{ input = *r; });
+
+        cortex_m::asm::delay(360); // This represents the remaining CPU budget
+        // Note: the actual available budget is the delay value x1.5 since asm::delay takes
+        // 1.5 * (input) cycles on Cortex-M0.
+        // The theoretical maximum budget is:
+        // (64 bits/sample) * (125MHz sysclk / 12.5MHz I2S clock) = 640 CPU cycles per sample
     }
 }
 

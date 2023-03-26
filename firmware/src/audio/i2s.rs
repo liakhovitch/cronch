@@ -67,6 +67,7 @@ where
             "wait 1 gpio 0"//BCLK
             "wait 0 gpio 0"//BCLK
             "jmp !osre loop"
+            "irq wait 4"
             ".wrap"
         ).program;
 
@@ -87,6 +88,7 @@ where
             "wait 1 gpio 0"//BCLK
             "wait 0 gpio 0"//BCLK
             "jmp !osre loop"
+            "irq wait 5"
             ".wrap"
         ).program;
 
@@ -100,7 +102,7 @@ where
         let mut prog_lrx = pio_proc::pio_asm!(
             ".wrap_target"
             "set x 31"
-            "wait 0 gpio 0"//WCLK
+            "wait 1 irq 4"
             "wait 1 gpio 0"//WCLK
             "loop:"
             "wait 1 gpio 0"//BCLK
@@ -111,16 +113,14 @@ where
         ).program;
 
         // Patch WCLK and BCLK pin numbers
-        prog_lrx.code[1] |= u16::from(WCLK::DYN.num);
         prog_lrx.code[2] |= u16::from(WCLK::DYN.num);
         prog_lrx.code[3] |= u16::from(BCLK::DYN.num);
         prog_lrx.code[5] |= u16::from(BCLK::DYN.num);
 
         let mut prog_rrx = pio_proc::pio_asm!(
-            "wait 0 gpio 0"//WCLK
             ".wrap_target"
             "set x 31"
-            "wait 1 gpio 0"//WCLK
+            "wait 1 irq 5"
             "wait 0 gpio 0"//WCLK
             "loop:"
             "wait 1 gpio 0"//BCLK
@@ -131,11 +131,9 @@ where
         ).program;
 
         // Patch WCLK and BCLK pin numbers
-        prog_rrx.code[0] |= u16::from(WCLK::DYN.num);
         prog_rrx.code[2] |= u16::from(WCLK::DYN.num);
-        prog_rrx.code[3] |= u16::from(WCLK::DYN.num);
-        prog_rrx.code[4] |= u16::from(BCLK::DYN.num);
-        prog_rrx.code[6] |= u16::from(BCLK::DYN.num);
+        prog_rrx.code[3] |= u16::from(BCLK::DYN.num);
+        prog_rrx.code[5] |= u16::from(BCLK::DYN.num);
 
         let installed_ltx = pio.install(&prog_ltx).unwrap();
         let installed_rtx = pio.install(&prog_rtx).unwrap();
@@ -184,6 +182,11 @@ where
         sm0.set_pindirs([(DIN::DYN.num, hal::pio::PinDir::Output)]);
         sm0.set_pindirs([(DOUT::DYN.num, hal::pio::PinDir::Input)]);
 
+        l_tx.write(0);
+        l_tx.write(0);
+        r_tx.write(0);
+        r_tx.write(0);
+
         // Kick off the state machine
         let group = sm0.with(sm1).with(sm2).with(sm3).sync().start();
 
@@ -205,7 +208,7 @@ where
     pub fn read_left(&mut self) -> i32{
         loop{
             if let Some(n) = self.l_rx.read(){
-                break i32::from_le_bytes(n.to_le_bytes())
+                break unsafe{core::mem::transmute(n)}
             }
         }
     }
@@ -213,17 +216,17 @@ where
     pub fn read_right(&mut self) -> i32{
         loop{
             if let Some(n) = self.r_rx.read(){
-                break i32::from_le_bytes(n.to_le_bytes())
+                break unsafe{core::mem::transmute(n)}
             }
         }
     }
 
     pub fn write_left(&mut self, sample: i32){
-        self.l_tx.write(u32::from_le_bytes(sample.to_le_bytes()));
+        self.l_tx.write(unsafe{core::mem::transmute(sample)});
     }
 
     pub fn write_right(&mut self, sample: i32){
-        self.r_tx.write(u32::from_le_bytes(sample.to_le_bytes()));
+        self.r_tx.write(unsafe{core::mem::transmute(sample)});
     }
 
 }

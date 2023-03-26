@@ -79,10 +79,10 @@ macro_rules! init_psram {
         let mut cs = $pins.gpio9.into_push_pull_output();
         let spi = hal::Spi::<_, _, 8>::new($pac.SPI1);
         // Initialize SPI
-        let mut spi = spi.init(
+        let spi = spi.init(
             &mut $pac.RESETS,
             $clocks.peripheral_clock.freq(),
-            64.MHz(),
+            100.MHz(),
             &embedded_hal::spi::MODE_0,
         );
         cs.set_high().unwrap();

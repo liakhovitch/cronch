@@ -12,7 +12,7 @@ const INIT_CMD_1:&[&[u8]] = &[
     &[14, 32],   // DAC OSR LSB: set to 32 for 192KHz sample rate
     &[60, 18],   // Select DAC processing block 18 (Filter C, Stereo, IIR, 4 biquads, DRC)
     &[20, 32],   // ADC OSR: set to 32 for 192KHz sample rate
-    &[61, 14],   // Select ADC processing block 14 (Filter C, Stereo, 5 biquads)
+    &[61, 13],   // Select ADC processing block 13
     &[27, 0xFC], // LJF, 32-bit, BCLK out, WCLK out, DOUT push-pull
     //&[27, 0xCC], // LJF, 16-bit, BCLK out, WCLK out, DOUT push-pull
     &[29, 0x00], // BCLK generated from DAC_CLK
@@ -55,14 +55,14 @@ const INIT_CMD_1:&[&[u8]] = &[
     &[19, 0b00111010], // Unmute LOR, 0dB gain
     &[24, 0b00101000], // Mute MAL
     &[25, 0b00101000], // Mute MAR
-    &[09, 0x3C], // Power on headphone and line outputs
-    //&[09, 0x3F], // Power on headphone and line outputs, mixer amplifiers
+    //&[09, 0x3C], // Power on headphone and line outputs
+    &[09, 0x3F], // Power on headphone and line outputs, mixer amplifiers
 ];
 
 const INIT_CMD_2:&[&[u8]] = &[
     &[00, 0x00], // Select page 0
-    &[65, 0x00], // 0dB left DAC digital gain
-    &[66, 0x00], // 0dB right DAC digital gain
+    &[65, unsafe{core::mem::transmute(-50i8)}], // 0dB left DAC digital gain
+    &[66, unsafe{core::mem::transmute(-50i8)}], // 0dB right DAC digital gain
     // ^ Note: use this to adjust output gain! This works with soft-stepping!
     // ^ Left channel is set to control volume for both!
     &[63, 0xD5], // Enable DAC, route interface data to DAC, enable volume soft-stepping
@@ -84,7 +84,7 @@ pub fn init_tlv320(
     }
 
     // Wait for anti-pop soft-stepping to complete before continuing
-    delay.delay_ms(3500);
+    delay.delay_ms(5000);
 
     for cmd in INIT_CMD_2{
         i2c.write(0x18, cmd).debugless_unwrap();
