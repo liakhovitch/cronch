@@ -7,8 +7,8 @@
 #![no_main]
 
 mod double_buf;
-mod tlv320;
 mod ui;
+mod audio;
 mod init;
 mod panic;
 
@@ -28,8 +28,6 @@ use embedded_hal::prelude::*;
 
 use fugit::RateExtU32;
 
-//use panic_halt as _;
-
 use rp_pico::hal;
 use hal::{
     prelude::*,
@@ -38,8 +36,9 @@ use hal::{
     pac,
 };
 
-use tlv320::init_tlv320;
+use audio::tlv320::init_tlv320;
 use ui::{expanders, led_strip, knob};
+use crate::audio::i2s;
 
 // Reserve memory for Core 1's stack
 // (Stack memory for Core 0 is reserved automatically)
@@ -122,7 +121,6 @@ fn main() -> ! {
         if let Some(n) = fdbk_knob.read(&mut adc).unwrap() { out.fdbk_knob = n };
         if let Some(n) = clk_knob.read(&mut adc).unwrap() { out.clk_knob = n };
         if let Some(n) = mix_knob.read(&mut adc).unwrap() { out.mix_knob = n };
-
         loop {
             led_strip.update(&mut ui_i2c, &out, &input).unwrap();
 
@@ -137,10 +135,8 @@ fn main() -> ! {
 
     // Init audio I2C
     let mut audio_i2c = init_audio_i2c!(pins, pac, clocks);
-    let mut din = pins.gpio19.into_push_pull_output();
-    din.set_low().unwrap();
 
-    //init_tlv320(&mut audio_i2c, &mut delay);
+    init_tlv320(&mut audio_i2c, &mut delay);
 
     // Init PSRAM
     let (mut psram_spi, mut psram_cs) = init_psram!(pins, pac, clocks, delay);
@@ -159,22 +155,20 @@ fn main() -> ! {
     psram_spi.transfer(&mut buffer).unwrap();
     psram_cs.set_high().unwrap();
 
+    let (mut pio, sm0, _, _, _) = pac.PIO0.split(&mut pac.RESETS);
+    let mut i2s = i2s::I2S::new(&mut pio, pins.gpio17, pins.gpio18, pins.gpio19, pins.gpio20, sm0);
 
     // Set the LED to be an output
     let mut led_pin = pins.led.into_push_pull_output();
-    led_pin.set_high().unwrap();
+    led_pin.set_low().unwrap();
 
     let mut out: ui::UiInput = Default::default();
     let mut input: ui::UiOutput = Default::default();
 
+    let mut sample = (0i32, 0i32);
+
     loop {
-        /*
-        led_pin.set_high().unwrap();
-        delay.delay_ms(2000);
-        led_pin.set_low().unwrap();
-        delay.delay_ms(2000);
-         */
-        delay.delay_ms(10);
+        sample = i2s.rw(sample);
         out.write_addr = input.op1_arg << 11;
         out.read_addr = input.op2_arg << 11;
         intercore_audio.rw(|w|{ *w = out; }, |r|{ input = *r; });

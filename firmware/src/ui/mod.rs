@@ -1,3 +1,6 @@
+//! # UI
+//! All additional code related to CORE1 and the front panel
+
 pub mod knob;
 pub mod led_strip;
 pub mod expanders;
