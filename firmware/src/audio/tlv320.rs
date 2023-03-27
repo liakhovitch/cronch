@@ -14,6 +14,7 @@ const INIT_CMD_1:&[&[u8]] = &[
     &[20, 32],   // ADC OSR: set to 32 for 192KHz sample rate
     &[61, 14],   // Select ADC processing block 14 (Filter C, Stereo, 5 biquads)
     &[27, 0xFC], // LJF, 32-bit, BCLK out, WCLK out, DOUT push-pull
+    //&[27, 0xCC], // LJF, 16-bit, BCLK out, WCLK out, DOUT push-pull
     &[29, 0x00], // BCLK generated from DAC_CLK
     //&[29, 0x10], // Enable instead of above for DAC->ADC loopback
     &[30, (0x80 | 1)], // Divide BCLK

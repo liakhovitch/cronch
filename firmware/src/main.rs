@@ -88,47 +88,51 @@ fn main() -> ! {
     }).unwrap();
     let (mut intercore_ui, mut intercore_audio) = intercore.split().unwrap();
 
-    // Init ADC
-    let mut adc = Adc::new(pac.ADC, &mut pac.RESETS);
-    let mut mix_knob = knob::Knob::new(pins.gpio26.into_floating_input(), 4);
-    let mut clk_knob = knob::Knob::new(pins.gpio27.into_floating_input(), 4);
-    let mut fdbk_knob = knob::Knob::new(pins.gpio28.into_floating_input(), 4);
+    #[cfg(not(feature="headless"))]
+    {
+        // Init ADC
+        let mut adc = Adc::new(pac.ADC, &mut pac.RESETS);
+        let mut mix_knob = knob::Knob::new(pins.gpio26.into_floating_input(), 4);
+        let mut clk_knob = knob::Knob::new(pins.gpio27.into_floating_input(), 4);
+        let mut fdbk_knob = knob::Knob::new(pins.gpio28.into_floating_input(), 4);
 
-    // Init UI I2C
-    let mut ui_i2c = init_ui_i2c!(pins, pac, clocks);
+        // Init UI I2C
+        let mut ui_i2c = init_ui_i2c!(pins, pac, clocks);
 
-    // Setup core 1
-    let mut mc = Multicore::new(&mut pac.PSM, &mut pac.PPB, &mut sio.fifo);
-    mc.cores()[1].spawn(unsafe { &mut CORE1_STACK.mem }, move || {
-        // -- ALL CODE IN THIS SCOPE RUNS ON CORE1, IN PARALLEL WITH CORE0 --
+        // Setup core 1
+        let mut mc = Multicore::new(&mut pac.PSM, &mut pac.PPB, &mut sio.fifo);
+        mc.cores()[1].spawn(unsafe { &mut CORE1_STACK.mem }, move || {
+            // -- ALL CODE IN THIS SCOPE RUNS ON CORE1, IN PARALLEL WITH CORE0 --
 
-        // Acquire core peripherals for Core 1
-        let _core = unsafe { pac::CorePeripherals::steal() };
-        // SIO peripherals are also duplicated for each core so stealing them is OK
-        let sio = hal::Sio::new(unsafe{ pac::Peripherals::steal().SIO });
-        // Init 64-bit timebase timer
-        let timer = rp2040_hal::timer::Timer::new(unsafe{ pac::Peripherals::steal().TIMER }, &mut unsafe{ pac::Peripherals::steal().RESETS });
+            // Acquire core peripherals for Core 1
+            let _core = unsafe { pac::CorePeripherals::steal() };
+            // SIO peripherals are also duplicated for each core so stealing them is OK
+            let sio = hal::Sio::new(unsafe { pac::Peripherals::steal().SIO });
+            // Init 64-bit timebase timer
+            let timer = rp2040_hal::timer::Timer::new(unsafe { pac::Peripherals::steal().TIMER }, &mut unsafe { pac::Peripherals::steal().RESETS });
 
-        // Init LED strip
-        let mut led_strip = led_strip::LedStrip::new(&mut ui_i2c, &timer, &sio.hwdivider, 800, 800).unwrap();
+            // Init LED strip
+            let mut led_strip = led_strip::LedStrip::new(&mut ui_i2c, &timer, &sio.hwdivider, 800, 800).unwrap();
 
-        // Init front panel IO expanders
-        let expanders = expanders::Expanders::new(&mut ui_i2c).unwrap();
+            // Init front panel IO expanders
+            let expanders = expanders::Expanders::new(&mut ui_i2c).unwrap();
 
-        let mut out: ui::UiOutput = Default::default();
-        let mut input: ui::UiInput = Default::default();
-        // Read the ADCs to stabilize the hysteresis state
-        if let Some(n) = fdbk_knob.read(&mut adc).unwrap() { out.fdbk_knob = n };
-        if let Some(n) = clk_knob.read(&mut adc).unwrap() { out.clk_knob = n };
-        if let Some(n) = mix_knob.read(&mut adc).unwrap() { out.mix_knob = n };
-        loop {
-            led_strip.update(&mut ui_i2c, &out, &input).unwrap();
+            let mut out: ui::UiOutput = Default::default();
+            let mut input: ui::UiInput = Default::default();
+            // Read the ADCs to stabilize the hysteresis state
+            if let Some(n) = fdbk_knob.read(&mut adc).unwrap() { out.fdbk_knob = n };
+            if let Some(n) = clk_knob.read(&mut adc).unwrap() { out.clk_knob = n };
+            if let Some(n) = mix_knob.read(&mut adc).unwrap() { out.mix_knob = n };
+            loop {
+                led_strip.update(&mut ui_i2c, &out, &input).unwrap();
 
-            read_panel!(out, ui_i2c, expanders, adc, fdbk_knob, clk_knob, mix_knob, led_strip);
+                read_panel!(out, ui_i2c, expanders, adc, fdbk_knob, clk_knob, mix_knob, led_strip);
 
-            intercore_ui.rw(|w|{ *w = out; }, |r|{ input = *r; });
-        }
-    }).unwrap();
+                intercore_ui.rw(|w| { *w = out; }, |r| { input = *r; });
+            }
+        }).unwrap();
+
+    } // End conditional compilation
 
     // Init TLV320AIC3254 MCLK signal
     init_audio_clk!(pwm_slices, pins);
@@ -155,22 +159,24 @@ fn main() -> ! {
     psram_spi.transfer(&mut buffer).unwrap();
     psram_cs.set_high().unwrap();
 
-    let (mut pio, sm0, _, _, _) = pac.PIO0.split(&mut pac.RESETS);
-    let mut i2s = i2s::I2S::new(&mut pio, pins.gpio17, pins.gpio18, pins.gpio19, pins.gpio20, sm0);
-
-    // Set the LED to be an output
-    let mut led_pin = pins.led.into_push_pull_output();
-    led_pin.set_low().unwrap();
-
     let mut out: ui::UiInput = Default::default();
     let mut input: ui::UiOutput = Default::default();
 
     let mut sample = (0i32, 0i32);
 
+    let (mut pio, sm0, sm1, sm2, sm3) = pac.PIO0.split(&mut pac.RESETS);
+    let mut i2s = i2s::I2S::new(&mut pio, pins.gpio17, pins.gpio18, pins.gpio19, pins.gpio20, sm0, sm1, sm2, sm3);
+    unsafe{ pac::Peripherals::steal().PIO0.input_sync_bypass.write(|w| w.bits(0xFFFFFFFF)); }
+
     loop {
-        sample = i2s.rw(sample);
-        out.write_addr = input.op1_arg << 11;
-        out.read_addr = input.op2_arg << 11;
+
+        sample.0 = i2s.read_left();
+        i2s.write_left(sample.0);
+        sample.1 = i2s.read_right();
+        i2s.write_right(sample.1);
+
+        out.write_addr = out.write_addr.wrapping_add(1);
+        out.read_addr = out.write_addr;
         intercore_audio.rw(|w|{ *w = out; }, |r|{ input = *r; });
     }
 }
