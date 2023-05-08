@@ -1,7 +1,7 @@
 # Crönch!
 Not-entirely-sane digital delay pedal
 
-**Note: This project is not finished. PCB contains undocumented errors and code may not compile.**
+**Note: This project is a work in progress!**
 
 ## What is this?
 Crönch is a hardware audio effects processor unit, inspired by the Sonic Charge Permut8 software plugin. For a more detailed explanation, see [the proposal document](proposal/proposal.pdf).
